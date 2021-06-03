@@ -11,6 +11,7 @@ const HeaderConteiner = styled.header`
   color: ${props => props.theme.colors.white1};
   display: flex;
   align-items: center;
+  justify-content: center;
   @media (min-width: 1400px) {
     justify-content: space-between;
   }
@@ -71,10 +72,10 @@ const HeaderMenuItems = styled.div`
     .menu-item a {
       position: relative;
       text-align: center;
-      padding: 0.75em;
+      padding: 0.5em 0.25em;
       text-decoration: none;
       color: white;
-      font-size: 1rem;
+      font-size: 0.9em;
       letter-spacing: 0.05em;
     }
 
@@ -152,7 +153,10 @@ export default function Header() {
               <a href="#terreiro" scrollto="terreiro" onClick={onClickMenuItem}>O Terreiro</a>
             </li>
             <li className="menu-item">
-              <a href="#lucas" scrollto="lucas" onClick={onClickMenuItem}>Lucas Manganhato</a>
+              <a href="#lucas" scrollto="lucas" onClick={onClickMenuItem}>Lucas Maganhato</a>
+            </li>
+            <li className="menu-item">
+              <a href="#fiama" scrollto="fiama" onClick={onClickMenuItem}>Fiama Miranda</a>
             </li>
             <li className="menu-item">
               <a href="#umbanda" scrollto="umbanda" onClick={onClickMenuItem}>Umbanda</a>

@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Terreiro from '../components/Terreiro';
 import Lucas from '../components/Lucas';
+import Fiama from '../components/Fiama';
 import Umbanda from '../components/Umbanda';
 import Galeria from '../components/Galeria';
 import Contato from '../components/Contato';
@@ -16,6 +17,7 @@ function Home() {
       <Header />
       <Terreiro />
       <Lucas />
+      <Fiama />
       <Umbanda />
       <Cursos />
       <Contato />

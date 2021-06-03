@@ -108,7 +108,7 @@ export default function Lucas() {
         <div className="lucas-description">
           <img src={img} alt="Foto do Pai de Santo do Terreiro Sete Espadas, Lucas Maganhato, vestido de branco, usando diversas guias"></img>
           <div className="content">
-            <h2>Lucas Manganhato</h2>
+            <h2>Lucas Maganhato</h2>
             <p>
               <span className="ml-4">Saravá</span> povo de axé! Venho aqui para me apresentar a vocês:
               <br/> 
@@ -122,6 +122,10 @@ export default function Lucas() {
               terreiro: Casa de Umbanda das Sete Linhas Sagradas, que hoje torna-se o Terreiro de Umbanda Sete Espadas!
             </p>
              
+            <p>
+              <span className="ml-4">Sigam</span> meu instagram <a href="https://www.instagram.com/lucas.maganhato/" target="_blank" rel="noopeneer norefereer">@lucas.maganhato</a> para 
+              mais informações sobre mim, o terreiro e sobre a Umbanda em geral.
+            </p>
              
             <p className="align-center">
               Que Ogum lhe abençoe 🙏

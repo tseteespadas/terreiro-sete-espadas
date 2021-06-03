@@ -1,0 +1,18 @@
+{
+    "mobile": {
+
+    },
+    "desktop": {
+        "components": {
+            "Header": {
+                "theme": {
+                    "max-height": "5rem"
+                }
+            },
+            "About": {},
+            "Courses": {},
+            "Location": {},
+            "Footer": {}
+        }
+    }
+}

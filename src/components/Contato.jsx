@@ -117,7 +117,7 @@ export default function Contato() {
           <h2>Contato</h2>
           <div className="giras">
             <h3>Giras</h3>
-            <p className="t-center">Devido à pandemia de <a className="underline" href="https://covid.saude.gov.br/" target="_blank">COVID-19</a>, nossas giras públicas estão suspensas.</p>
+            <p className="t-center">Devido à pandemia de <a className="underline" href="https://covid.saude.gov.br/" target="_blank" rel="noopeneer norefereer">COVID-19</a>, nossas giras públicas estão suspensas.</p>
             <p className="t-center">Fique de olho nas nossas redes sociais para acompanhar todas as novidades.</p>
             <p className="t-center">Usem máscara, evitem sair de casa e se protejam. Em breve estaremos juntos novamente! <br/> Axé!</p>
           </div>
@@ -162,6 +162,7 @@ export default function Contato() {
             <a
               href="https://www.instagram.com/terreiroseteespadas/"
               target="_blank"
+              rel="noopeneer norefereer"
             >
               <span className="icon">
                 <FontAwesomeIcon icon={["fab", "instagram"]} />
@@ -172,6 +173,7 @@ export default function Contato() {
             <a
               href="https://www.facebook.com/terreiroseteespadas"
               target="_blank"
+              rel="noopeneer norefereer"
             >
               <span className="icon">
                 <FontAwesomeIcon icon={["fab", "facebook"]} />

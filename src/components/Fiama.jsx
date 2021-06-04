@@ -110,13 +110,14 @@ export default function Lucas() {
             <h2>Fiama Miranda</h2>
             <p>
               <span className="ml-4">Salve</span> comunidade de axé!
-              <br/> 
-              Me chamo Fiama, sou filha de Pombagira e faço parte desta comunidade desde 2017 quando comecei a cambonar nas giras e hoje juntamente com o Lucas estou à frente do terreiro.
+              Me chamo Fiama, sou filha de Pombagira e faço parte desta comunidade desde 2017 quando comecei a cambonar nas giras e 
+              hoje juntamente com o Lucas estou à frente do terreiro.
             </p>
 
             <p>
-              <span className="ml-4">Além</span> 
-              disso, possuo uma página no Instagram <a href="https://www.instagram.com/pensarmacumba/" target="_blank" rel="noopeneer norefereer">@pensarmacumba</a> na qual escrevo sobre umbanda e tudo que está ligado à ela.Sagradas, que hoje torna-se o Terreiro de Umbanda Sete Espadas!
+              <span className="ml-4">Além</span> disso, possuo uma página no 
+              Instagram <a href="https://www.instagram.com/pensarmacumba/" target="_blank" rel="noopeneer norefereer">@pensarmacumba</a> na 
+              qual escrevo sobre umbanda e tudo que está ligado à ela.
             </p>
              
             <p className="align-center">
@@ -126,7 +127,7 @@ export default function Lucas() {
             </p>
 
             <p className="align-center italic">
-              Mãe Fiama Miranda
+              Fiama Miranda
             </p>
           </div>
           <img src={img} alt="Foto da Mãe de Santo do Terreiro Sete Espadas, Fiama Maganhato, vestido de branco, usando guias de esquerda."></img>

@@ -77,13 +77,13 @@ export default function Footer() {
             <div className="redes-sociais">
               <h4>Desenvolvido por Jefferson Sarti</h4>
               <div>
-                <a target="_blank" href="https://www.instagram.com/jeff_sarti/">
+                <a target="_blank" href="https://www.instagram.com/jeff_sarti/" rel="noopeneer norefereer">
                   <FontAwesomeIcon icon={["fab", "instagram-square"]} />
                   <p>@jeff_sarti</p>
                 </a>
               </div>
               <div>
-                <a target="_blank" href="https://mail.google.com/mail/">
+                <a target="_blank" href="https://mail.google.com/mail/" rel="noopeneer norefereer">
                   <FontAwesomeIcon icon={["fas", "envelope"]} />
                   <p>jeffersonsarti@gmail.com</p>
                 </a>

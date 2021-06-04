@@ -52,7 +52,7 @@ const UmbandaConteiner = styled.div`
       font-size: 1.5em;
       font-weight: bold;
       text-align: center;
-      font-family: 'Courgette';
+      font-family: Confortaa;
     }
     p small {
       margin-top: 1em;

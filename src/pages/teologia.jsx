@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import FormInscricao from '../components/FormInscricao';
+import FormInscricao from "../components/FormInscricao";
 import FormInteresse from "../components/FormInteresse";
+import { Alert } from "react-bootstrap";
 
-import { apiCursos } from '../services/api';
+import { apiCursos, apiInscricao } from "../services/api";
 
 import logo from "../assets/logo-white.svg";
 import imagem2 from "../assets/cursos/teologia1.jpeg";
@@ -147,7 +148,6 @@ const Inscricoes = styled.div`
     .form-text {
       color: ${(props) => props.theme.colors.white2} !important;
     }
-
   }
 `;
 
@@ -156,18 +156,22 @@ export default function Teologia() {
   const [courses, setCourses] = useState([]);
   const [err, setError] = useState(false);
   const [loadingPost, setLoadingPost] = useState(false);
+  const [inscrito, setInscrito] = useState(null);
+  const [inscritoMessage, setInscritoMessage] = useState(null);
+  const [formError, setFormError] = useState(false);
 
-  useEffect( () => {
+  useEffect(() => {
     setLoading(true);
     apiCursos
       .get(`/exec?curso=teologia`)
       .then((response) => {
-        setCourses(response.data.teologia);  
+        setCourses(response.data.teologia);
         setLoading(false);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.error(error);
         setError(true);
-      })
+      });
   }, []);
 
   function handleSubmitInteresse(e) {
@@ -175,14 +179,33 @@ export default function Teologia() {
     const email = e.target.formEmail.value;
     const nome = e.target.formNome.value;
     const telefone = e.target.formTel.value;
-
-    const data = {
-      type: "insterest",
-      email,
-      nome,
-      telefone,
-      data: new Date(),
-      curso: "desenvolvimento"
+    if (email === "" || nome === "" || telefone === "") {
+      setFormError(true);
+    } else {
+      const data = {
+        type: "interest",
+        email,
+        nome,
+        telefone,
+        data: new Date(),
+        curso: "teologia",
+      };
+      setLoadingPost(true);
+      apiInscricao
+        .get(
+          `/exec?curso=${data.curso}&data=${data.data}&email=${data.email}&nome=${data.nome}&telefone=1${data.telefone}&type=${data.type}`
+        )
+        .then((response) => {
+          console.log("inscrição realizada com sucesso.");
+          setLoadingPost(false);
+          setInscrito(true);
+          setInscritoMessage(response.data.message);
+        })
+        .catch((error) => {
+          console.error(error);
+          setLoadingPost(false);
+          setInscrito(false);
+        });
     }
   }
 
@@ -192,18 +215,36 @@ export default function Teologia() {
     const nome = e.target.formNome.value;
     const telefone = e.target.formTel.value;
     const rg = e.target.formRG.value;
-    
-    const data = {
-      type: "subscription",
-      email,
-      nome,
-      telefone,
-      rg,
-      data: new Date(),
-      curso: "desenvolvimento",
-      turma: courses[0].nome
+    if (email === "" || nome === "" || telefone === "" || rg === "") {
+      setFormError(true);
+    } else {
+      const data = {
+        type: "subscription",
+        email,
+        nome,
+        telefone,
+        rg,
+        data: new Date(),
+        curso: "teologia",
+        turma: courses[0].nome,
+      };
+      setLoadingPost(true);
+      apiInscricao
+        .get(
+          `/exec?curso=${data.curso}&turma=${data.turma}&data=${data.data}&email=${data.email}&nome=${data.nome}&telefone=1${data.telefone}&rg=${data.rg}&type=${data.type}`
+        )
+        .then((response) => {
+          console.log("interesse registrado com sucesso.");
+          setLoadingPost(false);
+          setInscrito(true);
+          setInscritoMessage(response.data.message);
+        })
+        .catch((error) => {
+          console.error(error);
+          setLoadingPost(false);
+          setInscrito(false);
+        });
     }
-
   }
 
   return (
@@ -246,74 +287,86 @@ export default function Teologia() {
               inteiramente online.
             </p>
             <h3>Turmas:</h3>
-            {
-              loading && (
-                <p className="t-center">
-                  Carregando dados do curso...
-                </p>
-              )
-            }
+            {loading && (
+              <p className="t-center">Carregando dados do curso...</p>
+            )}
 
-            { err && (
+            {err && (
               <>
                 <p className="t-center">
-                  Ops! Tivemos um problema para carregar os dados de novas turmas... 😔 
+                  Ops! Tivemos um problema para carregar os dados de novas
+                  turmas... 😔
                 </p>
                 <p>
-                  <span className="ml-4">Já</span> estamos procurando uma solução para o problema, mas até lá, disponibilizamos
-                  um formulário para você registrar seu interesse no curso!
+                  <span className="ml-4">Já</span> estamos procurando uma
+                  solução para o problema, mas até lá, disponibilizamos um
+                  formulário para você registrar seu interesse no curso!
                   <br />
                   Axé! 🙏
                 </p>
               </>
             )}
 
-            {
-              !err && (
-                <>
-                  {(!loading && courses.length === 0) && (
-                    <>
-                      <p>
-                        <span className="ml-4">No</span> momento não há turmas abertas para novas inscrições mas, não desanime, 
-                        em breve abriremos novas vagas! 
-                      </p>
-                      <p>
-                        <span className="ml-4">Até</span> lá, registre seu interesse no formulário de pré-inscrição logo abaixo, 
-                        assim entraremos em contato com você logo que uma nova turma for aberta!
-                        <br />
-                        Axé! 🙏
-                      </p>
-                    </>
-                  )}
+            {!err && (
+              <>
+                {!loading && courses.length === 0 && (
+                  <>
+                    <p>
+                      <span className="ml-4">No</span> momento não há turmas
+                      abertas para novas inscrições mas, não desanime, em breve
+                      abriremos novas vagas!
+                    </p>
+                    <p>
+                      <span className="ml-4">Até</span> lá, registre seu
+                      interesse no formulário de pré-inscrição logo abaixo,
+                      assim entraremos em contato com você logo que uma nova
+                      turma for aberta!
+                      <br />
+                      Axé! 🙏
+                    </p>
+                  </>
+                )}
 
-                  {(!loading && courses.length !== 0) && (
-                    <>
-                      <p>
-                        <strong>Início:</strong> {courses[0].data_inicio}
-                        <br />
-                        <strong>Taxa de Matrícula:</strong> R$ { Number(courses[0].valor_inscricao.replace(",", ".")).toFixed(2).toString().replace('.',',') }
-                        <br />
-                        <strong>Mensalidade:</strong> R$ { Number(courses[0].valor_mensalidade.replace(",", ".")).toFixed(2).toString().replace('.',',') }
-                      </p>
-                      <p>
-                        <span className="ml-4">Caso</span> tenha interesse no curso de Teologia de Umbanda, inscreva-se 
-                        utilizando o formulário abaixo, assim enviaremos todas as informações que você vai precisar para iniciar 
-                        essa nova jornada com a gente!
-                      </p>
-                      <p>
-                        <strong><span className="ml-4">A</span> data limite de inscrições vai até {courses[0].data_limite_inscricoes}, 
-                        não perca essa oportunidade!</strong>
-                      </p>
-                      <p className="t-center">
-                        Nos vemos em breve!
-                        <br />
-                        Axé! 🙏
-                      </p>
-                    </>
-                  )}
-                </>
-              )
-            }
+                {!loading && courses.length !== 0 && (
+                  <>
+                    <p>
+                      <strong>Início:</strong> {courses[0].data_inicio}
+                      <br />
+                      <strong>Taxa de Matrícula:</strong> R${" "}
+                      {Number(courses[0].valor_inscricao.replace(",", "."))
+                        .toFixed(2)
+                        .toString()
+                        .replace(".", ",")}
+                      <br />
+                      <strong>Mensalidade:</strong> R${" "}
+                      {Number(courses[0].valor_mensalidade.replace(",", "."))
+                        .toFixed(2)
+                        .toString()
+                        .replace(".", ",")}
+                    </p>
+                    <p>
+                      <span className="ml-4">Caso</span> tenha interesse no
+                      curso de Teologia de Umbanda, inscreva-se utilizando o
+                      formulário abaixo, assim enviaremos todas as informações
+                      que você vai precisar para iniciar essa nova jornada com a
+                      gente!
+                    </p>
+                    <p>
+                      <strong>
+                        <span className="ml-4">A</span> data limite de
+                        inscrições vai até {courses[0].data_limite_inscricoes},
+                        não perca essa oportunidade!
+                      </strong>
+                    </p>
+                    <p className="t-center">
+                      Nos vemos em breve!
+                      <br />
+                      Axé! 🙏
+                    </p>
+                  </>
+                )}
+              </>
+            )}
           </div>
           <div className="img-conteiner">
             <img src={imagem3}></img>
@@ -323,24 +376,43 @@ export default function Teologia() {
       <Inscricoes>
         <div className="content">
           <h3>Inscrições</h3>
-          { 
-            err && (
-              <FormInteresse handleSubmit={handleSubmitInteresse} />
-            )
-          }
-          { 
-            !err && (
-              <>
-                {(!loading && courses.length === 0) && (
-                  <FormInteresse handleSubmit={handleSubmitInteresse} />
-                )}
-                
-                {(!loading && courses.length !== 0) && (
-                  <FormInscricao handleSubmit={handleSubmitInscricao} />
-                )}
-              </>
-            )
-          }
+          {formError && (
+            <Alert
+              variant={"danger"}
+              onClose={() => setFormError(false)}
+              dismissible
+            >
+              Os dados do formulário estão inválidos. Verifique-os e tente
+              novamente.
+            </Alert>
+          )}
+          {loadingPost && (
+            <Alert variant={"info"}>Enviando dados do formulário...</Alert>
+          )}
+          {!loadingPost && (
+            <>
+              {inscrito && <Alert variant={"success"}>{inscritoMessage}</Alert>}
+              {inscrito === false && (
+                <Alert variant={"danger"}>
+                  Ops! Tivemos um problema para registrar seus dados. Entre em
+                  contato com tseteespadas@gmail.com.
+                </Alert>
+              )}
+            </>
+          )}
+          {loading && <p>Carregando formulário de inscrição...</p>}
+          {err && <FormInteresse handleSubmit={handleSubmitInteresse} />}
+          {!err && (
+            <>
+              {!loading && courses.length === 0 && (
+                <FormInteresse handleSubmit={handleSubmitInteresse} />
+              )}
+
+              {!loading && courses.length !== 0 && (
+                <FormInscricao handleSubmit={handleSubmitInscricao} />
+              )}
+            </>
+          )}
         </div>
       </Inscricoes>
     </>

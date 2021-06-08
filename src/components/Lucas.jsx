@@ -63,6 +63,7 @@ const LucasConteiner = styled.div`
   img {
     display: block;
     max-width: 100%;
+    height: auto;
     object-fit: cover;
     margin-bottom: 2em;
   }

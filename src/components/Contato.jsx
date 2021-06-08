@@ -117,7 +117,7 @@ export default function Contato() {
           <h2>Contato</h2>
           <div className="giras">
             <h3>Giras</h3>
-            <p className="t-center">Devido à pandemia de <a className="underline" href="https://covid.saude.gov.br/" target="_blank" rel="noopeneer norefereer">COVID-19</a>, nossas giras públicas estão suspensas.</p>
+            <p className="t-center">Devido à pandemia de <a className="underline" href="https://covid.saude.gov.br/" target="_blank" rel="noreferrer noopener">COVID-19</a>, nossas giras públicas estão suspensas.</p>
             <p className="t-center">Fique de olho nas nossas redes sociais para acompanhar todas as novidades.</p>
             <p className="t-center">Usem máscara, evitem sair de casa e se protejam. Em breve estaremos juntos novamente! <br/> Axé!</p>
           </div>
@@ -134,6 +134,7 @@ export default function Contato() {
               CEP: 03061-030 - Tatuapé/SP
             </p>
             <iframe
+              title="Rua Engenheiro Reynaldo Cajado, nº 84 - CEP: 03061-030 - Tatuapé/SP"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.899186995021!2d-46.585879685189006!3d-23.53612808469541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5eda09d765f5%3A0xec620d8fc24c4fc7!2sRua%20Engenheiro%20Reynaldo%20Cajado%2C%2084%20-%20Tatuap%C3%A9%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003061-030!5e0!3m2!1sen!2sbr!4v1622383599162!5m2!1sen!2sbr"
               style={{ border: 0, width: "100%", maxWidth: "100%", minHeight: "20em", margin: "0 auto", display: "block" }}
               allowFullScreen=""
@@ -162,7 +163,7 @@ export default function Contato() {
             <a
               href="https://www.instagram.com/terreiroseteespadas/"
               target="_blank"
-              rel="noopeneer norefereer"
+              rel="noreferrer noopener"
             >
               <span className="icon">
                 <FontAwesomeIcon icon={["fab", "instagram"]} />
@@ -173,7 +174,7 @@ export default function Contato() {
             <a
               href="https://www.facebook.com/terreiroseteespadas"
               target="_blank"
-              rel="noopeneer norefereer"
+              rel="noreferrer noopener"
             >
               <span className="icon">
                 <FontAwesomeIcon icon={["fab", "facebook"]} />

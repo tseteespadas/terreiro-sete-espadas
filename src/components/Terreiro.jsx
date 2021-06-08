@@ -56,6 +56,7 @@ const TerreiroConteiner = styled.div`
   img {
     display: block;
     max-width: 100%;
+    height: auto;
     object-fit: cover;
     margin-top: 2.5em;
   }

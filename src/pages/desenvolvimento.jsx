@@ -117,7 +117,7 @@ const Description = styled.div`
       text-align: center;
     }
 
-    h3 {
+    h2 {
       margin-top: 0.5em;
       font-size: 1.75em;
       font-weight: 700;
@@ -135,7 +135,7 @@ const Inscricoes = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     flex-direction: column;
-    h3 {
+    h2 {
       margin: 1em 0;
       font-size: 1.75em;
       font-weight: 700;
@@ -266,7 +266,7 @@ export default function Desenvolvimento() {
             <img src={imagem2}></img>
           </div>
           <div className="desc-conteiner">
-            <h3>Sobre o Curso:</h3>
+            <h2>Sobre o Curso:</h2>
             <p>
               <span className="ml-4">O</span> desenvolvimento não se resume em
               “aprender a incorporar”, pois acreditamos que seja um momento de
@@ -288,7 +288,7 @@ export default function Desenvolvimento() {
               presencialmente.
             </p>
 
-            <h3>Turmas:</h3>
+            <h2>Turmas:</h2>
             {loading && (
               <p className="t-center">Carregando dados do curso...</p>
             )}
@@ -377,7 +377,7 @@ export default function Desenvolvimento() {
       </Content>
       <Inscricoes>
         <div className="content">
-          <h3>Inscrições</h3>
+          <h2>Inscrições</h2>
           {formError && (
             <Alert
               variant={"danger"}

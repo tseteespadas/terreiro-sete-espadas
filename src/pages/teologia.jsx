@@ -118,7 +118,7 @@ const Description = styled.div`
       text-align: center;
     }
 
-    h3 {
+    h2 {
       margin-top: 0.5em;
       font-size: 1.75em;
       font-weight: 700;
@@ -136,7 +136,7 @@ const Inscricoes = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     flex-direction: column;
-    h3 {
+    h2 {
       margin: 1em 0;
       font-size: 1.75em;
       font-weight: 700;
@@ -263,7 +263,7 @@ export default function Teologia() {
             <img src={imagem2}></img>
           </div>
           <div className="desc-conteiner">
-            <h3>Detalhes:</h3>
+            <h2>Detalhes:</h2>
             <p>
               <span className="ml-4">Umbanda</span> é coisa séria para gente
               séria! Pensando nessa afirmativa, iniciamos o ensino da Teologia
@@ -286,7 +286,7 @@ export default function Teologia() {
               <span className="ml-4">Este</span> curso será ministrado
               inteiramente online.
             </p>
-            <h3>Turmas:</h3>
+            <h2>Turmas:</h2>
             {loading && (
               <p className="t-center">Carregando dados do curso...</p>
             )}
@@ -375,7 +375,7 @@ export default function Teologia() {
       </Content>
       <Inscricoes>
         <div className="content">
-          <h3>Inscrições</h3>
+          <h2>Inscrições</h2>
           {formError && (
             <Alert
               variant={"danger"}

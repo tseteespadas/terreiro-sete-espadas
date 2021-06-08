@@ -87,7 +87,7 @@ const CursoCard = styled.div`
     position: absolute;
     width: 100%;
     bottom: 10px;
-    h4 {
+    h3 {
       text-align: center;
       margin: 0 auto;
       color: white;
@@ -143,7 +143,7 @@ export default function Cursos() {
             <div className="c-header">
               <img src={desenvolvimento} alt="" className="c-img" />
               <div className="c-title">
-                <h4>Desenvolvimento Mediúnico</h4>
+                <h3>Desenvolvimento Mediúnico</h3>
               </div>
             </div>
             <div className="c-body">
@@ -155,7 +155,7 @@ export default function Cursos() {
             <div className="c-header">
               <img src={teologia} alt="" className="c-img" />
               <div className="c-title">
-                <h4>Teologia de Umbanda</h4>
+                <h3>Teologia de Umbanda</h3>
               </div>
             </div>
             <div className="c-body">

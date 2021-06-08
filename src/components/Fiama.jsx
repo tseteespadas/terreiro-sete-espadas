@@ -117,7 +117,7 @@ export default function Lucas() {
 
             <p>
               <span className="ml-4">Além</span> disso, possuo uma página no 
-              Instagram <a href="https://www.instagram.com/pensarmacumba/" target="_blank" rel="noopeneer norefereer">@pensarmacumba</a> na 
+              Instagram <a href="https://www.instagram.com/pensarmacumba/" target="_blank" rel="noopener noreferrer">@pensarmacumba</a> na 
               qual escrevo sobre umbanda e tudo que está ligado à ela.
             </p>
              

@@ -124,7 +124,7 @@ export default function Lucas() {
             </p>
              
             <p>
-              <span className="ml-4">Sigam</span> meu instagram <a href="https://www.instagram.com/lucas.maganhato/" target="_blank" rel="noopeneer norefereer">@lucas.maganhato</a> para 
+              <span className="ml-4">Sigam</span> meu instagram <a href="https://www.instagram.com/lucas.maganhato/" target="_blank" rel="noopener noreferrer">@lucas.maganhato</a> para 
               mais informações sobre mim, o terreiro e sobre a Umbanda em geral.
             </p>
              

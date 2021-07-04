@@ -8,8 +8,8 @@ import { Alert } from "react-bootstrap";
 import { apiCursos, apiInscricao } from "../services/api";
 
 import logo from "../assets/logo-white.svg";
-import imagem2 from "../assets/cursos/teologia1.jpeg";
-import imagem3 from "../assets/cursos/teologia2.jpeg";
+import imagem2 from "../assets/cursos/zepelintra1.jpg";
+import imagem3 from "../assets/cursos/zepelintra2.jpg";
 
 const HeaderConteiner = styled.header`
   position: relative;
@@ -163,9 +163,9 @@ export default function Teologia() {
   useEffect(() => {
     setLoading(true);
     apiCursos
-      .get(`/exec?curso=teologia`)
+      .get(`/exec?curso=zepelintra`)
       .then((response) => {
-        setCourses(response.data.teologia);
+        setCourses(response.data.zepelintra);
         setLoading(false);
       })
       .catch((error) => {
@@ -188,12 +188,12 @@ export default function Teologia() {
         nome,
         telefone,
         data: new Date(),
-        curso: "teologia",
+        curso: "zepelintra",
       };
       setLoadingPost(true);
       apiInscricao
         .get(
-          `/exec?curso=${data.curso}&data=${data.data}&email=${data.email}&nome=${data.nome}&telefone=1${data.telefone}&type=${data.type}`
+          `/exec?curso=${data.curso}&data=${data.data}&email=${data.email}&nome=${data.nome}&telefone=${data.telefone}&type=${data.type}`
         )
         .then((response) => {
           console.log("inscrição realizada com sucesso.");
@@ -225,13 +225,13 @@ export default function Teologia() {
         telefone,
         rg,
         data: new Date(),
-        curso: "teologia",
+        curso: "zepelintra",
         turma: courses[0].nome,
       };
       setLoadingPost(true);
       apiInscricao
         .get(
-          `/exec?curso=${data.curso}&turma=${data.turma}&data=${data.data}&email=${data.email}&nome=${data.nome}&telefone=1${data.telefone}&rg=${data.rg}&type=${data.type}`
+          `/exec?curso=${data.curso}&turma=${data.turma}&data=${data.data}&email=${data.email}&nome=${data.nome}&telefone=${data.telefone}&rg=${data.rg}&type=${data.type}`
         )
         .then((response) => {
           console.log("interesse registrado com sucesso.");
@@ -253,7 +253,7 @@ export default function Teologia() {
         <Link to="/">
           <div className="logo-conteiner">
             <img src={logo} alt="Logo do terreiro sete espadas"></img>
-            <h1>Teologia de Umbanda</h1>
+            <h1>Zé Pelintra</h1>
           </div>
         </Link>
       </HeaderConteiner>
@@ -265,26 +265,22 @@ export default function Teologia() {
           <div className="desc-conteiner">
             <h2>Detalhes:</h2>
             <p>
-              <span className="ml-4">Umbanda</span> é coisa séria para gente
-              séria! Pensando nessa afirmativa, iniciamos o ensino da Umbanda 
-              em nosso terreiro.
+              <span className="ml-4">De</span> mestre da Jurema aos morros cariocas 
+              muitas pessoas dentro e fora dos terreiros de umbanda já ouviram falar sobre 
+              Zé Pelintra, mas quem realmente ele é?
             </p>
             <p>
-              <span className="ml-4">Nossa</span> religião é muito rica em
-              valores, por isso se faz necessário um estudo mais aprofundado de
-              seus ensinamentos, de sua ritualística e do que ela representa em
-              nossas vidas. Nosso objetivo é fazer com que o conhecimento e a
-              responsabilidade de ser umbandista chegue nos corações e mentes
-              daqueles que os aceitarem.
+              <span className="ml-4">De</span> exú a baiano, hoje o malandro é uma das 
+              entidades mais icônicas da umbanda, mas será que fora os tabus e conhecimentos 
+              passados de boca em boca sabemos quem ele é e o que representa?
             </p>
             <p>
-              <span className="ml-4">Não</span> existem pré-requisitos para este
-              curso, somente a vontade de aprender e de deixar de estar
-              umbandista e realmente SER UMBANDISTA.
+              <span className="ml-4">Em</span> nosso curso, iremos abordar todos os "mistérios" 
+              que envolvem o malandro Zé Pelintra desde sua origem até sua "morte"!
             </p>
             <p>
-              <span className="ml-4">Este</span> curso será ministrado
-              inteiramente online.
+              <span className="ml-4">Este</span> curso tem duração de 1 (um) dia e será ministrado
+              pela plataforma Zoom (<a href="https://zoom.us/download" rel="noopener noreferrer">Link para download</a>)
             </p>
             <h2>Turmas:</h2>
             {loading && (
@@ -346,7 +342,7 @@ export default function Teologia() {
                     </p>
                     <p>
                       <span className="ml-4">Caso</span> tenha interesse no
-                      curso de Umbanda, inscreva-se utilizando o
+                      curso de Zé Pelintra, inscreva-se utilizando o
                       formulário abaixo, assim enviaremos todas as informações
                       que você vai precisar para iniciar essa nova jornada com a
                       gente!

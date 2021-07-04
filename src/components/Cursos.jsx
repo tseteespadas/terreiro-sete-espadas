@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import desenvolvimento from '../assets/cursos/desenvolvimento.jpeg';
 import teologia from '../assets/cursos/teologia.jpeg';
+import zepelintracurso from '../assets/cursos/zepelintracurso.jpg';
 
 const CursosWrapper = styled.section`
   position: relative;
@@ -155,12 +156,24 @@ export default function Cursos() {
             <div className="c-header">
               <img src={teologia} alt="" className="c-img" />
               <div className="c-title">
-                <h3>Teologia de Umbanda</h3>
+                <h3>Umbanda</h3>
               </div>
             </div>
             <div className="c-body">
               <p className="cite">Umbanda é coisa séria para gente séria! ...</p>
               <a href="/teologia" className="link link-primary">Saiba mais!</a>
+            </div>
+          </CursoCard>
+          <CursoCard className="curso-card">
+            <div className="c-header">
+              <img src={zepelintracurso} alt="" className="c-img" />
+              <div className="c-title">
+                <h3>Zé Pelintra</h3>
+              </div>
+            </div>
+            <div className="c-body">
+              <p className="cite">De mestre da Jurema aos morros cariocas ...</p>
+              <a href="/zepelintra" className="link link-primary">Saiba mais!</a>
             </div>
           </CursoCard>
         </div>

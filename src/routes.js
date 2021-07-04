@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/home';
 import Desenvolvimento from './pages/desenvolvimento';
 import Teologia from './pages/teologia';
+import ZePelintra from './pages/zepelintra';
 import NotFound from './pages/notFound';
 
 const Routes = () => (
@@ -18,6 +19,9 @@ const Routes = () => (
       </Route>
       <Route path="/teologia">
         <Teologia />
+      </Route>
+      <Route path="/zepelintra">
+        <ZePelintra />
       </Route>
       <Route path="*">
         <NotFound />

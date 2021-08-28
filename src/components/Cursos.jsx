@@ -144,7 +144,7 @@ export default function Cursos() {
             <div className="c-header">
               <img src={desenvolvimento} alt="" className="c-img" />
               <div className="c-title">
-                <h3>Desenvolvimento Mediúnico</h3>
+                <h3>Desenvolvimento</h3>
               </div>
             </div>
             <div className="c-body">

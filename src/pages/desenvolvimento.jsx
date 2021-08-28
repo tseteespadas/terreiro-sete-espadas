@@ -256,7 +256,7 @@ export default function Desenvolvimento() {
         <Link to="/">
           <div className="logo-conteiner">
             <img src={logo} alt="Logo do terreiro sete espadas"></img>
-            <h1>Desenvolvimento Mediúnico</h1>
+            <h1>Desenvolvimento</h1>
           </div>
         </Link>
       </HeaderConteiner>
@@ -348,7 +348,7 @@ export default function Desenvolvimento() {
                     </p>
                     <p>
                       <span className="ml-4">Caso</span> tenha interesse no
-                      curso de Desenvolvimento Mediúnico, inscreva-se utilizando
+                      curso de Desenvolvimento, inscreva-se utilizando
                       o formulário abaixo, assim enviaremos todas as informações
                       que você vai precisar para iniciar essa nova jornada com a
                       gente!

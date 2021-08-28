@@ -253,7 +253,7 @@ export default function Teologia() {
         <Link to="/">
           <div className="logo-conteiner">
             <img src={logo} alt="Logo do terreiro sete espadas"></img>
-            <h1>Teologia de Umbanda</h1>
+            <h1>Umbanda</h1>
           </div>
         </Link>
       </HeaderConteiner>

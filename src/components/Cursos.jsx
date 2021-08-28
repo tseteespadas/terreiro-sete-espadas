@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import desenvolvimento from '../assets/cursos/desenvolvimento.jpeg';
-import teologia from '../assets/cursos/teologia.jpeg';
+import teologia from '../assets/cursos/teologia.jpg';
 import zepelintracurso from '../assets/cursos/zepelintracurso.jpg';
 
 const CursosWrapper = styled.section`

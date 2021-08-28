@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import img from '../assets/sessao-fotos/sessao-fotos (2) span-2.jpeg';
+import img from '../assets/sessao-fotos/sessao-fotos (6) span-2.jpg';
 
 const TerreiroWrapper = styled.section`
   background-color: ${props => props.theme.colors.white2};
@@ -101,8 +101,8 @@ export default function Terreiro() {
             <h2>O Terreiro</h2>
             <p>
               <span className="ml-4">Nosso</span> terreiro foi fundado em janeiro de 2005, como Núcleo Umbandista Pai Oxóssi e 
-              Mãe Iemanjá, e em 2019 nos tornamos a Casa de Umbanda das Sete Linhas Sagradas, sob a liderança de Pai Lucas Maganhato. 
-              Em janeiro de 2021, assumimos como nossa identidade Terreiro Sete Espadas.
+              Mãe Iemanjá, em 2019 nos tornamos a Casa de Umbanda das Sete Linhas Sagradas. 
+              Em janeiro de 2021, fundamos o Terreiro Sete Espadas, sob a liderança do Pai Lucas Maganhato e Mãe Fiama Miranda.
             </p>
               
             <p>

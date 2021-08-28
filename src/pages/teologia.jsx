@@ -279,8 +279,8 @@ export default function Teologia() {
             </p>
             <p>
               <span className="ml-4">Não</span> existem pré-requisitos para este
-              curso, somente a vontade de aprender e de deixar de estar
-              umbandista e realmente SER UMBANDISTA.
+              curso, somente a vontade de deixar de <i>estar umbandista</i> e 
+              realmente <i>ser umbandista</i>.
             </p>
             <p>
               <span className="ml-4">Este</span> curso será ministrado

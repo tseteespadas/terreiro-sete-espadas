@@ -274,12 +274,12 @@ export default function Desenvolvimento() {
             </p>
             <p>
               <span className="ml-4">Iremos</span> dividir essa jornada em duas
-              etapas: A primeira será inteiramente teórica com duração de 5
-              meses, nas quais iremos construir a base que todo umbandista deve
+              etapas: A primeira será inteiramente teórica com duração de 6
+              meses, nos quais iremos construir a base que todo umbandista deve
               possuir em sua fundação, através do estudo dos fundamentos,
               rituais e noções básicas da religião e na segunda etapa iremos
               realizar os rituais práticos, com a realização dos amacís nas
-              vibrações dos orixás e incorporação não somente das linhas de
+              forças dos orixás e incorporação não somente das linhas de
               trabalho, mas também de seus princípios e de suas representações
               em nossas vidas.
             </p>

@@ -284,7 +284,7 @@ export default function Teologia() {
             </p>
             <p>
               <span className="ml-4">Este</span> curso será ministrado
-              inteiramente online.
+              inteiramente online e possui duração de 1 (um) ano.
             </p>
             <h2>Turmas:</h2>
             {loading && (

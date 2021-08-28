@@ -285,7 +285,7 @@ export default function Desenvolvimento() {
             </p>
             <p>
               <span className="ml-4">Este</span> curso será ministrado
-              presencialmente.
+              presencialmente e não possui duração específica.
             </p>
 
             <h2>Turmas:</h2>

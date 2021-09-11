@@ -268,20 +268,16 @@ export default function Desenvolvimento() {
           <div className="desc-conteiner">
             <h2>Sobre o Curso:</h2>
             <p>
-              <span className="ml-4">O</span> desenvolvimento não se resume em
-              “aprender a incorporar”, pois acreditamos que seja um momento de
-              reencontro com os seus.
+              <span className="ml-4">O</span> desenvolvimento não se resume em “aprender a incorporar”, 
+              pois acreditamos que seja um momento de reencontro com os seus.
             </p>
             <p>
-              <span className="ml-4">Iremos</span> dividir essa jornada em duas
-              etapas: A primeira será inteiramente teórica com duração de 6
-              meses, nos quais iremos construir a base que todo umbandista deve
-              possuir em sua fundação, através do estudo dos fundamentos,
-              rituais e noções básicas da religião e na segunda etapa iremos
-              realizar os rituais práticos, com a realização dos amacís nas
-              forças dos orixás e incorporação não somente das linhas de
-              trabalho, mas também de seus princípios e de suas representações
-              em nossas vidas.
+              <span className="ml-4">Essa</span> jornada será dividida em duas etapas: 
+              A primeira é inteiramente teórica com duração de 6 meses, nos quais iremos construir 
+              a base que todo umbandista deve possuir, através do estudo dos fundamentos, rituais e 
+              noções básicas da religião e na segunda etapa serão realizados os rituais práticos dos 
+              amacís e incorporação não somente dos guias, mas também de seus valores e de suas 
+              representações em nossas vidas.
             </p>
             <p>
               <span className="ml-4">Este</span> curso será ministrado

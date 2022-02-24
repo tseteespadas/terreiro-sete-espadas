@@ -38,7 +38,7 @@ export default function Terreiro() {
             </p>
 
             <p className="align-center">
-              Que Ogum lhe abençoe 🙏
+              Que Ògún lhe abençoe 🙏
               <br />
               Axé!
             </p>

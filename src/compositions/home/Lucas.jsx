@@ -25,7 +25,7 @@ export default function Lucas() {
             </p>
 
             <p>
-              <span className="ml-4">Filho</span> de Ogum ⚔ Nascido em São Paulo
+              <span className="ml-4">Filho</span> de Ògún ⚔ Nascido em São Paulo
               (capital), tenho a umbanda como minha vida desde criança. Assumi a
               responsabilidade como pai de santo do terreiro fundado pela minha
               família aos 19 anos, até que em janeiro de 2019 fundo o meu
@@ -47,7 +47,7 @@ export default function Lucas() {
             </p>
 
             <p className="align-center">
-              Que Ogum lhe abençoe 🙏
+              Que Ògún lhe abençoe 🙏
               <br />
               Axé!
             </p>

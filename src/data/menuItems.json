@@ -1,0 +1,77 @@
+{
+  "home": [
+    {
+      "id": 1,
+      "name": "Terreiro",
+      "link": "#terreiro",
+      "scrollto": "terreiro"
+    },
+    {
+      "id": 2,
+      "name": "Pai Lucas Maganhato",
+      "link": "#pai-lucas",
+      "scrollto": "pai-lucas"
+    },
+    {
+      "id": 3,
+      "name": "Mãe Fiama Miranda",
+      "link": "#mae-fiama",
+      "scrollto": "mae-fiama"
+    },
+    {
+      "id": 4,
+      "name": "Umbanda",
+      "link": "#umbanda",
+      "scrollto": "umbanda"
+    },
+    {
+      "id": 5,
+      "name": "Terreiro Resiste",
+      "link": "#terreiro-resiste",
+      "scrollto": "terreiro-resiste"
+    },
+    {
+      "id": 6,
+      "name": "Cursos",
+      "link": "#cursos",
+      "scrollto": "cursos"
+    },
+    {
+      "id": 7,
+      "name": "Giras",
+      "link": "#giras",
+      "scrollto": "giras"
+    },
+    {
+      "id": 8,
+      "name": "Consultas Particulares",
+      "link": "#consultas-particulares",
+      "scrollto": "consultas-particulares"
+    },
+    {
+      "id": 9,
+      "name": "Contato",
+      "link": "#contato",
+      "scrollto": "contato"
+    },
+    {
+      "id": 10,
+      "name": "Galeria",
+      "link": "/galeria"
+    }
+  ],
+  "giras": [
+    {
+      "id": 1,
+      "name": "Home",
+      "link": "/"
+    }
+  ],
+  "galeria": [
+    {
+      "id": 1,
+      "name": "Home",
+      "link": "/"
+    }
+  ]
+}

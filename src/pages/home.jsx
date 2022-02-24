@@ -1,30 +1,34 @@
 import React from 'react';
 
-import Header from '../components/Header';
-import Terreiro from '../components/Terreiro';
-import Lucas from '../components/Lucas';
-import Fiama from '../components/Fiama';
-import Umbanda from '../components/Umbanda';
-import Galeria from '../components/Galeria';
-import Contato from '../components/Contato';
-import Footer from '../components/Footer';
-import Cursos from '../components/Cursos';
 
-function Home() {
+import Menu from '../compositions/Menu';
+import Header from '../compositions/Header';
+import Terreiro from '../compositions/home/Terreiro';
+import Lucas from '../compositions/home/Lucas';
+import Fiama from '../compositions/home/Fiama';
+import Umbanda from '../compositions/home/Umbanda';
+import TerreiroResiste from '../compositions/home/TerreiroResiste';
+import Cursos from '../compositions/home/Cursos';
+import Giras from '../compositions/home/Giras';
+import AtendimentoParticular from '../compositions/home/AtendimentoParticular';
+import Contato from '../compositions/home/Contato';
 
+import menuItems from "../data/menuItems.json"; 
+
+export default function HomePage() {
   return (
     <>
+      <Menu menuItems={menuItems.home}/>
       <Header />
       <Terreiro />
       <Lucas />
       <Fiama />
       <Umbanda />
+      <TerreiroResiste />
       <Cursos />
+      <Giras />
+      <AtendimentoParticular />
       <Contato />
-      <Galeria />
-      <Footer />
     </>
   );
 }
-
-export default Home;

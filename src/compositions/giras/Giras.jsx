@@ -46,9 +46,9 @@ export default function Giras() {
     e.preventDefault();
     const formData = {
       giraId: proxGira._id,
-      name: e.target.formName.value,
-      email: e.target.formEmail.value,
-      phone: e.target.formPhone.value,
+      name: e.target.formName.value.trim(),
+      email: e.target.formEmail.value.trim(),
+      phone: e.target.formPhone.value.trim(),
     };
     api
       .post(`assistencia/inscricao/${formData.giraId}`, formData)

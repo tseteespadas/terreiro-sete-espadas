@@ -7,13 +7,7 @@
     "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
-    "eject": "react-scripts eject",
-    "sonar": "npx sonarqube-scanner",
-    "release-candidate": "release-it -n --preRelease=$(git rev-parse --abbrev-ref HEAD) --no-git.tag",
-    "release": "release-it -n",
-    "postrelease-candidate": "npm publish",
-    "postrelease": "npm publish",
-    "test:coverage": "npm test -- --coverage --updateSnapshot --watchAll=false"
+    "test:coverage": "npm test -- --coverage --watchAll=false"
   },
   "repository": {
     "type": "git",
@@ -36,6 +30,7 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
+    "react-query": "^3.34.16",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.2",

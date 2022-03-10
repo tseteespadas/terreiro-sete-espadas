@@ -2,10 +2,10 @@ import React from 'react';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import HomePage from './pages/home';
-import GirasPage from './pages/giras';
-import GaleriaPage from './pages/galeria';
-import NotFound from './pages/notFound';
+const HomePage = React.lazy(() => import('./pages/home'));
+const GirasPage = React.lazy(() => import('./pages/giras'));
+const GaleriaPage = React.lazy(() => import('./pages/galeria'));
+const NotFound = React.lazy(() => import('./pages/notFound'));
 
 const Routes = () => (
   <BrowserRouter>

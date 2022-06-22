@@ -1,0 +1,8 @@
+[
+  {
+    "description": "Mock 500 - Erro interno",
+    "data": {
+      "error": "Não foi possível listar as giras públicas. Tente novamente mais tarde."
+    }
+  }
+]

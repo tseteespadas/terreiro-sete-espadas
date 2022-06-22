@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { Alert } from "react-bootstrap";
 
-import FormInscricaoGira from "../forms/FormInscricaoGira";
+import FormInscricao from "../forms/FormInscricao";
 import Loading from "../conteiners/Loader";
 
-import { useProxGira } from "../../../store";
 import api from "../../../services";
 
 async function postGiraSubscription(formData) {
   try {
     const { data } = await api.post(
-      `assistencia/inscricao/${formData.giraId}`,
+      `notificacoes/subscrever`,
       formData
     );
     return data;
@@ -22,13 +21,11 @@ async function postGiraSubscription(formData) {
 
 export default function InscricaoGira() {
   const [showAlert, setShowAlert] = useState(false);
-  const proxGira = useProxGira();
   const mutation = useMutation((formData) => postGiraSubscription(formData));
 
   function handleSubmitInscricao(e) {
     e.preventDefault();
     const formData = {
-      giraId: proxGira._id,
       name: e.target.formName.value.trim(),
       email: e.target.formEmail.value.trim(),
       phone: e.target.formPhone.value.trim(),
@@ -37,9 +34,6 @@ export default function InscricaoGira() {
     setShowAlert(true);
   }
 
-  if (!proxGira) {
-    return <></>;
-  }
   console.log(mutation);
   return (
     <>
@@ -61,10 +55,10 @@ export default function InscricaoGira() {
           onClose={() => setShowAlert(null)}
           dismissible
         >
-          Inscrição realizada com sucesso!
+          Inscrição realizada com sucesso! Agora você receberá notificações por email sobre as próximas giras!
         </Alert>
       )}
-      <FormInscricaoGira handleSubmit={handleSubmitInscricao} />
+      <FormInscricao handleSubmit={handleSubmitInscricao} />
     </>
   );
 }

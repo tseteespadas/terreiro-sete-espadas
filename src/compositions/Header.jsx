@@ -14,10 +14,10 @@ const HeaderConteiner = styled.header`
   justify-content: center;
 `;
 
-export default function Header() {
+export default function Header(props) {
   return (
     <HeaderConteiner>
-      <Logo />
+      <Logo {...props} />
     </HeaderConteiner>
   )
 }

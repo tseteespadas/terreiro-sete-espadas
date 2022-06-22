@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Mock 200 - próxima gira existente",
+    "data": {
+      "proxima": [
+        {
+          "id": "mockId",
+          "name": "Mock Name",
+          "startAt": "2022-01-01T12:00:00"
+        }
+      ]
+    }
+  },
+  {
+    "description": "Mock 200 - próxima gira inexistente",
+    "data": {
+      "proxima": []
+    }
+  }
+]

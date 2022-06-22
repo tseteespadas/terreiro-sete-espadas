@@ -27,6 +27,7 @@ export default function GiraInfo() {
   return (
     <GiraInfoConteiner>
       <h2>Informações sobre a Gira:</h2>
+      <p>Acompanhe nossas redes sociais para ficar por dentro das próximas datas e inscreva-se utilizando o formulário abaixo para receber notificações das próximas giras!</p>
       {isLoading && <p>Carregando dados da gira...</p>}
       {error && (
         <Alert variant={"danger"} dismissible>
@@ -48,7 +49,7 @@ export default function GiraInfo() {
       )}
       { !data && !isLoading && (
         <Alert variant={"info"}>
-          Não há giras públicas. Acompanhe nossas redes sociais para ficar por dentro das próximas datas!
+          Não há giras públicas previstas. Acompanhe nossas redes sociais para ficar por dentro das próximas datas e inscreva-se utilizando o formulário abaixo para receber notificações das próximas giras!
         </Alert>
       )}
     </GiraInfoConteiner>

@@ -6,14 +6,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RedeSocial = styled.a`
   font-size: 1.15rem;
-  color: ${props => props.theme.colors.black1};
+  color: ${(props) => props.theme.colors.black1};
   text-decoration: underline;
   svg {
     margin: 0 0.75rem -2px 0;
-    color: ${props => props.theme.colors.gray2};
+    color: ${(props) => props.theme.colors.gray2};
     font-size: 1.3rem;
   }
 `;
+
+const SubtitleWithIcon = styled.h3`
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  .icon {
+    font-size: inherit;
+    margin-left: 0.25em;
+  }
+`;
+
 
 export default function Contato() {
   return (
@@ -21,13 +33,18 @@ export default function Contato() {
       <PresentationUniform colorsPreset="dark">
         <h2>Contato</h2>
         <div className="redes-sociais d-flex flex-column">
-          <h3>Canais de comunicação</h3>
+          <SubtitleWithIcon>
+            Canais de comunicação
+            <span className="icon d-inline">
+              <FontAwesomeIcon icon={["fas", "bullhorn"]} />
+            </span>
+          </SubtitleWithIcon>
           <RedeSocial
             href="https://api.whatsapp.com/send?phone=5511952492805&text=Ol%C3%A1"
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon icon="fa-brands fa-whatsapp" />
+            <FontAwesomeIcon icon={["fab", "whatsapp"]} />
             (11) 95204-2805
           </RedeSocial>
           <RedeSocial
@@ -35,7 +52,7 @@ export default function Contato() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon icon="fa-solid fa-envelope" />
+            <FontAwesomeIcon icon={["fas", "envelope"]} />
             tseteespadas@gmail.com
           </RedeSocial>
           <RedeSocial
@@ -43,7 +60,7 @@ export default function Contato() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon icon="fa-brands fa-instagram" />
+            <FontAwesomeIcon icon={["fab", "instagram"]} />
             @terreiroseteespadas
           </RedeSocial>
           <RedeSocial
@@ -51,16 +68,18 @@ export default function Contato() {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <FontAwesomeIcon icon="fa-brands fa-facebook" />
+            <FontAwesomeIcon icon={["fab", "facebook"]} />
             @terreiroseteespadas
           </RedeSocial>
         </div>
         <div className="endereco">
-          <h3>Endereço</h3>
-          <p>
-            <span className="icon d-inline" >
+          <SubtitleWithIcon>
+            Endereço
+            <span className="icon d-inline">
               <FontAwesomeIcon icon={["fas", "map-marked"]} />
             </span>
+          </SubtitleWithIcon>
+          <p>
             Rua Engenheiro Reynaldo Cajado, nº 84
             <br />
             CEP: 03061-030 - Tatuapé/SP

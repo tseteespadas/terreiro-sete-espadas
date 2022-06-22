@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../../../assets/logo-white.svg";
+import { Link } from 'react-router-dom';
 
 const LogoConteiner = styled.div`
   display: flex;
@@ -27,11 +28,18 @@ const LogoConteiner = styled.div`
   }
 `;
 
-export default function Logo() {
+export default function Logo(props) {
+  const { headerTitle, withLink } = props;
   return (
     <LogoConteiner>
-      <img src={logo} alt="Logo Terreiro Sete Espadas - Estrela de 7 pontas"></img>
-      <h1>Terreiro Sete Espadas</h1>
+      {withLink ? (
+        <Link to="/">
+          <img src={logo} alt="Logo Terreiro Sete Espadas - Estrela de 7 pontas" />
+        </Link>
+      ) : (
+        <img src={logo} alt="Logo Terreiro Sete Espadas - Estrela de 7 pontas" />
+      )}
+      <h1>{headerTitle || "Terreiro Sete Espadas"}</h1>
     </LogoConteiner>
   )
 }

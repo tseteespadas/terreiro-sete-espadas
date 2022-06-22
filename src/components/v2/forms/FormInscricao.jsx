@@ -1,7 +1,13 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-export default function FormInscricaoGira(props) {
+export default function FormInscricao(props) {
+  const handleClickPoliticaDePrivacidade = (e) => {
+    e.preventDefault();
+    const politicaEl = document.getElementById("politica-de-privacidade");
+    politicaEl.click();
+  };
+
   return (
     <Form onSubmit={props.handleSubmit}>
       <Form.Group controlId="formName">
@@ -37,10 +43,12 @@ export default function FormInscricaoGira(props) {
 
       <Form.Group>
         <Form.Text className="text-muted">
-          Ao clicar em <strong>Inscrever-me</strong>, você concorda com os
-          termos descritos acima. O não cumprimento dos termos dentro ou fora do
-          terreiro acarretará no cancelamento da inscrição e na proibição de
-          entrada no terreiro.
+          Ao clicar em <strong>Inscrever-me</strong>, você concorda com a nossa
+          <a href="#" onClick={handleClickPoliticaDePrivacidade}>
+            {" "}
+            Política de Privacidade
+          </a>
+          .
         </Form.Text>
       </Form.Group>
 

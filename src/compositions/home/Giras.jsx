@@ -17,19 +17,12 @@ export default function Giras() {
           >
             COVID-19
           </a>
-          , nossas giras públicas estão reduzidas e com limite de assistência.
+          , nossas giras públicas estão reduzidas.
         </p>
         <p className="t-center">
-          <strong>Importante!</strong> Agora, as giras públicas requerem
-          inscrição. Caso não se inscreva na gira à partir do formulário 
-          disponibilizado aqui no site, sua entrada não será
-          permitida.
-          <br />O formulário é disponibilizado para todes enquanto o limite de
-          inscrições não for atingido.
-        </p>
-        <p className="t-center">
-          Clique em <strong>Saiba Mais</strong> para acompanhar as datas das
-          próximas giras públicas e realizar sua inscrição!
+          Para se manter atualizade com relação às próximas giras e rituais,
+          clique em saiba mais e deixe seu contato. Utilizaremos as informações
+          apenas para enviar atualizações sobre as giras e rituais!
         </p>
         <p className="t-center">
           Usem máscara, evitem aglomerações e se protejam. Em breve estaremos{" "}

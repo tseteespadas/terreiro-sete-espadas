@@ -4,16 +4,11 @@ import Section from "../../components/v2/conteiners/Section";
 import { PresentationUniform } from "../../components/v2/conteiners/Presentation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TerreiroResisteSocialMedia = styled.span`
-  display: flex;
-
-  a {
-    margin-right: 2rem;
-    color: ${props => props.theme.colors.lightblue2};
-    svg {
-      margin-right: 0.5em;
-      color: white;
-    }
+const TerreiroResisteSocialMedia = styled.a`
+  color: ${(props) => props.theme.colors.lightblue2};
+  svg {
+    margin-right: 0.5em;
+    color: white;
   }
 `;
 
@@ -62,25 +57,21 @@ export default function TerreiroResiste() {
         </p>
         <p className="mt-3">
           Para saber mais sobre esse movimento, acesse:
-          <TerreiroResisteSocialMedia>
-            <a
-              href="https://terreiroresiste.com.br/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon="fa-solid fa-globe" />
-              Site
-            </a>
-            <a
-              href="https://www.instagram.com/terreiroresiste/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon
-                icon="fa-brands fa-instagram"
-              />
-              Instagram
-            </a>
+          <TerreiroResisteSocialMedia
+            href="https://terreiroresiste.com.br/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <FontAwesomeIcon icon={["fas", "globe"]} />
+            Site
+          </TerreiroResisteSocialMedia>{" "}
+          <TerreiroResisteSocialMedia
+            href="https://www.instagram.com/terreiroresiste/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <FontAwesomeIcon icon={["fab", "instagram"]} />
+            Instagram
           </TerreiroResisteSocialMedia>
         </p>
       </PresentationUniform>

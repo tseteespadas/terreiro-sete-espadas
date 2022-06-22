@@ -10,3 +10,9 @@
 html, body, #root {
     position: relative;
 }
+
+#politica-de-privacidade {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+}

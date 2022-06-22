@@ -14,8 +14,8 @@ const MenuConteiner = styled.nav`
   padding: 1rem;
   width: 50px;
   height: 50px;
-  background-color: ${props => props.theme.colors.darkblue4};
-  color: ${props => props.theme.colors.white1};
+  background-color: ${(props) => props.theme.colors.darkblue4};
+  color: ${(props) => props.theme.colors.white1};
   transition: width 0s, height 0s;
   cursor: pointer;
   &.expanded {
@@ -27,14 +27,14 @@ const MenuConteiner = styled.nav`
     flex-direction: column;
     transition: width 0.3s linear, height 0.5s;
     &::before {
-      font-family: "Font Awesome 5 Free"; 
+      font-family: "Font Awesome 5 Free";
       font-weight: 900;
       content: "\f078";
       text-align: center;
       position: absolute;
       font-weight: 900;
-      background-color: ${props => props.theme.colors.darkblue4};
-      color: ${props => props.theme.colors.white1};
+      background-color: ${(props) => props.theme.colors.darkblue4};
+      color: ${(props) => props.theme.colors.white1};
       right: 0;
       top: -17px;
       width: 60px;
@@ -54,15 +54,13 @@ export default function Menu(props) {
   const [expanded, setExpanded] = useState(false);
   return (
     <MenuConteiner
+      role={"button"}
       onClick={() => setExpanded((prev) => !prev)}
       className={expanded && "expanded"}
     >
-      {expanded && menuItems.map((item) => (
-        <MenuItem key={item.id} item={item} />
-      ))}
-      {!expanded && (
-        <FontAwesomeIcon icon="fa-solid fa-bars" />
-      )}
+      {expanded &&
+        menuItems.map((item) => <MenuItem key={item.id} item={item} />)}
+      {!expanded && <FontAwesomeIcon icon={["fas", "bars"]} />}
     </MenuConteiner>
   );
 }

@@ -16,7 +16,7 @@ export default function Terreiro() {
               <span className="ml-4">Nosso</span> terreiro foi fundado em
               janeiro de 2005, como Núcleo Umbandista Pai Oxóssi e Mãe Iemanjá,
               em 2019 nos tornamos a Casa de Umbanda das Sete Linhas Sagradas.
-              Em janeiro de 2021, fundamos o Terreiro Sete Espadas, sob a
+              Em janeiro de 2021, fundamos a Comunidade Ògún Onirê, sob a
               liderança do Pai Lucas Maganhato e Mãe Fiama Miranda.
             </p>
 

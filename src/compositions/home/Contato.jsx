@@ -48,28 +48,28 @@ export default function Contato() {
             (11) 95204-2805
           </RedeSocial>
           <RedeSocial
-            href="mailto:tseteespadas@gmail.com"
+            href="mailto:comunidadeogunonire@gmail.com"
             target="_blank"
             rel="noreferrer noopener"
           >
             <FontAwesomeIcon icon={["fas", "envelope"]} />
-            tseteespadas@gmail.com
+            comunidadeogunonire@gmail.com
           </RedeSocial>
           <RedeSocial
-            href="https://www.instagram.com/terreiroseteespadas/"
+            href="https://www.instagram.com/comunidadeogunonire/"
             target="_blank"
             rel="noreferrer noopener"
           >
             <FontAwesomeIcon icon={["fab", "instagram"]} />
-            @terreiroseteespadas
+            @comunidadeogunonire
           </RedeSocial>
           <RedeSocial
-            href="https://www.facebook.com/terreiroseteespadas"
+            href="https://www.facebook.com/comunidadeogunonire"
             target="_blank"
             rel="noreferrer noopener"
           >
             <FontAwesomeIcon icon={["fab", "facebook"]} />
-            @terreiroseteespadas
+            @comunidadeogunonire
           </RedeSocial>
         </div>
         <div className="endereco">

@@ -34,12 +34,12 @@ export default function Logo(props) {
     <LogoConteiner>
       {withLink ? (
         <Link to="/">
-          <img src={logo} alt="Logo Terreiro Sete Espadas - Estrela de 7 pontas" />
+          <img src={logo} alt="Logo Comunidade Ògún Onirê - Estrela de 7 pontas" />
         </Link>
       ) : (
-        <img src={logo} alt="Logo Terreiro Sete Espadas - Estrela de 7 pontas" />
+        <img src={logo} alt="Logo Comunidade Ògún Onirê - Estrela de 7 pontas" />
       )}
-      <h1>{headerTitle || "Terreiro Sete Espadas"}</h1>
+      <h1>{headerTitle || "Comunidade Ògún Onirê"}</h1>
     </LogoConteiner>
   )
 }

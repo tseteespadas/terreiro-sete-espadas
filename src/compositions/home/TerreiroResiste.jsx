@@ -52,7 +52,7 @@ export default function TerreiroResiste() {
           </small>
         </p>
         <p className="mt-3">
-          O Terreiro Sete Espadas apoia o movimento Terreiro Resiste em sua
+          A Comunidade Ògún Onirê apoia o movimento Terreiro Resiste em sua
           totalidade.
         </p>
         <p className="mt-3">

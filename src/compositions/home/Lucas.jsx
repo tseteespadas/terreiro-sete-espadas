@@ -12,7 +12,7 @@ export default function Lucas() {
         <div className="description reverse">
           <img
             src={img}
-            alt="Foto do Pai de Santo do Terreiro Sete Espadas, Lucas Maganhato, vestido de branco, usando diversas guias"
+            alt="Foto do Pai de Santo do Comunidade Ògún Onirê, Lucas Maganhato, vestido de branco, usando diversas guias"
           ></img>
           <div className="content pd-left">
             <h2>Lucas Maganhato</h2>
@@ -20,8 +20,8 @@ export default function Lucas() {
               <span className="ml-4">Saravá</span> povo de axé! Venho aqui para
               me apresentar a vocês:
               <br />
-              <span className="ml-4">Meu</span> nome é Lucas Maganhato, sou o pai de santo e sacerdote do
-              Terreiro Sete Espadas.
+              <span className="ml-4">Meu</span> nome é Lucas Maganhato, sou o pai de santo e sacerdote do terreiro
+              Comunidade Ògún Onirê.
             </p>
 
             <p>
@@ -30,7 +30,7 @@ export default function Lucas() {
               responsabilidade como pai de santo do terreiro fundado pela minha
               família aos 19 anos, até que em janeiro de 2019 fundo o meu
               próprio terreiro: Casa de Umbanda das Sete Linhas Sagradas, que
-              hoje torna-se o Terreiro Sete Espadas!
+              hoje torna-se a Comunidade Ògún Onirê!
             </p>
 
             <p>

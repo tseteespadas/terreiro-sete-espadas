@@ -73,11 +73,29 @@ export default function Curso(props) {
 
   async function handleSubmitSubscription(e, apiEndpoint, { _id }) {
     e.preventDefault();
+    const genderSelect = e.target.formGender[0]?.selectedOptions[0].value;
+    const genderValue = e.target.formGender[1]?.value;
+    let pronomes = [];
+    e.target.formPronoums.forEach((c) => {
+      if (c.checked) {
+        pronomes.push(c.getAttribute("data-value"));
+      }
+    });
     const formData = {
       course_id: _id,
       name: e.target.formName.value.trim(),
       email: e.target.formEmail.value.trim(),
       phone: e.target.formPhone.value.trim(),
+      gender:
+        genderSelect === "Selecione sua identidade de gênero"
+          ? genderValue
+          : genderSelect,
+      pronoums: pronomes.join(", "),
+      cep: e.target.formCep.value.trim(),
+      address: e.target.formAddress.value.trim(),
+      number: e.target.formNumber.value.trim(),
+      city: e.target.formCity.value.trim(),
+      neighborhood: e.target.formNeighborhood.value.trim(),
     };
     mutation.mutate({ apiEndpoint, formData });
     setShowAlert(true);

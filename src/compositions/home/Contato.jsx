@@ -40,12 +40,12 @@ export default function Contato() {
             </span>
           </SubtitleWithIcon>
           <RedeSocial
-            href="https://api.whatsapp.com/send?phone=5511952492805&text=Ol%C3%A1"
+            href="https://api.whatsapp.com/send?phone=5511943579057&text=Ol%C3%A1"
             target="_blank"
             rel="noreferrer noopener"
           >
             <FontAwesomeIcon icon={["fab", "whatsapp"]} />
-            (11) 95204-2805
+            (11) 94357 9057
           </RedeSocial>
           <RedeSocial
             href="mailto:comunidadeogunonire@gmail.com"

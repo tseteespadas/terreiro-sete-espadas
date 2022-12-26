@@ -67,7 +67,7 @@ const CursoCardConteiner = styled.div`
     .link-primary {
       padding: 0.75em 1.25em;
       background-color: #007bff;
-      color: white;
+      color: white !important;
       border-radius: 0.5em;
 
       &:hover {

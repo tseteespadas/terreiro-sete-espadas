@@ -15,7 +15,7 @@ export default function TermosGira() {
     <TermosInfoConteiner>
       <h2>Informações importantes:</h2>
       <p>
-        O Terreiro Sete Espadas está retomando as giras públicas.
+        A Comunidade Ògún Onirê está retomando as giras públicas.
         <br />
         Devido à pandemia, estamos limitando a quantidade de giras públicas e
         adotando medidas sanitárias para para garantir a maior segurança de

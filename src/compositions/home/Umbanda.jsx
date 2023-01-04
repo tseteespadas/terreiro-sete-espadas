@@ -14,8 +14,7 @@ export default function Umbanda() {
             excluídos”
           </cite>
           <small>
-            David Dias, Pai-de-Santo e Sacerdote do Terreiro de Umbanda Pai João
-            de Angola.
+            David Dias, Pai de Santo, Sacerdote e Mestre em Ciências da Religião.
           </small>
         </p>
         <p className="mt-3">

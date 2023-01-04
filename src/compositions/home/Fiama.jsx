@@ -3,36 +3,54 @@ import React from "react";
 import Section from "../../components/v2/conteiners/Section";
 import Presentation from "../../components/v2/conteiners/Presentation";
 
-import img from '../../assets/fiama.jpg';
+import img from "../../assets/fiama.jpg";
 
 export default function Fiama() {
   return (
     <Section id="mae-fiama">
-      <Presentation titleAlign="left" >
+      <Presentation titleAlign="left">
         <div className="description">
           <div className="content pd-right">
-          <h2>Fiama Miranda</h2>
+            <h2>Fiama Miranda</h2>
             <p>
-              <span className="ml-4">Salve</span> comunidade de axé!
-              Me chamo Fiama, sou filha de Pombagira e faço parte desta comunidade desde 2017 quando comecei a cambonar nas giras e 
-              hoje juntamente com o Lucas estou à frente do terreiro.
+              <span className="ml-4">Aprendi</span> que devemos entender de onde
+              viemos para saber aonde queremos chegar, sendo assim, começo essa
+              apresentação dizendo que sou filha da Dona Maria Helena, uma
+              mulher que fez das tripas coração para me dar uma boa educação,
+              mesmo ganhando pouco e sendo mãe solo em uma sociedade altamente
+              machista.
             </p>
 
             <p>
-              <span className="ml-4">Além</span> disso, possuo uma página no 
-              Instagram <a href="https://www.instagram.com/pensarmacumba/" target="_blank" rel="noopener noreferrer">@pensarmacumba</a> na 
-              qual escrevo sobre umbanda e tudo que está ligado à ela.
-            </p>
-             
-            <p className="align-center">
-              Que Iansã e Pombagira abençoe a todes! 🙏
-              <br/>
-              Axé!
+              <span className="ml-4">Sou</span> filha de Pombagira, Dama da
+              Noite, que nos piores momentos da minha vida, tenho certeza de que
+              ela estava lá por mim. Pertenço a essa comunidade desde 2017,
+              quando comecei a cambonar, e atualmente ocupo o lugar de líder
+              religiosa, sacerdotisa e Mãe de Santo.
             </p>
 
-            <p className="align-center italic">
-              Fiama Miranda
+            <p>
+              <span className="ml-4">Sou</span> uma mulher política, pois
+              entendo que falar e entender sobre política é um dos papéis
+              fundamentais de uma liderança religiosa.
             </p>
+
+            <p>
+              <span className="ml-4">Em</span> 2020 criei o
+              <a
+                href="https://www.instagram.com/pensarmacumba/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @pensarmacumba
+              </a>
+              , cujo objetivo é disseminar o conhecimento sobre o
+              embranquecimento da umbanda e política.
+            </p>
+
+            <p className="align-center">Axé!</p>
+
+            <p className="align-center italic">Fiama Miranda</p>
           </div>
           <img
             src={img}

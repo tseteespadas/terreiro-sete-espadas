@@ -58,20 +58,12 @@ export default function UmbandaDescription() {
           muitas pessoas dentro e fora dos terreiros de umbanda já ouviram falar
           sobre Zé Pelintra, mas quem realmente ele é?
         </p>
-        <p>
-          <span className="ml-4">Este</span> curso tem duração de 1 (um) dia e
-          será ministrado pela plataforma Zoom (
-          <a href="https://zoom.us/download" rel="noopener noreferrer">
-            Link para download
-          </a>
-          )
-        </p>
       </div>
 
       <div className="img-conteiner">
         <img
           src={zeImg}
-          alt="Mãe Fiama Miranda ajoelhada, segurando uma lança pequena de madeira"
+          alt="Congá do Terreiro com estatueta de Zé Pelintra. Ao fundo, uma maquete representando o arco da Lapa"
         />
       </div>
       <div className="desc-conteiner">

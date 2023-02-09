@@ -14,9 +14,9 @@ const MenuConteiner = styled.nav`
   padding: 1rem;
   width: 50px;
   height: 50px;
-  background-color: ${(props) => props.theme.colors.darkblue4};
-  color: ${(props) => props.theme.colors.white1};
-  transition: width 0s, height 0s;
+  background-color: ${(props) => props.theme.colors.blue};
+  color: ${(props) => props.theme.colors.white};
+  transition: height 2s;
   cursor: pointer;
   &.expanded {
     padding: 12px;
@@ -25,7 +25,7 @@ const MenuConteiner = styled.nav`
     border-radius: 8px;
     border-top-right-radius: 0px;
     flex-direction: column;
-    transition: width 0.3s linear, height 0.5s;
+    transition: height 2s;
     &::before {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
@@ -33,8 +33,8 @@ const MenuConteiner = styled.nav`
       text-align: center;
       position: absolute;
       font-weight: 900;
-      background-color: ${(props) => props.theme.colors.darkblue4};
-      color: ${(props) => props.theme.colors.white1};
+      background-color: ${(props) => props.theme.colors.blue};
+      color: ${(props) => props.theme.colors.white};
       right: 0;
       top: -17px;
       width: 60px;

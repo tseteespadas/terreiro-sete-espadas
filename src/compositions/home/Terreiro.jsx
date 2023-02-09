@@ -3,12 +3,13 @@ import React from "react";
 import Section from "../../components/v2/conteiners/Section";
 import Presentation from "../../components/v2/conteiners/Presentation";
 
-import img from "../../assets/sessao-fotos/sessao-fotos (18) span-2.jpeg";
+import img from "../../assets/identidade/icon-red.svg";
+import { theme } from "../../styles/theme";
 
 export default function Terreiro() {
   return (
-    <Section id="terreiro" className="pd-top">
-      <Presentation titleAlign="left" >
+    <Section id="terreiro" className="pd-top" bgColor={theme.colors.black}>
+      <Presentation titleAlign="left" txtColor={theme.colors.white}>
         <div className="description">
           <div className="content pd-right">
             <h2>O Terreiro</h2>

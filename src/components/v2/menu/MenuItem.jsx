@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useCallback } from "react";
+import styled from "styled-components";
 
 const MenuItemConteiner = styled.div`
   width: 100%;
@@ -24,24 +24,29 @@ const MenuItemLink = styled.a`
 
 export default function MenuItem(props) {
   const { item } = props;
-
-  const scrollToView = (e, id) => {
+  
+  const scrollToView = useCallback((e) => {
     e.preventDefault();
-    const el = document.getElementById(id);
+    const el = document.getElementById(e.target.getAttribute("data-scrollTo"));
     if (el) {
-      el.scrollIntoView({behavior: 'smooth', inline: "start"});
+      el.scrollIntoView({ behavior: "smooth", inline: "start" });
     }
-  };
+  }, []);
 
   return (
     <MenuItemConteiner>
       {item.scrollto && (
-        <MenuItemLink onClick={(e) => scrollToView(e, item.scrollto)} href={item.link} scrollto={item.scrollto}>{item.name}</MenuItemLink>
+        <MenuItemLink
+          onClick={scrollToView}
+          href={item.link}
+          data-scrollTo={item.scrollto}
+        >
+          {item.name}
+        </MenuItemLink>
       )}
       {!item.scrollto && (
         <MenuItemLink href={item.link}>{item.name}</MenuItemLink>
       )}
     </MenuItemConteiner>
-  )
-
+  );
 }

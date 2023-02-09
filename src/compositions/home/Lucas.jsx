@@ -3,12 +3,13 @@ import React from "react";
 import Section from "../../components/v2/conteiners/Section";
 import Presentation from "../../components/v2/conteiners/Presentation";
 
-import img from "../../assets/lucas.jpg";
+import img from "../../assets/lucas.jpeg";
+import { theme } from "../../styles/theme";
 
 export default function Lucas() {
   return (
-    <Section id="pai-lucas">
-      <Presentation titleAlign="right">
+    <Section id="pai-lucas" bgColor={theme.colors.black}>
+      <Presentation titleAlign="right" txtColor={theme.colors.white}>
         <div className="description reverse">
           <img
             src={img}

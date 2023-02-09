@@ -13,11 +13,12 @@ const TerreiroResisteSocialMedia = styled.a`
 `;
 
 import img from "../../assets/marca-terreiro-resiste.png";
+import { theme } from "../../styles/theme";
 
 export default function TerreiroResiste() {
   return (
     <Section id="terreiro-resiste" className="pd-bottom bg-black">
-      <PresentationUniform>
+      <PresentationUniform txtColor={theme.colors.white}>
         <h2>Terreiro Resiste</h2>
         <a href="https://terreiroresiste.com.br/" rel="noopener noreferrer">
           <img

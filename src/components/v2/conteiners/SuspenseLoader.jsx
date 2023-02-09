@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import logo from "../../../assets/logo-white.svg";
+import logo from "../../../assets/identidade/logo-horizontal-3.svg";
 
 const RotateAnimation = keyframes`  
   0% { transform: scale(1) }
@@ -9,7 +9,7 @@ const RotateAnimation = keyframes`
 `;
 
 const LoadingConteiner = styled.div`
-  background-color: ${(props) => props.theme.colors.darkblue4};
+  background-color: ${(props) => props.theme.colors.blue};
   display: flex;
   justify-content: center;
   align-items: center;

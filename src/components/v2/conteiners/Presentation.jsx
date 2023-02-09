@@ -9,6 +9,10 @@ const PresentationConteiner = styled.div`
   flex-direction: column;
   align-items: center;
 
+  a {
+    color: ${props => props.theme.colors.red};
+  }
+
   .description {
     display: flex;
     flex-direction: column;
@@ -32,7 +36,7 @@ const PresentationConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${(props) => props.theme.colors.darkblue4};
+      color: ${props => props.txtColor};
       text-align: ${(props) => props.titleAlign};
       &::after {
         position: absolute;
@@ -40,7 +44,7 @@ const PresentationConteiner = styled.div`
         bottom: -0.0125em;
         left: 0;
         right: 0;
-        border-bottom: 2px solid ${(props) => props.theme.colors.darkblue4};
+        color: ${props => props.txtColor};
       }
     }
 
@@ -48,6 +52,7 @@ const PresentationConteiner = styled.div`
       letter-spacing: 0.015em;
       font-size: 1.25rem;
       margin-bottom: 1.5em;
+      color: ${props => props.txtColor};
     }
 
     p.align-center {
@@ -107,6 +112,10 @@ const PresentationUniformConteiner = styled.div`
   flex-direction: column;
   align-items: center;
 
+  a {
+    color: ${props => props.theme.colors.red};
+  }
+
   .description {
     display: flex;
     flex-direction: column;
@@ -118,10 +127,7 @@ const PresentationUniformConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${(props) =>
-        props.colorsPreset === "light"
-          ? props.theme.colors.white1
-          : props.theme.colors.darkblue2};
+      color: ${props => props.txtColor};
       text-align: center;
       &::after {
         position: absolute;
@@ -129,11 +135,7 @@ const PresentationUniformConteiner = styled.div`
         bottom: -0.0125em;
         left: 0;
         right: 0;
-        border-bottom: 2px solid
-          ${(props) =>
-            props.colorsPreset === "light"
-              ? props.theme.colors.white2
-              : props.theme.colors.darkblue3};
+        border-bottom: 2px solid ${props => props.txtColor};
       }
     }
 
@@ -147,18 +149,12 @@ const PresentationUniformConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${(props) =>
-        props.colorsPreset === "light"
-          ? props.theme.colors.white1
-          : props.theme.colors.darkblue2};
+      color: ${props => props.txtColor};
       text-align: center;
     }
 
     p {
-      color: ${(props) =>
-        props.colorsPreset === "light"
-          ? "white"
-          : props.theme.colors.darkblue2};
+      color: ${props => props.txtColor};
       display: flex;
       flex-direction: column;
       letter-spacing: 0.015em;
@@ -190,26 +186,25 @@ const PresentationUniformConteiner = styled.div`
       align-self: center;
       width: fit-content;
       padding: 0.75em 1.25em;
-      background-color: #007bff;
-      color: white;
+      color: ${props => props.txtColor};
       border-radius: 0.5em;
     }
   }
 `;
 
 export default function Presentation(props) {
-  const { children } = props;
+  const { children, ...rest } = props;
   return (
-    <PresentationConteiner>
+    <PresentationConteiner {...rest}>
       <div className="description">{children}</div>
     </PresentationConteiner>
   );
 }
 
 export function PresentationUniform(props) {
-  const { children, colorsPreset } = props;
+  const { children, ...rest } = props;
   return (
-    <PresentationUniformConteiner colorsPreset={colorsPreset || "light"}>
+    <PresentationUniformConteiner {...rest}>
       <div className="description">{children}</div>
     </PresentationUniformConteiner>
   );

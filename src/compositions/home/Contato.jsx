@@ -4,13 +4,14 @@ import Section from "../../components/v2/conteiners/Section";
 import { PresentationUniform } from "../../components/v2/conteiners/Presentation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { theme } from "../../styles/theme";
+
 const RedeSocial = styled.a`
   font-size: 1.15rem;
-  color: ${(props) => props.theme.colors.black1};
   text-decoration: underline;
   svg {
     margin: 0 0.75rem -2px 0;
-    color: ${(props) => props.theme.colors.gray2};
+    color: ${(props) => props.theme.colors.white};
     font-size: 1.3rem;
   }
 `;
@@ -29,8 +30,8 @@ const SubtitleWithIcon = styled.h3`
 
 export default function Contato() {
   return (
-    <Section className="pd-bottom bg-white" id="contato">
-      <PresentationUniform colorsPreset="dark">
+    <Section className="pd-bottom" id="contato" bgColor={theme.colors.black}>
+      <PresentationUniform txtColor={theme.colors.white}>
         <h2>Contato</h2>
         <div className="redes-sociais d-flex flex-column">
           <SubtitleWithIcon>

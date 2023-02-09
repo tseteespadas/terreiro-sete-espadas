@@ -5,6 +5,7 @@ export default styled.section`
   padding: 0 3rem;
   height: auto;
   width: auto;
+  background-color: ${props => props.bgColor};
 
   &.pd-bottom {
     padding-bottom: 3rem;

@@ -3,12 +3,13 @@ import React from "react";
 import Section from "../../components/v2/conteiners/Section";
 import Presentation from "../../components/v2/conteiners/Presentation";
 
-import img from "../../assets/fiama.jpg";
+import img from "../../assets/fiama.jpeg";
+import { theme } from "../../styles/theme";
 
 export default function Fiama() {
   return (
-    <Section id="mae-fiama">
-      <Presentation titleAlign="left">
+    <Section id="mae-fiama" bgColor={theme.colors.black}>
+      <Presentation titleAlign="left" txtColor={theme.colors.white}>
         <div className="description">
           <div className="content pd-right">
             <h2>Fiama Miranda</h2>
@@ -36,7 +37,7 @@ export default function Fiama() {
             </p>
 
             <p>
-              <span className="ml-4">Em</span> 2020 criei o
+              <span className="ml-4">Em</span> 2020 criei o{" "}
               <a
                 href="https://www.instagram.com/pensarmacumba/"
                 target="_blank"

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Section from "../../components/v2/conteiners/Section";
 import CursoCard from "../../components/v2/cards/CursoCard";
 
+import { theme } from "../../styles/theme";
 import cursos from "../../data/cursos";
 
 const CursosConteiner = styled.div`
@@ -23,7 +24,7 @@ const CursosConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${(props) => props.theme.colors.white1};
+      color: ${(props) => props.theme.colors.white};
       text-align: center;
       &::after {
         position: absolute;
@@ -31,7 +32,7 @@ const CursosConteiner = styled.div`
         bottom: -0.0125em;
         left: 0;
         right: 0;
-        border-bottom: 2px solid ${(props) => props.theme.colors.white2};
+        border-bottom: 2px solid ${(props) => props.theme.colors.white};
       }
     }
     .cursos-content {
@@ -60,7 +61,7 @@ const CursosConteiner = styled.div`
 
 export default function Cursos() {
   return (
-    <Section className="pd-bottom bg-darkblue" id="cursos">
+    <Section className="pd-bottom" id="cursos" bgColor={theme.colors.black}>
       <CursosConteiner>
         <div className="wrapper">
           <h2>Cursos</h2>

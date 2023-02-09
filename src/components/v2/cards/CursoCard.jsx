@@ -66,12 +66,12 @@ const CursoCardConteiner = styled.div`
 
     .link-primary {
       padding: 0.75em 1.25em;
-      background-color: #007bff;
+      background-color: ${props => props.theme.colors.red};
       color: white !important;
       border-radius: 0.5em;
 
       &:hover {
-        background-color: ${(props) => props.theme.colors.darkblue1};
+        background-color: ${(props) => props.theme.colors.green};
       }
     }
   }

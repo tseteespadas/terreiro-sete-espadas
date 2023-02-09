@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import logo from "../assets/logo-white.svg";
+import logo from "../assets/identidade/icon-red.svg";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100%;
-  background-color: ${(props) => props.theme.colors.darkblue4};
+  width: 100%;
+  height: 100vh;
+  background-color: ${(props) => props.theme.colors.black};
 
   img {
     width: 200px;

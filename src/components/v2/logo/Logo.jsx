@@ -33,10 +33,10 @@ export default function Logo(props) {
     <LogoConteiner>
       {withLink ? (
         <Link to="/">
-          <img src={logoType === "white" ? logoWhite : logoBlack } alt="Logo Comunidade Ògún Onirê - Estrela de 7 pontas" />
+          <img src={logoType === "white" ? logoWhite : logoBlack } alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" />
         </Link>
       ) : (
-        <img src={logoType === "white" ? logoWhite : logoBlack } alt="Logo Comunidade Ògún Onirê - Estrela de 7 pontas" />
+        <img src={logoType === "white" ? logoWhite : logoBlack } alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" />
       )}
     </LogoConteiner>
   )

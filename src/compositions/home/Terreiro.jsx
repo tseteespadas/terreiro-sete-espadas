@@ -46,7 +46,7 @@ export default function Terreiro() {
           </div>
           <img
             src={img}
-            alt="Foto tirada no nível do chão do terreiro, o qual está coberto com folhas verdes. Sobre as folhas há uma imagem de resina do Orixá Ossain. Ao fundo está o congá com velas acesas."
+            alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho"
           ></img>
         </div>
       </Presentation>

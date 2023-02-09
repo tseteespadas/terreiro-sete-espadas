@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 
-const HomePage = lazy(() => import("./pages/home"));
+import HomePage from "./pages/home";
 const GirasPage = lazy(() => import("./pages/giras"));
 const GaleriaPage = lazy(() => import("./pages/galeria"));
 const Cursos = lazy(() => import("./pages/cursos"));

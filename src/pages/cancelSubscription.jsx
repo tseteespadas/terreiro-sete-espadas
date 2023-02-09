@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
 
-import logo from "../assets/logo-white.svg";
+import logo from "../assets/identidade/icon-red.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ function CancelSubscription() {
 
   return (
     <Wrapper>
-      <img className="logo" src={logo} alt="Logo" />
+      <img className="logo" src={logo} alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" />
       {isLoading && (
         <h3>Estamos processando sua solicitação...</h3>
       )}

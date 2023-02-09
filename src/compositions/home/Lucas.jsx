@@ -13,7 +13,7 @@ export default function Lucas() {
         <div className="description reverse">
           <img
             src={img}
-            alt="Foto do Pai de Santo do Comunidade Ògún Onirê, Lucas Maganhato, vestido de branco, usando diversas guias"
+            alt="Foto do Pai de Santo do Comunidade Ògún Onirê, Lucas Maganhato, incorporado com seu ancestral Tranca Ruas, vestido de branco, usando diversas guias."
           ></img>
           <div className="content pd-left">
             <h2>Lucas Maganhato</h2>

@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 export default function Loader() {
   return (
     <Wrapper>
-      <img className="logo" src={logo} alt="Logo" />
+      <img className="logo" src={logo} alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" />
     </Wrapper>
   );
 }

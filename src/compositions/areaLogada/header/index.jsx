@@ -25,7 +25,7 @@ export default function Header() {
   const user = useUser();
   return (
     <HeaderConteiner>
-      <Link to="/dashboard" ><img src={logo} alt="Logo Comunidade Ògún Onirê" /></Link>
+      <Link to="/dashboard" ><img src={logo} alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" /></Link>
       <UserArea email={user?.email} name={user?.name} />
     </HeaderConteiner>
   )

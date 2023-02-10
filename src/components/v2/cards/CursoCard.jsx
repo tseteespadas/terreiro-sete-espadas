@@ -82,7 +82,7 @@ export default function CursoCard(props) {
   return (
     <CursoCardConteiner className="curso-card">
       <div className="c-header">
-        <img src={curso.img} alt="" className="c-img" />
+        <img src={curso.img} alt={curso.imgAlt} className="c-img" />
         <div className="c-title">
           <h3>{curso.name}</h3>
         </div>

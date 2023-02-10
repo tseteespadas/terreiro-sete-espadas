@@ -14,6 +14,7 @@ import {
   useSetToken,
   useSetUser,
   useToken,
+  useUser,
 } from "../../../store";
 import CalendarEventHeader from "../../../components/v2/calendar/CalendarEvent/CalendarEventHeader";
 import CalendarEvent from "../../../components/v2/calendar/CalendarEvent/CalendarEvent";
@@ -214,6 +215,7 @@ export default function Calendar(props) {
   const setCalendar = useSetCalendar();
   const token = useToken();
   const setToken = useSetToken();
+  const user = useUser();
   const setUser = useSetUser();
 
   const selectedCalendarDate = useSelectedCalendarDate();
@@ -231,12 +233,14 @@ export default function Calendar(props) {
       setUser,
       token
     );
-    fetchGroups(setGroups, setError, setToken, setUser, token);
+    if (user.role === "admin") {
+      fetchGroups(setGroups, setError, setToken, setUser, token);
+    }
     return () => {
       setSelectedCalendarDate(null);
       setCalendarMonthEvents([]);
     };
-  }, [calendar, token]);
+  }, [calendar, token, user]);
 
   useEffect(() => {
     if (error) {

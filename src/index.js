@@ -10,9 +10,15 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 library.add(fas, fab);
 
+
+import reportWebVitals from './reportWebVitals';
+import { sendToVercelAnalytics } from './vitals';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+reportWebVitals(sendToVercelAnalytics);

@@ -1,6 +1,10 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import { useSetSelectedCalendarDate, useSelectedCalendarDate, useUser } from "../../../store";
+import {
+  useSetSelectedCalendarDate,
+  useSelectedCalendarDate,
+  useUser,
+} from "../../../store";
 
 const CalendarDayConteiner = styled.div`
   width: 2rem;
@@ -50,14 +54,14 @@ const CalendarDayConteiner = styled.div`
   }
 
   &.has-events {
-    background-color: ${props => props.theme.colors.green};
+    background-color: ${(props) => props.theme.colors.green};
   }
 
   &:hover&:not(.disabled) {
-    background-color: ${props => props.theme.colors.darkgreen};
+    background-color: ${(props) => props.theme.colors.darkgreen};
   }
   &.selected {
-    background-color: ${props => props.theme.colors.darkgreen};
+    background-color: ${(props) => props.theme.colors.darkgreen};
   }
 
   &.disabled {
@@ -83,7 +87,11 @@ export default function CalendarDay(props) {
     classNames.push("selectable");
   }
 
-  if (day === selectedCalendarDate?.date && month === selectedCalendarDate?.month && year === selectedCalendarDate?.year) {
+  if (
+    day === selectedCalendarDate?.date &&
+    month === selectedCalendarDate?.month &&
+    year === selectedCalendarDate?.year
+  ) {
     classNames.push("selected");
   }
 

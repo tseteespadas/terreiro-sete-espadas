@@ -137,12 +137,14 @@ export default function CalendarEvent(props) {
   const allGroups = useGroups();
 
   useEffect(() => {
-    setGroups(
-      groups.map((g) => {
-        return allGroups.find(({ group_id }) => group_id === g);
-      })
-    );
-  }, [groups, allGroups]);
+    if (user?.role === "admin") {
+      setGroups(
+        groups.map((g) => {
+          return allGroups.find(({ group_id }) => group_id === g);
+        })
+      );
+    }
+  }, [user, groups, allGroups]);
 
   const handleEdit = useCallback(() => {
     setEditing((prev) => !prev);
@@ -235,12 +237,16 @@ export default function CalendarEvent(props) {
     updatedAt,
   ]);
 
-  const addedGroupIds = editedGroups.map((group) => group.group_id);
+  let addedGroupIds;
+  
+  if (user?.role === "admin") {
+    editedGroups.map((group) => group.group_id);
+  }
   return (
     <CalendarEventConteiner>
       <div className="event-header">
         <div className="info">
-          {editing ? (
+          {user.role === "admin" && editing ? (
             <CalendarTextInput
               handleChange={handleNameChange}
               disabled={loading}
@@ -251,7 +257,7 @@ export default function CalendarEvent(props) {
           ) : (
             <h3>{name}</h3>
           )}
-          {editing ? (
+          {user.role === "admin" && editing ? (
             <>
               <CalendarEventSelect
                 handleSelect={handleFromHourSelect}
@@ -323,13 +329,13 @@ export default function CalendarEvent(props) {
                   handleClickRemoveGroup={handleRemoveGroup}
                 />
               ))}
-          {editing && !showGroupsSelect ? (
+          {user.role === "admin" && editing && !showGroupsSelect ? (
             <button className="add-group" onClick={handleClickAddNewGroup}>
               <FontAwesomeIcon className="icon" icon={["fas", "plus"]} />
               <FontAwesomeIcon className="icon" icon={["fas", "users"]} />
             </button>
           ) : null}
-          {editing && showGroupsSelect ? (
+          {user.role === "admin" && editing && showGroupsSelect ? (
             <CalendarEventGroupSelect
               handleSelect={handleAddGroup}
               id="select-grupos"

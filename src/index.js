@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Analytics } from '@vercel/analytics/react';
+import * as Analytics  from '@vercel/analytics';
 import App from './App';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -18,9 +18,9 @@ library.add(fas, fab);
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Analytics />
   </React.StrictMode>,
   document.getElementById('root')
 );
 
+Analytics.inject();
 reportWebVitals(sendToVercelAnalytics);

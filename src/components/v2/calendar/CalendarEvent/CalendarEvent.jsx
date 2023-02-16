@@ -155,7 +155,7 @@ export default function CalendarEvent(props) {
   }, [event_id, handleDeleteEvent]);
 
   const handleFromHourSelect = useCallback((e) => {
-    setToHour(parseInt(e.target.value));
+    setFromHour(parseInt(e.target.value));
   }, []);
 
   const handleToHourSelect = useCallback((e) => {

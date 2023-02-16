@@ -96,7 +96,7 @@ export default function CalendarNewEvent(props) {
   const allGroups = useGroups();
 
   const handleFromHourSelect = useCallback((e) => {
-    setToHour(parseInt(e.target.value));
+    setFromHour(parseInt(e.target.value));
   }, []);
 
   const handleToHourSelect = useCallback((e) => {

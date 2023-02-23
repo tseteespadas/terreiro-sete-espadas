@@ -205,16 +205,16 @@ export default function CalendarEvent(props) {
   const handleSaveChanges = useCallback(() => {
     const updatedEvent = {
       event_id,
-      name: editedName || name,
-      description: editedDescription || description,
+      name: editedName !== null ? editedName : name,
+      description: editedDescription !== null ? editedDescription : description,
       groups: editedGroups
         ? editedGroups.map(({ group_id }) => group_id)
         : groups.map(({ group_id }) => group_id),
-      fromHour: editedFromHour || fromHour,
-      toHour: editedToHour || toHour,
+      fromHour: editedFromHour !== null ? editedFromHour : fromHour,
+      toHour: editedToHour !== null ? editedToHour : toHour,
       updatedAt: new Date(),
     };
-    console.log({ updatedEvent });
+    console.log(updatedEvent.description);
     handleUpdateEvent(updatedEvent);
     setFromHour(null);
     setToHour(null);

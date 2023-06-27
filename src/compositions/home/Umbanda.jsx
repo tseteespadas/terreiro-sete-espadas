@@ -10,48 +10,71 @@ const CiteOverImageConteiner = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-bottom: 3rem;
   .text-conteiner {
     margin-top: 3rem;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
     width: 100%;
-    
-    @media (min-width: 1180px) {
+
+    @media (min-width: 1100px) {
       margin: 0;
       position: absolute;
       left: 1rem;
-      top: 4rem;
-      height: 700px;
-      width: 50%;    
-      background: linear-gradient(90deg, rgba(51,51,51,1) 75%, rgba(0,0,0,0) 100%);
-      
+      top: 0;
+      bottom: 0;
+      /* height: 700px; */
+      width: 50%;
+      background: linear-gradient(
+        90deg,
+        rgba(51, 51, 51, 1) 75%,
+        rgba(0, 0, 0, 0) 100%
+      );
+
       h2 {
         width: 70%;
         text-align: right;
         margin-bottom: 1rem;
+        margin-top: 4rem;
       }
       p {
         width: 70%;
-        font-size: 1.7rem;
+        font-size: 1.4rem;
         text-align: right;
       }
+    }
+
+    @media (min-width: 1440px) {
+      h2 {
+      }
+      p {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (min-width: 2000px) {
+      margin-left: 10rem;
     }
   }
   img {
     margin-bottom: 0rem;
-    
-    @media (min-width: 1180px) {
-      height: 700px;
+
+    @media (min-width: 1100px) {
+      width: calc(100% - 2rem);
+      margin: 0;
+    }
+
+    @media (min-width: 2000px) {
+      width: calc(100% - 70rem);
       margin: 0;
     }
   }
 
-  @media (min-width:1180px) {
+  @media (min-width: 1100px) {
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 4rem 0 0;
   }
-  
 `;
 
 export default function Umbanda() {

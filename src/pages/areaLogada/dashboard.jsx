@@ -13,7 +13,7 @@ export default function Dashboard() {
       <Header />
       <DashboardConteiner>
         <DashboardCardConteiner>
-          {menuItems.map((item, index) => {
+          {menuItems.map((item) => {
             return <NavigationCard key={`nav-card-${item.name}`} {...item}></NavigationCard>;
           })}
         </DashboardCardConteiner>

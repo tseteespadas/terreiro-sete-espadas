@@ -7,6 +7,9 @@ export default styled.section`
   width: auto;
   background-color: ${props => props.bgColor};
 
+  &#umbanda {
+    margin-top: -1px;
+  }
   &.pd-bottom {
     padding-bottom: 3rem;
   }

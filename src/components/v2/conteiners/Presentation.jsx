@@ -190,6 +190,18 @@ const PresentationUniformConteiner = styled.div`
       border-radius: 0.5em;
     }
   }
+
+  .green {
+    color: ${props => props.theme.colors.green};
+  }
+
+  .blue {
+    color: ${props => props.theme.colors.blue};
+  }
+
+  .red {
+    color: ${props => props.theme.colors.red};
+  }
 `;
 
 export default function Presentation(props) {

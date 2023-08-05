@@ -25,7 +25,7 @@ const InstrucoesConteiner = styled.div`
 
     text-align: justify;
     text-justify: inter-word;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: 1.25rem;
     margin: 1em auto;
   }
 `;

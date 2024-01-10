@@ -14,14 +14,20 @@ const UserIconArea = styled.div`
     color: ${(props) => props.theme.colors.white2};
     width: 100%;
     height: 100%;
+    display: block;
+    border-radius: 50%;
   }
 `;
 
 export default function UserIcon(props) {
-  const { handleClick } = props;
+  const { handleClick, avatarUrl } = props;
   return (
     <UserIconArea onClick={handleClick}>
-      <FontAwesomeIcon className="icon" icon={["fas", "user-circle"]} />
+      {avatarUrl ? (
+        <img src={avatarUrl} className="icon"></img>
+      ) : (
+        <FontAwesomeIcon className="icon" icon={["fas", "user-circle"]} />
+      )}
     </UserIconArea>
-  )
+  );
 }

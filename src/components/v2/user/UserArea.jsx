@@ -47,11 +47,11 @@ const UserPanelConteiner = styled.div`
     position: absolute;
     top: -5px;
     right: 35px;
-    content: '';
-    /* background-color: ${props => props.theme.colors.red}; */
+    content: "";
+    /* background-color: ${(props) => props.theme.colors.red}; */
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 5px solid ${props => props.theme.colors.red};
+    border-bottom: 5px solid ${(props) => props.theme.colors.red};
   }
 
   button {
@@ -61,10 +61,10 @@ const UserPanelConteiner = styled.div`
     color: ${(props) => props.theme.colors.white};
     display: grid;
     grid-template-columns: 40% 60%;
-    .icon, 
+    .icon,
     span {
       margin-left: 2em;
-      place-self: center;    
+      place-self: center;
       justify-self: start;
     }
 
@@ -79,14 +79,10 @@ const UserPanelConteiner = styled.div`
     }
   }
 `;
-import {
-  useSetToken,
-  useSetUser,
-  useSetMenuItems,
-} from "../../../store";
+import { useSetToken, useSetUser, useSetMenuItems } from "../../../store";
 
 export default function UserArea(props) {
-  const { name, email } = props;
+  const { name, email, avatarUrl } = props;
   const setToken = useSetToken();
   const setUser = useSetUser();
   const setMenuItems = useSetMenuItems();
@@ -103,7 +99,7 @@ export default function UserArea(props) {
     setToken(null);
     setUser(null);
     setMenuItems([]);
-  }, [])
+  }, []);
 
   return (
     <>
@@ -112,12 +108,12 @@ export default function UserArea(props) {
           <p className="name">{name}</p>
           <p className="email">{email}</p>
         </div>
-        <UserIcon handleClick={handleIconClick} />
+        <UserIcon handleClick={handleIconClick} avatarUrl={avatarUrl} />
       </UserAreaConteiner>
       {showUserPanel ? (
         <UserPanelConteiner>
           <button onClick={handleLogout}>
-            <FontAwesomeIcon className="icon" icon={['fas', 'sign-out-alt']} />
+            <FontAwesomeIcon className="icon" icon={["fas", "sign-out-alt"]} />
             <span>Sair</span>
           </button>
         </UserPanelConteiner>

@@ -6,6 +6,7 @@ export const theme = {
     blue: "#4d6add",
     darkblue: "#243163",
     red: "#e53366",
+    darkred: "#CE2D5B",
     green: "#00d681",
     darkgreen: "#02b06b",
     black: "#333333",
@@ -22,13 +23,13 @@ export const theme = {
     white: "#ffffff",
     white1: "#f7fbff",
     white2: "#f2f4f5",
-    black1: '#333333'
+    black1: "#333333",
   },
   fontSizes: {
     small: "1em",
     medium: "2em",
-    large: "3em"
-  }
+    large: "3em",
+  },
 };
 
 const Theme = ({ children }) => (

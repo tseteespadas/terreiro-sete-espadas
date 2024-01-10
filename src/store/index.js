@@ -61,6 +61,9 @@ const useStore = create((set) => ({
   setGroups: (groups) => set(() => ({ groups: groups })),
   users: [],
   setUsers: (users) => set(() => ({ users: users })),
+  paymentGroups: [],
+  setPaymentGroups: (paymentGroups) =>
+    set(() => ({ paymentGroups: paymentGroups })),
 }));
 
 // Facade
@@ -95,3 +98,6 @@ export const useGroups = () => useStore((state) => state.groups);
 export const useSetGroups = () => useStore((state) => state.setGroups);
 export const useUsers = () => useStore((state) => state.users);
 export const useSetUsers = () => useStore((state) => state.setUsers);
+export const usePaymentGroups = () => useStore((state) => state.paymentGroups);
+export const useSetPaymentGroups = () =>
+  useStore((state) => state.setPaymentGroups);

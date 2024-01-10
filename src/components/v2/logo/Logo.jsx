@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import logoWhite from "../../../assets/identidade/logo-horizontal-3.svg";
 import logoWhite from "../../../assets/identidade/logo-horizontal-3-no-bg.svg";
-import logoBlack from "../../../assets/logo-black.svg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const LogoConteiner = styled.div`
   display: flex;
@@ -16,11 +14,11 @@ const LogoConteiner = styled.div`
     display: block;
     width: 100%;
     max-width: 200px;
-    
+
     @media (min-width: 630px) {
       max-width: 400px;
     }
-    
+
     @media (min-width: 900px) {
       max-width: 600px;
     }
@@ -33,11 +31,17 @@ export default function Logo(props) {
     <LogoConteiner>
       {withLink ? (
         <Link to="/">
-          <img src={logoType === "white" ? logoWhite : logoBlack } alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" />
+          <img
+            src={logoWhite}
+            alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho"
+          />
         </Link>
       ) : (
-        <img src={logoType === "white" ? logoWhite : logoBlack } alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho" />
+        <img
+          src={logoWhite}
+          alt="Logo Comunidade Ògún Onirê - Rosto do orixá Ògún em formato de inhame (oval), pintado com as cores de Ògún Onirê: azul, verde e vermelho"
+        />
       )}
     </LogoConteiner>
-  )
+  );
 }

@@ -14,12 +14,12 @@ export default function Galeria() {
         <div className="galeria-description">
           {images.src.map((img) => (
             <a
-              key={img.default}
-              href={img.default}
-              className={img.default.search("span-2") !== -1 ? "span-2" : ""}
+              key={img}
+              href={img}
+              className={img.search("span-2") !== -1 ? "span-2" : ""}
               target="_blank"
             >
-              <img src={img.default} alt="imagem" />
+              <img src={img} alt="imagem" />
             </a>
           ))}
         </div>

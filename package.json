@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "start": "rescripts start",
-    "build": "rescripts build",
-    "test": "rescripts test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "test:coverage": "npm test -- --coverage --watchAll=false"
   },
   "repository": {
@@ -25,9 +25,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@rescripts/cli": "^0.0.16",
     "@vercel/analytics": "^0.1.8",
-    "axios": "^0.21.1",
+    "axios": "^1.6.5",
     "bootstrap": "^5.2.3",
     "react": "^17.0.1",
     "react-bootstrap": "^2.7.0",
@@ -35,7 +34,7 @@
     "react-query": "^3.34.16",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.2.1",
     "web-vitals": "^3.1.1",
     "zustand": "^3.7.0"
@@ -55,12 +54,19 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
-    "jest": "^26.6.0",
     "moxios": "^0.4.0",
     "react-error-overlay": "^6.0.9"
   },
   "resolutions": {
     "//": "See https://github.com/facebook/create-react-app/issues/11773",
     "react-error-overlay": "6.0.9"
-  }
+  },
+  "presets": [
+    [
+      "@babel/preset-react",
+      {
+        "throwIfNamespace": false
+      }
+    ]
+  ]
 }

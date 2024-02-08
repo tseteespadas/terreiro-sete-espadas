@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
-import IconButton from "../buttons/IconButton";
+import IconButton from "../../buttons/IconButton";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -168,41 +168,44 @@ const StyledModal = styled.div`
   }
 `;
 
-const currency = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
-
-export default function EditUserPaymentGroupModal({
-  user_email,
-  paymentGroup,
-  paymentGroups,
+export default function EditUserGroupsModal({
+  user_id,
+  name,
+  allGroups,
+  userGroups,
   handleSave,
   handleAbort,
   handleClose,
 }) {
-  const [selectedGroup, setSelectedGroup] = useState(paymentGroup);
-
+  const [selectedGroups, setSelectedGroups] = useState(userGroups);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  const paymentLabelRef = useRef(null);
+  const groupsLabelRef = useRef(null);
 
-  const handlePaymentGroupChange = useCallback((e) => {
-    setSelectedGroup(e.target.value);
+  const handleGroupsChange = useCallback((e) => {
+    const options = e.target.options;
+    const value = [];
+    for (let i = 0, l = options.length; i < l; i++) {
+      if (options[i].selected) {
+        value.push(options[i].value);
+      }
+    }
+    setSelectedGroups(value);
   }, []);
 
   const saveUserCallback = useCallback(async () => {
-    if (!selectedGroup) {
-      paymentLabelRef.current.classList.value = "invalid";
+    if (selectedGroups.length === 0) {
+      groupsLabelRef.current.classList.value = "invalid";
       return;
     }
-    paymentLabelRef.current.classList.value = "valid";
+    groupsLabelRef.current.classList.value = "valid";
+
     setLoading(true);
     const response = await handleSave({
-      user_email,
-      billing_group_id: selectedGroup,
+      user_id,
+      groups: selectedGroups,
     });
     setLoading(false);
     if (response.error) {
@@ -211,13 +214,13 @@ export default function EditUserPaymentGroupModal({
     if (response.success) {
       setSuccess(response.successMessage);
     }
-  }, [user_email, selectedGroup, paymentLabelRef]);
+  }, [user_id, selectedGroups, groupsLabelRef]);
 
   return (
     <ModalContainer>
       <StyledModal>
         <div className="modal-header">
-          <h2>Atualizar Grupo de Pagamento</h2>
+          <h2>Alterar grupos de {name.split(" ")[0]}</h2>
           <div className="modal-control">
             <IconButton
               handler={handleClose}
@@ -287,23 +290,24 @@ export default function EditUserPaymentGroupModal({
             </div>
           )}
           <div className="form-row">
-            <label htmlFor="payment-group" ref={paymentLabelRef}>
-              Grupo de Pagamento
+            <label htmlFor="user-groups" ref={groupsLabelRef}>
+              Grupos de Usuário
             </label>
             <select
-              name="payment-group"
-              id="payment-group"
-              value={selectedGroup}
-              onChange={handlePaymentGroupChange}
+              name="user-groups"
+              id="user-groups"
+              multiple
+              value={selectedGroups}
+              onChange={handleGroupsChange}
             >
-              {paymentGroups.map((group) => {
-                const firstLetter = group.name.charAt(0);
-                const firstLetterCap = firstLetter.toUpperCase();
-                const remainingLetters = group.name.slice(1);
-                const capitalizedWord = firstLetterCap + remainingLetters;
+              {allGroups.map((group) => {
                 return (
-                  <option key={group.id} value={group.id}>
-                    {capitalizedWord} - {currency.format(group.value)}
+                  <option
+                    id={group.group_id}
+                    key={group.group_id}
+                    value={group.group_id}
+                  >
+                    {group.group_name}
                   </option>
                 );
               })}

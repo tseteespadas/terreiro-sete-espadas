@@ -1,212 +1,130 @@
 import React, { useCallback, useEffect, useState } from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import GroupsTable from "../../../components/v2/table/Groups/GroupsTable";
-
-const IconButton = styled.button`
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.7rem;
-  gap: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid ${(props) => props.theme.colors.darkblue1};
-  border-radius: 1rem;
-
-  span .icon {
-    color: ${(props) => props.theme.colors.black1};
-    font-size: 1rem;
-
-    @media (min-width: 830px) {
-      font-size: 1rem;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    background-color: ${(props) => props.theme.colors.darkblue1};
-    color: ${(props) => props.theme.colors.white1};
-    span .icon {
-      color: ${(props) => props.theme.colors.white1};
-    }
-  }
-`;
+import GroupsTable from "../../../components/v2/table/Table/GroupsTable";
 
 import {
-  useGroups,
-  useSetGroups,
-  useSetToken,
+  useUser,
   useSetUser,
   useToken,
+  useSetToken,
+  useGroups,
+  useSetGroups,
 } from "../../../store";
 
-import api from "../../../services/index";
-
-async function updateGroup(group, setError, setToken, setUser, token) {
-  try {
-    await api.put(`/groups`, group, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
-
-async function createGroup(group, setError, setToken, setUser, token) {
-  try {
-    const { data } = await api.post(`/groups`, group, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
-
-async function deleteGroup(groupId, setError, setToken, setUser, token) {
-  try {
-    const { data } = await api.delete(`/groups/${groupId}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
-
-async function fetchGroups(setGroups, setError, setToken, setUser, token) {
-  try {
-    const { data } = await api.get(`/groups`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-    setGroups(data.groups);
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
+import {
+  fetchGroups,
+  createGroup,
+  updateGroup,
+  deleteGroup,
+} from "../../../api/userGroups";
+import NewGroupModal from "../../../components/v2/modal/GroupModals/NewGroupModal";
+import EditGroupModal from "../../../components/v2/modal/GroupModals/EditGroupModal";
 
 export default function GruposComposition(props) {
   const [error, setError] = useState(null);
-  const [showError, setShowError] = useState(true);
-  const [showNewGroupRow, setShowNewGroupRow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showNewGroupModal, setShowNewGroupModal] = useState(false);
+  const [showEditGroupModal, setShowEditGroupModal] = useState(false);
+  const [groupEditData, setGroupEditData] = useState(null);
 
+  const user = useUser();
+  const setUser = useSetUser();
   const token = useToken();
   const setToken = useSetToken();
-  const setUser = useSetUser();
-
   const groups = useGroups();
   const setGroups = useSetGroups();
 
-  useEffect(() => {
-    fetchGroups(setGroups, setError, setToken, setUser, token);
-  }, [token]);
+  if (user.role !== "admin") {
+    setToken(null);
+    setUser(null);
+    localStorage.removeItem("token");
+    window.location.href = "/entrar";
+  }
 
-  // controles de filtro
-  const handleClickAddGroup = useCallback(() => {
-    setShowNewGroupRow(true);
+  useEffect(() => {
+    async function fetchData() {
+      if (user.role === "admin") {
+        setLoading(true);
+        const response = await fetchGroups(setToken, setUser, token);
+        setLoading(false);
+        if (response.error) {
+          setError(response.errorMessage);
+          return;
+        }
+        setGroups(response.data);
+      }
+    }
+    fetchData();
+  }, [user, token]);
+
+  // controles de gerenciamento de eventos
+  const handleClickNewGroupButton = useCallback(() => {
+    setShowNewGroupModal(true);
   }, []);
 
-  const handleClickDiscardNewGroup = useCallback(() => {
-    setShowNewGroupRow(false);
+  const handleNewGroupModalClose = useCallback(() => {
+    setShowNewGroupModal(false);
+  }, []);
+
+  const handleClickEditGroupButton = useCallback((groupData) => {
+    setShowEditGroupModal(true);
+    setGroupEditData(groupData);
+  }, []);
+
+  const handleEditGroupModalClose = useCallback(() => {
+    setShowEditGroupModal(false);
+    setGroupEditData(null);
   }, []);
 
   // controles de gerenciamento de dados
-  const handleUpdateGroup = useCallback(
-    async (group) => {
-      await updateGroup(group, setError, setToken, setUser, token);
-      await fetchGroups(setGroups, setError, setToken, setUser, token);
-    },
-    [token]
-  );
+  const handleCreateGroup = useCallback(async (group_name) => {
+    const response = await createGroup(group_name, setToken, setUser, token);
+    const groups = await fetchGroups(setToken, setUser, token);
+    setGroups(groups.data);
+    return response;
+  }, []);
 
-  const handleCreateGroup = useCallback(
-    async (group) => {
-      await createGroup(group, setError, setToken, setUser, token);
-      await fetchGroups(setGroups, setError, setToken, setUser, token);
-    },
-    [token]
-  );
+  const handleUpdateGroup = useCallback(async (groupData) => {
+    const response = await updateGroup(groupData, setToken, setUser, token);
+    const groups = await fetchGroups(setToken, setUser, token);
+    setGroups(groups.data);
+    return response;
+  }, []);
 
-  const handleDeleteGroup = useCallback(
-    async (groupId) => {
-      await deleteGroup(groupId, setError, setToken, setUser, token);
-      await fetchGroups(setGroups, setError, setToken, setUser, token);
-    },
-    [token]
-  );
+  const handleDeleteGroup = useCallback(async (group_id) => {
+    if (window.confirm("Tem certeza de que deseja remover esse grupo?")) {
+      const response = await deleteGroup(group_id, setToken, setUser, token);
+      const groups = await fetchGroups(setToken, setUser, token);
+      setGroups(groups.data);
+      if (response.error) {
+        setError(response.errorMessage);
+      }
+    }
+  }, []);
 
   return (
     <>
-      <IconButton onClick={handleClickAddGroup}>
-        Novo grupo
-        <span>
-          <FontAwesomeIcon className="icon" icon={["fas", "plus"]} />
-          <FontAwesomeIcon className="icon" icon={["fas", "users"]} />
-        </span>
-      </IconButton>
+      {showNewGroupModal && (
+        <NewGroupModal
+          handleAbort={handleNewGroupModalClose}
+          handleSave={handleCreateGroup}
+          handleClose={handleNewGroupModalClose}
+        />
+      )}
+      {showEditGroupModal && (
+        <EditGroupModal
+          {...groupEditData}
+          handleAbort={handleEditGroupModalClose}
+          handleSave={handleUpdateGroup}
+          handleClose={handleEditGroupModalClose}
+        />
+      )}
       <GroupsTable
         groups={groups}
-        handleRemove={handleDeleteGroup}
-        handleUpdate={handleUpdateGroup}
-        handleCreate={handleCreateGroup}
-        showNewGroupRow={showNewGroupRow}
-        closeNewGroupRow={handleClickDiscardNewGroup}
+        loading={loading}
+        handleNewGroup={handleClickNewGroupButton}
+        handleEditGroup={handleClickEditGroupButton}
+        handleDeleteGroup={handleDeleteGroup}
       />
     </>
   );

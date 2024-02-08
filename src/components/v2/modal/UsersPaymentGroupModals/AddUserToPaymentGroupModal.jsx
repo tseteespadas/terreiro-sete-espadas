@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import IconButton from "../buttons/IconButton";
+import FormIconButton from "../../buttons/FormIconButton";
+import IconButton from "../../buttons/IconButton";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -24,6 +25,7 @@ const StyledModal = styled.div`
   background-color: #f2f4f5;
   padding: 1rem;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+  max-height: 80vh;
 
   .modal-header {
     grid-area: header;
@@ -51,6 +53,7 @@ const StyledModal = styled.div`
   .modal-content {
     grid-area: content;
     margin-bottom: 1rem;
+    overflow: auto;
 
     .modal-alert-container {
       display: grid;
@@ -116,10 +119,37 @@ const StyledModal = styled.div`
       }
     }
 
+    form {
+      overflow: auto;
+      padding-left: 0.25rem;
+      input[type="checkbox"] {
+        transform: scale(1.2);
+        margin-right: 0.5rem;
+      }
+    }
+
     .form-row {
       display: flex;
       flex-direction: column;
       margin-top: 1rem;
+
+      &.acceptable {
+        color: ${(props) => props.theme.colors.blue};
+      }
+      &.selected {
+        color: ${(props) => props.theme.colors.green};
+      }
+      &.error {
+        color: ${(props) => props.theme.colors.red};
+      }
+
+      &.reverse {
+        flex-direction: row;
+
+        svg {
+          margin-left: 0.5em;
+        }
+      }
 
       label {
         font-size: 0.85rem;
@@ -146,6 +176,16 @@ const StyledModal = styled.div`
         border-bottom: 1px solid ${(props) => props.theme.colors.red};
       }
     }
+
+    option:checked {
+      background-color: ${(props) => props.theme.colors.blue};
+      color: #fff;
+    }
+
+    option {
+      padding: 0.35em 1em;
+      border-bottom: 1px solid #bababa;
+    }
   }
 
   .modal-footer {
@@ -157,11 +197,8 @@ const StyledModal = styled.div`
     }
   }
 `;
-
-export default function EditUserModal({
-  user_id,
-  name,
-  email,
+export default function AddUserToPaymentGroupModal({
+  users,
   handleSave,
   handleAbort,
   handleClose,
@@ -169,56 +206,48 @@ export default function EditUserModal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
-  const nameInputRef = useRef(null);
-  const nameLabelRef = useRef(null);
-  const emailInputRef = useRef(null);
-  const emailLabelRef = useRef(null);
-
-  const saveUserCallback = useCallback(async () => {
-    const _name = nameInputRef?.current?.value;
-    const _email = emailInputRef?.current?.value;
-
-    const nameRegex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\-'\s]+$/g;
-    const emailRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g;
-
-    if (_name.length < 2 || !nameRegex.test(_name)) {
-      nameInputRef.current.classList.value = "invalid";
-      nameLabelRef.current.classList.value = "invalid";
-      return;
+  const handleToggleUser = useCallback((e) => {
+    const { checked, value } = e.target;
+    const id = value.replace("mark-", "");
+    if (checked) {
+      setSelectedUsers((prevSelected) => {
+        return [...prevSelected, id];
+      });
+    } else {
+      setSelectedUsers((prevSelected) => {
+        return prevSelected.filter((prevId) => prevId !== id);
+      });
     }
-    nameInputRef.current.classList.value = "valid";
-    nameLabelRef.current.classList.value = "valid";
+  }, []);
 
-    if (!emailRegex.test(_email)) {
-      emailLabelRef.current.classList.value = "invalid";
-      emailInputRef.current.classList.value = "invalid";
-      return;
-    }
-    emailLabelRef.current.classList.value = "valid";
-    emailInputRef.current.classList.value = "valid";
-
-    setLoading(true);
-    const response = await handleSave({
-      user_id,
-      name: _name,
-      email: _email,
-    });
-    setLoading(false);
-    if (response.error) {
-      setError(response.errorMessage);
-    }
-    if (response.success) {
-      setSuccess(response.successMessage);
-    }
-  }, [nameInputRef, nameLabelRef, emailInputRef, emailLabelRef]);
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (selectedUsers.length === 0) {
+        setError("Ao menos um usuário precisa ser selecionado.");
+        return;
+      }
+      const usersData = selectedUsers.map((id) => {
+        const user = users.find(({ user_id }) => user_id === id);
+        return {
+          id,
+          name: user.name,
+          billingMail: user.billingData?.billingMail || null,
+        };
+      });
+      setLoading(true);
+      handleSave(usersData);
+    },
+    [users, selectedUsers]
+  );
 
   return (
     <ModalContainer>
       <StyledModal>
         <div className="modal-header">
-          <h2>Editar {name.split(" ")[0]}</h2>
+          <h2>Adicionar usuários ao grupo</h2>
           <div className="modal-control">
             <IconButton
               handler={handleClose}
@@ -287,39 +316,61 @@ export default function EditUserModal({
               </div>
             </div>
           )}
-          <div className="form-row">
-            <label htmlFor="user-name" ref={nameLabelRef}>
-              Nome
-            </label>
-            <input
-              ref={nameInputRef}
-              type="text"
-              id="user-name"
-              name="user-name"
-              defaultValue={name}
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="user-email" ref={emailLabelRef}>
-              Email
-            </label>
-            <input
-              ref={emailInputRef}
-              type="text"
-              id="user-email"
-              name="user-name"
-              defaultValue={email}
-            />
-          </div>
+          <form onSubmit={handleSubmit} id="non-group-users-form">
+            <p>Selecione os usuários que deseja incluir no grupo.</p>
+            {users.map((user) => {
+              const classList = [];
+              const isSelected = selectedUsers.includes(user.user_id);
+              const hasProblems = user.billingData === null;
+              const name = user.name.split(" ");
+              let message =
+                "O email de cobrança (Asaas) do usuário está preenchido. Pediremos uma confirmação após a seleção dos usuários.";
+              if (isSelected) {
+                classList.push("selected");
+                message =
+                  "Tudo pronto para incluir o usuário no grupo. O email de cobrança (Asaas) será confirmado assim que você finalizar a escolha dos usuários.";
+              } else if (hasProblems) {
+                classList.push("error");
+                message =
+                  "O usuário só poderá ser incluído no grupo após a confirmação do email de cobrança (Asaas). Isso será feito após a seleção dos usuários.";
+              } else {
+                classList.push("acceptable");
+              }
+              return (
+                <div
+                  className={`form-row reverse ${classList.join(" ")}`}
+                  key={`non-group-user-${user.user_id}`}
+                >
+                  <input
+                    type="checkbox"
+                    value={`mark-${user.user_id}`}
+                    name={`mark-${user.user_id}`}
+                    checked={selectedUsers.includes(user.user_id)}
+                    onChange={handleToggleUser}
+                  />
+                  <label htmlFor={`mark-${user.user_id}`}>
+                    {name[0]} {name[1]}
+                    <FontAwesomeIcon
+                      icon={["fas", "info-circle"]}
+                      title={message}
+                    />
+                  </label>
+                </div>
+              );
+            })}
+          </form>
         </div>
         <div className="modal-footer">
-          <IconButton
+          <FormIconButton
             id="save-new-user"
             layout="icon-only"
             btn_variant="accept"
             padding="medium"
-            btnProps={{ disabled: loading }}
-            handler={saveUserCallback}
+            btnProps={{
+              disabled: loading,
+              type: "submit",
+              form: "non-group-users-form",
+            }}
             icon={["fas", loading ? "spinner" : "save"]}
             icon_variant="neutral_light"
             iconProps={{ spin: loading }}

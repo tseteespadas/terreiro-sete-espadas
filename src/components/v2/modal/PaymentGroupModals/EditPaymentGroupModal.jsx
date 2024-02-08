@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
-import IconButton from "../buttons/IconButton";
+import IconButton from "../../buttons/IconButton";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -146,16 +146,6 @@ const StyledModal = styled.div`
         border-bottom: 1px solid ${(props) => props.theme.colors.red};
       }
     }
-
-    option:checked {
-      background-color: ${(props) => props.theme.colors.blue};
-      color: #fff;
-    }
-
-    option {
-      padding: 0.35em 1em;
-      border-bottom: 1px solid #bababa;
-    }
   }
 
   .modal-footer {
@@ -168,44 +158,50 @@ const StyledModal = styled.div`
   }
 `;
 
-export default function EditUserGroupsModal({
-  user_id,
+export default function EditPaymentGroupModal({
+  id,
   name,
-  allGroups,
-  userGroups,
+  value,
   handleSave,
   handleAbort,
   handleClose,
 }) {
-  const [selectedGroups, setSelectedGroups] = useState(userGroups);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  const groupsLabelRef = useRef(null);
+  const nameInputRef = useRef(null);
+  const nameLabelRef = useRef(null);
+  const valueInputRef = useRef(null);
+  const valueLabelRef = useRef(null);
 
-  const handleGroupsChange = useCallback((e) => {
-    const options = e.target.options;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i++) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setSelectedGroups(value);
-  }, []);
+  const savePaymentGroupCallback = useCallback(async () => {
+    const name = nameInputRef?.current?.value;
+    const value = valueInputRef?.current?.value;
 
-  const saveUserCallback = useCallback(async () => {
-    if (selectedGroups.length === 0) {
-      groupsLabelRef.current.classList.value = "invalid";
+    const nameRegex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\-'\s]+$/g;
+
+    if (name.length < 2 || !nameRegex.test(name)) {
+      nameInputRef.current.classList.value = "invalid";
+      nameLabelRef.current.classList.value = "invalid";
       return;
     }
-    groupsLabelRef.current.classList.value = "valid";
+    nameInputRef.current.classList.value = "valid";
+    nameLabelRef.current.classList.value = "valid";
+
+    if (value.length === 0 || isNaN(Number(value)) || Number(value) < 0) {
+      valueInputRef.current.classList.value = "invalid";
+      valueLabelRef.current.classList.value = "invalid";
+      return;
+    }
+    valueInputRef.current.classList.value = "valid";
+    valueLabelRef.current.classList.value = "valid";
 
     setLoading(true);
     const response = await handleSave({
-      user_id,
-      groups: selectedGroups,
+      id,
+      name,
+      value: Number(value),
     });
     setLoading(false);
     if (response.error) {
@@ -214,13 +210,17 @@ export default function EditUserGroupsModal({
     if (response.success) {
       setSuccess(response.successMessage);
     }
-  }, [user_id, selectedGroups, groupsLabelRef]);
+  }, [nameInputRef, nameLabelRef, valueInputRef, valueLabelRef]);
 
+  const firstLetter = name.charAt(0);
+  const firstLetterCap = firstLetter.toUpperCase();
+  const remainingLetters = name.slice(1);
+  const formattedName = firstLetterCap + remainingLetters;
   return (
     <ModalContainer>
       <StyledModal>
         <div className="modal-header">
-          <h2>Alterar grupos de {name.split(" ")[0]}</h2>
+          <h2>Editar {formattedName}</h2>
           <div className="modal-control">
             <IconButton
               handler={handleClose}
@@ -290,44 +290,46 @@ export default function EditUserGroupsModal({
             </div>
           )}
           <div className="form-row">
-            <label htmlFor="user-groups" ref={groupsLabelRef}>
-              Grupos de Usuário
+            <label htmlFor="group-name" ref={nameLabelRef}>
+              Nome
             </label>
-            <select
-              name="user-groups"
-              id="user-groups"
-              multiple
-              value={selectedGroups}
-              onChange={handleGroupsChange}
-            >
-              {allGroups.map((group) => {
-                return (
-                  <option
-                    id={group.group_id}
-                    key={group.group_id}
-                    value={group.group_id}
-                  >
-                    {group.group_name}
-                  </option>
-                );
-              })}
-            </select>
+            <input
+              ref={nameInputRef}
+              type="text"
+              id="group-name"
+              name="group-name"
+              defaultValue={formattedName}
+            />
+          </div>
+          <div className="form-row">
+            <label htmlFor="group-value" ref={valueLabelRef}>
+              Valor R$
+            </label>
+            <input
+              ref={valueInputRef}
+              type="number"
+              id="group-value"
+              name="group-value"
+              defaultValue={value}
+              min="0.00"
+              step="0.01"
+            />
           </div>
         </div>
         <div className="modal-footer">
           <IconButton
-            id="save-new-user"
+            id="save-group"
             layout="icon-only"
             btn_variant="accept"
             padding="medium"
             btnProps={{ disabled: loading }}
-            handler={saveUserCallback}
+            handler={savePaymentGroupCallback}
             icon={["fas", loading ? "spinner" : "save"]}
             icon_variant="neutral_light"
             iconProps={{ spin: loading }}
           />
           <IconButton
-            id="discard-new-user"
+            id="discard-group"
             layout="icon-only"
             btn_variant="danger"
             padding="medium"

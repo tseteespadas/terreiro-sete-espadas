@@ -77,7 +77,7 @@ const TableSearch = styled.div`
   }
 `;
 
-const StyledUsersTable = styled.table`
+const StyledGroupsTable = styled.table`
   margin-bottom: 2rem;
   /* Change these properties */
   --border: 1px solid #9ba7ac;
@@ -250,50 +250,28 @@ const UserActions = styled.div`
   }
 `;
 
-export default function UsersTable({
+export default function GroupUsersTable({
   loading,
-  users,
-  handleEditGroups,
-  handleEditPayment,
-  handleNewUser,
-  handleEditUser,
-  handleDeleteUser,
+  groupData,
+  groupUsers,
+  handleAddUsersToGroup,
+  handleRemove,
 }) {
   const [nameSortAsc, setNameSortAsc] = useState(null);
-  const [userSearch, setUserSearch] = useState("");
+  const [nameSearch, setNameSearch] = useState("");
 
   const handleSortByNameClick = useCallback(() => {
     setNameSortAsc(!nameSortAsc);
   }, [nameSortAsc, setNameSortAsc]);
 
-  const handleUserSearchChange = useCallback(
-    (e) => {
-      const { value } = e.target;
-      setUserSearch(value);
-    },
-    [setUserSearch]
-  );
+  const handleNameSearchChange = useCallback((e) => {
+    const { value } = e.target;
+    setNameSearch(value);
+  });
 
-  const usersData = users
-    .map(
-      ({ user_id, avatarUrl, name, email, confirmed, groups, billingData }) => {
-        return {
-          user_id,
-          avatarUrl,
-          name,
-          email,
-          confirmed,
-          groups,
-          confirmedText: confirmed ? "Sim" : "Não",
-          paymentGroup: billingData?.billingGroup.id,
-        };
-      }
-    )
-    .filter(({ name, email }) => {
-      return (
-        name.toLowerCase().search(userSearch.toLowerCase()) !== -1 ||
-        email.toLowerCase().search(userSearch.toLowerCase()) !== -1
-      );
+  const usersData = groupUsers
+    .filter(({ name }) => {
+      return name.toLowerCase().search(nameSearch.toLowerCase()) !== -1;
     })
     .sort((a, b) => {
       if (nameSortAsc !== null) {
@@ -311,12 +289,12 @@ export default function UsersTable({
     <TableContainer>
       <TableNavigationContainer>
         <TableNavigation>
-          <TableButton onClick={handleNewUser}>
+          <TableButton onClick={handleAddUsersToGroup}>
             <span>
               <FontAwesomeIcon className="icon" icon={["fas", "plus"]} />
               <FontAwesomeIcon className="icon" icon={["fas", "user-alt"]} />
             </span>
-            Adicionar novo usuário
+            Adicionar usuário ao grupo
           </TableButton>
         </TableNavigation>
         <TableSearch>
@@ -325,18 +303,26 @@ export default function UsersTable({
             id="table-search"
             name="table-search"
             placeholder="Procurar"
-            value={userSearch}
-            onChange={handleUserSearchChange}
+            value={nameSearch}
+            onChange={handleNameSearchChange}
           />
           <FontAwesomeIcon className="search-icon" icon={["fas", "search"]} />
         </TableSearch>
       </TableNavigationContainer>
-      <StyledUsersTable>
+      <StyledGroupsTable>
         <caption>
-          Tabela de Usuários. Contém colunas Avatar, Nome, Email, Confirmado e
-          Opções.
+          Tabela de Usuários do Grupo{" "}
+          {(groupData && groupData.group_name) || "Em carregamento"}. Contém
+          colunas Avatar, Nome, Email, Papel e Opções.
         </caption>
         <thead>
+          <tr>
+            <th colSpan={5}>
+              <div className="loader">
+                {!!groupData && <h2>Grupo - {groupData.group_name}</h2>}
+              </div>
+            </th>
+          </tr>
           <tr>
             <th>Avatar</th>
             <th>
@@ -357,12 +343,12 @@ export default function UsersTable({
               </div>
             </th>
             <th>Email</th>
-            <th>Confirmado</th>
+            <th>Papel</th>
             <th>Opções</th>
           </tr>
         </thead>
         <tbody>
-          {loading && (
+          {(loading || !groupData) && (
             <tr>
               <td colSpan={5}>
                 <div className="loader">
@@ -376,11 +362,11 @@ export default function UsersTable({
               </td>
             </tr>
           )}
-          {usersData.map((user) => {
-            return (
-              <tr key={user.user_id}>
-                <td>
-                  <div className="user-avatar">
+          {!!groupData &&
+            usersData.map((user) => {
+              return (
+                <tr key={user.user_id}>
+                  <td>
                     {!!user.avatarUrl && (
                       <img
                         className="user-avatar-icon"
@@ -394,81 +380,28 @@ export default function UsersTable({
                         icon={["fas", "user-circle"]}
                       />
                     )}
-                    {/* <FontAwesomeIcon
-                      className="icon"
-                      icon={["fas", "pencil-alt"]}
-                    /> */}
-                  </div>
-                </td>
-                <td className="highlight">{user.name}</td>
-                <td>{user.email}</td>
-                <td className={user.confirmed ? "confirmed" : "not-confirmed"}>
-                  <span>{user.confirmedText}</span>
-                </td>
-                <td>
-                  <UserActions>
-                    <button
-                      onClick={() =>
-                        handleEditUser({
-                          user_id: user.user_id,
-                          email: user.email,
-                          name: user.name,
-                        })
-                      }
-                      title="Editar dados do usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon"
-                        icon={["fas", "pencil-alt"]}
-                      />
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleEditGroups({
-                          user_id: user.user_id,
-                          name: user.name,
-                          userGroups: user.groups.map(
-                            ({ group_id }) => group_id
-                          ),
-                        })
-                      }
-                      title="Editar grupos do usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon"
-                        icon={["fas", "user-friends"]}
-                      />
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleEditPayment({
-                          user_email: user.email,
-                          paymentGroup: user.paymentGroup,
-                        })
-                      }
-                      title="Editar grupo de pagamento do usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon new"
-                        icon={["fas", "money-bill-alt"]}
-                      />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteUser(user.user_id)}
-                      title="Remover usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon danger"
-                        icon={["fas", "trash"]}
-                      />
-                    </button>
-                  </UserActions>
-                </td>
-              </tr>
-            );
-          })}
+                  </td>
+                  <td className="highlight">{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.role}</td>
+                  <td>
+                    <UserActions>
+                      <button
+                        onClick={() => handleRemove(user.user_id)}
+                        title="Remover grupo"
+                      >
+                        <FontAwesomeIcon
+                          className="icon danger"
+                          icon={["fas", "trash"]}
+                        />
+                      </button>
+                    </UserActions>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
-      </StyledUsersTable>
+      </StyledGroupsTable>
     </TableContainer>
   );
 }

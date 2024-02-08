@@ -10,7 +10,7 @@ const PresentationConteiner = styled.div`
   align-items: center;
 
   a {
-    color: ${props => props.theme.colors.red};
+    color: ${(props) => props.theme.colors.red};
   }
 
   .description {
@@ -36,7 +36,7 @@ const PresentationConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${props => props.txtColor};
+      color: ${(props) => props.txtColor};
       text-align: ${(props) => props.titleAlign};
       &::after {
         position: absolute;
@@ -44,7 +44,7 @@ const PresentationConteiner = styled.div`
         bottom: -0.0125em;
         left: 0;
         right: 0;
-        color: ${props => props.txtColor};
+        color: ${(props) => props.txtColor};
       }
     }
 
@@ -52,7 +52,7 @@ const PresentationConteiner = styled.div`
       letter-spacing: 0.015em;
       font-size: 1.25rem;
       margin-bottom: 1.5em;
-      color: ${props => props.txtColor};
+      color: ${(props) => props.txtColor};
     }
 
     p.align-center {
@@ -113,7 +113,7 @@ const PresentationUniformConteiner = styled.div`
   align-items: center;
 
   a {
-    color: ${props => props.theme.colors.red};
+    color: ${(props) => props.theme.colors.red};
   }
 
   .description {
@@ -127,7 +127,7 @@ const PresentationUniformConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${props => props.txtColor};
+      color: ${(props) => props.txtColor};
       text-align: center;
       &::after {
         position: absolute;
@@ -135,7 +135,11 @@ const PresentationUniformConteiner = styled.div`
         bottom: -0.0125em;
         left: 0;
         right: 0;
-        border-bottom: 2px solid ${props => props.txtColor};
+        border-bottom: 2px solid ${(props) => props.txtColor};
+      }
+
+      & > .icon {
+        margin-left: 0.5em;
       }
     }
 
@@ -149,12 +153,12 @@ const PresentationUniformConteiner = styled.div`
       font-weight: 700;
       margin: 1.75em 0;
       letter-spacing: 0.025em;
-      color: ${props => props.txtColor};
+      color: ${(props) => props.txtColor};
       text-align: center;
     }
 
     p {
-      color: ${props => props.txtColor};
+      color: ${(props) => props.txtColor};
       display: flex;
       flex-direction: column;
       letter-spacing: 0.015em;
@@ -173,7 +177,7 @@ const PresentationUniformConteiner = styled.div`
       text-align: center;
       font-family: Comfortaa;
     }
-    
+
     .t-center {
       display: block;
       text-align: center;
@@ -186,21 +190,21 @@ const PresentationUniformConteiner = styled.div`
       align-self: center;
       width: fit-content;
       padding: 0.75em 1.25em;
-      color: ${props => props.txtColor};
+      color: ${(props) => props.txtColor};
       border-radius: 0.5em;
     }
   }
 
   .green {
-    color: ${props => props.theme.colors.green};
+    color: ${(props) => props.theme.colors.green};
   }
 
   .blue {
-    color: ${props => props.theme.colors.blue};
+    color: ${(props) => props.theme.colors.blue};
   }
 
   .red {
-    color: ${props => props.theme.colors.red};
+    color: ${(props) => props.theme.colors.red};
   }
 `;
 

@@ -1,6 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 import UsersTable from "../../../components/v2/table/Table/UsersTable";
+import NewUserModal from "../../../components/v2/modal/UserModals/NewUserModal";
+import EditUserModal from "../../../components/v2/modal/UserModals/EditUserModal";
+import EditUserGroupsModal from "../../../components/v2/modal/UserModals/EditUserGroupsModal";
+import EditUserPaymentGroupModal from "../../../components/v2/modal/UserModals/EditUserPaymentGroupModal";
 
 import {
   useUser,
@@ -15,11 +19,6 @@ import {
   useSetPaymentGroups,
 } from "../../../store";
 
-import NewUserModal from "../../../components/v2/modal/NewUserModal";
-import EditUserModal from "../../../components/v2/modal/EditUserModal";
-import EditUserGroupsModal from "../../../components/v2/modal/EditUserGroupsModal";
-import EditUserPaymentGroupModal from "../../../components/v2/modal/EditUserPaymentGroupModal";
-
 import { fetchData } from "../../../api";
 import { createUser, updateUser, deleteUser } from "../../../api/users";
 import { updateUserGroups } from "../../../api/userGroups";
@@ -27,6 +26,7 @@ import { updateUserPaymentGroup } from "../../../api/paymentGroups";
 
 export default function Usuarios(props) {
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [showNewUserModal, setShowNewUserModal] = useState(false);
   const [showEditUserModal, setShowEditUserModal] = useState(false);
   const [userEditData, setUserEditData] = useState(null);
@@ -63,6 +63,7 @@ export default function Usuarios(props) {
     if (user.role === "admin") {
       fetchData(
         {
+          setLoading,
           setError,
           setToken,
           setUser,
@@ -73,7 +74,7 @@ export default function Usuarios(props) {
         token
       );
     }
-  }, [token]);
+  }, [user, token]);
 
   // controles de gerenciamento de dados
   const handleUpdateUser = useCallback(
@@ -81,6 +82,7 @@ export default function Usuarios(props) {
       const response = await updateUser(user, setToken, setUser, token);
       await fetchData(
         {
+          setLoading,
           setError,
           setToken,
           setUser,
@@ -101,6 +103,7 @@ export default function Usuarios(props) {
       const response = await createUser(user, setToken, setUser, token);
       await fetchData(
         {
+          setLoading,
           setError,
           setToken,
           setUser,
@@ -126,6 +129,7 @@ export default function Usuarios(props) {
       );
       await fetchData(
         {
+          setLoading,
           setError,
           setToken,
           setUser,
@@ -151,6 +155,7 @@ export default function Usuarios(props) {
       );
       await fetchData(
         {
+          setLoading,
           setError,
           setToken,
           setUser,
@@ -169,16 +174,11 @@ export default function Usuarios(props) {
   const handleClickDeleteUserButton = useCallback(
     async (userId) => {
       if (window.confirm("Tem certeza de que deseja remover esse usuário?")) {
-        const response = await deleteUser(
-          userId,
-          setError,
-          setToken,
-          setUser,
-          token
-        );
+        const response = await deleteUser(userId, setToken, setUser, token);
 
         await fetchData(
           {
+            setLoading,
             setError,
             setToken,
             setUser,
@@ -276,6 +276,7 @@ export default function Usuarios(props) {
         />
       )}
       <UsersTable
+        loading={loading}
         users={users}
         handleNewUser={handleClickNewUserButton}
         handleEditUser={handleClickEditUserButton}

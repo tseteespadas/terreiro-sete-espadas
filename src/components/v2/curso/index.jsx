@@ -17,7 +17,7 @@ const InstrucoesConteiner = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1400px;
-  padding: 2rem 0;
+  /* padding: 1rem 0; */
   p {
     @media (min-width: 900px) {
       max-width: 850px;
@@ -27,6 +27,10 @@ const InstrucoesConteiner = styled.div`
     text-justify: inter-word;
     font-size: 1.25rem;
     margin: 1em auto;
+
+    &.no-margin {
+      margin-top: 0;
+    }
   }
 `;
 
@@ -115,10 +119,11 @@ export default function Curso(props) {
         )}
         {openClass && (
           <>
-            <p>
+            <p className="no-margin">
               <span className="ml-4">Caso</span> você tenha interesse no curso{" "}
               <strong>{curso.name}</strong>, você poderá se inscrever utilizando
               o formulário abaixo.
+              <br />
               <br />
               <span className="ml-4">Ainda</span> tem alguma dúvida? Entre em
               contato conosco por meio dos nossos{" "}

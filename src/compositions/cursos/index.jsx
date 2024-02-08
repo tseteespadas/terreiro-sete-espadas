@@ -2,7 +2,7 @@ import React from "react";
 import { QueryClient } from "react-query";
 
 import Curso from "../../components/v2/curso";
-import Section from "../../components/v2/conteiners/Section";
+import CoursesSection from "../../components/v2/conteiners/CoursesSection";
 
 import QueryProvider from "../../providers/QueryProvider";
 
@@ -19,11 +19,11 @@ export default function Cursos(props) {
   const { curso } = props;
   return (
     <QueryProvider client={queryClient}>
-      <Section>
+      <CoursesSection>
         <Curso curso={curso}>
           <curso.Desc />
         </Curso>
-      </Section>
+      </CoursesSection>
     </QueryProvider>
-  )
+  );
 }

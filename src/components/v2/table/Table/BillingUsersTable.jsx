@@ -77,7 +77,7 @@ const TableSearch = styled.div`
   }
 `;
 
-const StyledUsersTable = styled.table`
+const StyledGroupsTable = styled.table`
   margin-bottom: 2rem;
   /* Change these properties */
   --border: 1px solid #9ba7ac;
@@ -113,6 +113,11 @@ const StyledUsersTable = styled.table`
 
   tr {
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  tr.non-user {
+    background-color: ${(props) => props.theme.colors.blue};
+    color: white;
   }
 
   th {
@@ -223,6 +228,71 @@ const StyledUsersTable = styled.table`
     display: grid;
     place-content: center;
   }
+
+  .slider-checkbox {
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: ${(props) => props.theme.colors.red};
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: ${(props) => props.theme.colors.green};
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px ${(props) => props.theme.colors.green};
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(22px);
+      -ms-transform: translateX(22px);
+      transform: translateX(22px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 22px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  }
 `;
 
 const UserActions = styled.div`
@@ -246,61 +316,54 @@ const UserActions = styled.div`
       &.danger {
         color: ${(props) => props.theme.colors.red};
       }
+
+      &.alt {
+        color: ${(props) => props.theme.colors.white};
+      }
     }
   }
 `;
 
-export default function UsersTable({
+export default function BillingUsersTable({
   loading,
-  users,
-  handleEditGroups,
-  handleEditPayment,
-  handleNewUser,
-  handleEditUser,
-  handleDeleteUser,
+  groupData,
+  groupUsers,
+  handleAddUsersToGroup,
+  handleToggleActive,
+  handleRemove,
+  handleEdit,
 }) {
   const [nameSortAsc, setNameSortAsc] = useState(null);
-  const [userSearch, setUserSearch] = useState("");
+  const [nameSearch, setNameSearch] = useState("");
 
   const handleSortByNameClick = useCallback(() => {
     setNameSortAsc(!nameSortAsc);
   }, [nameSortAsc, setNameSortAsc]);
 
-  const handleUserSearchChange = useCallback(
-    (e) => {
-      const { value } = e.target;
-      setUserSearch(value);
+  const handleToggle = useCallback(
+    async (e) => {
+      const { checked, id } = e.target;
+      console.log(checked);
+      // await handleToggleActive(id, checked);
     },
-    [setUserSearch]
+    [nameSortAsc, setNameSortAsc]
   );
 
-  const usersData = users
-    .map(
-      ({ user_id, avatarUrl, name, email, confirmed, groups, billingData }) => {
-        return {
-          user_id,
-          avatarUrl,
-          name,
-          email,
-          confirmed,
-          groups,
-          confirmedText: confirmed ? "Sim" : "Não",
-          paymentGroup: billingData?.billingGroup.id,
-        };
-      }
-    )
-    .filter(({ name, email }) => {
-      return (
-        name.toLowerCase().search(userSearch.toLowerCase()) !== -1 ||
-        email.toLowerCase().search(userSearch.toLowerCase()) !== -1
-      );
+  const handleNameSearchChange = useCallback((e) => {
+    const { value } = e.target;
+    setNameSearch(value);
+  });
+
+  const usersData = groupUsers
+    .filter(({ user_name }) => {
+      return user_name.toLowerCase().search(nameSearch.toLowerCase()) !== -1;
     })
     .sort((a, b) => {
       if (nameSortAsc !== null) {
         if (nameSortAsc) {
-          return a.name.localeCompare(b.name);
+          return a.user_name.localeCompare(b.user_name);
         } else {
-          return a.name.localeCompare(b.name) * -1;
+          return a.user_name.localeCompare(b.user_name) * -1;
         }
       }
 
@@ -311,12 +374,12 @@ export default function UsersTable({
     <TableContainer>
       <TableNavigationContainer>
         <TableNavigation>
-          <TableButton onClick={handleNewUser}>
+          <TableButton onClick={handleAddUsersToGroup}>
             <span>
               <FontAwesomeIcon className="icon" icon={["fas", "plus"]} />
               <FontAwesomeIcon className="icon" icon={["fas", "user-alt"]} />
             </span>
-            Adicionar novo usuário
+            Vincular usuário ao grupo de pagamento
           </TableButton>
         </TableNavigation>
         <TableSearch>
@@ -325,20 +388,27 @@ export default function UsersTable({
             id="table-search"
             name="table-search"
             placeholder="Procurar"
-            value={userSearch}
-            onChange={handleUserSearchChange}
+            value={nameSearch}
+            onChange={handleNameSearchChange}
           />
           <FontAwesomeIcon className="search-icon" icon={["fas", "search"]} />
         </TableSearch>
       </TableNavigationContainer>
-      <StyledUsersTable>
+      <StyledGroupsTable>
         <caption>
-          Tabela de Usuários. Contém colunas Avatar, Nome, Email, Confirmado e
-          Opções.
+          Tabela de Usuários do Grupo de Pagamento{" "}
+          {(groupData && groupData.name) || "Em carregamento"}. Contém colunas
+          Avatar, Nome, Email, Email de Pagamento (Asaas), Ativo e Opções.
         </caption>
         <thead>
           <tr>
-            <th>Avatar</th>
+            <th colSpan={5}>
+              <div className="loader">
+                {!!groupData && <h2>Grupo - {groupData.name}</h2>}
+              </div>
+            </th>
+          </tr>
+          <tr>
             <th>
               <div className="sorting-header">
                 Nome
@@ -357,12 +427,13 @@ export default function UsersTable({
               </div>
             </th>
             <th>Email</th>
-            <th>Confirmado</th>
+            <th>Email de Pagamento (Asaas)</th>
+            <th>Ativo</th>
             <th>Opções</th>
           </tr>
         </thead>
         <tbody>
-          {loading && (
+          {(loading || !groupData) && (
             <tr>
               <td colSpan={5}>
                 <div className="loader">
@@ -376,99 +447,58 @@ export default function UsersTable({
               </td>
             </tr>
           )}
-          {usersData.map((user) => {
-            return (
-              <tr key={user.user_id}>
-                <td>
-                  <div className="user-avatar">
-                    {!!user.avatarUrl && (
-                      <img
-                        className="user-avatar-icon"
-                        src={user.avatarUrl}
-                      ></img>
-                    )}
-
-                    {!user.avatarUrl && (
-                      <FontAwesomeIcon
-                        className="user-avatar-icon"
-                        icon={["fas", "user-circle"]}
-                      />
-                    )}
-                    {/* <FontAwesomeIcon
-                      className="icon"
-                      icon={["fas", "pencil-alt"]}
-                    /> */}
-                  </div>
-                </td>
-                <td className="highlight">{user.name}</td>
-                <td>{user.email}</td>
-                <td className={user.confirmed ? "confirmed" : "not-confirmed"}>
-                  <span>{user.confirmedText}</span>
-                </td>
-                <td>
-                  <UserActions>
-                    <button
-                      onClick={() =>
-                        handleEditUser({
-                          user_id: user.user_id,
-                          email: user.email,
-                          name: user.name,
-                        })
-                      }
-                      title="Editar dados do usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon"
-                        icon={["fas", "pencil-alt"]}
-                      />
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleEditGroups({
-                          user_id: user.user_id,
-                          name: user.name,
-                          userGroups: user.groups.map(
-                            ({ group_id }) => group_id
-                          ),
-                        })
-                      }
-                      title="Editar grupos do usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon"
-                        icon={["fas", "user-friends"]}
-                      />
-                    </button>
-                    <button
-                      onClick={() =>
-                        handleEditPayment({
-                          user_email: user.email,
-                          paymentGroup: user.paymentGroup,
-                        })
-                      }
-                      title="Editar grupo de pagamento do usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon new"
-                        icon={["fas", "money-bill-alt"]}
-                      />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteUser(user.user_id)}
-                      title="Remover usuário"
-                    >
-                      <FontAwesomeIcon
-                        className="icon danger"
-                        icon={["fas", "trash"]}
-                      />
-                    </button>
-                  </UserActions>
-                </td>
-              </tr>
-            );
-          })}
+          {!!groupData &&
+            !loading &&
+            usersData.map((user) => {
+              return (
+                <tr
+                  key={user.user_id}
+                  className={!user.isUser ? "non-user" : ""}
+                >
+                  <td className="highlight">{user.user_name}</td>
+                  <td>{user.user_email}</td>
+                  <td>{user.user_billing_email}</td>
+                  <td>
+                    <div className="slider-checkbox">
+                      <label className="switch">
+                        <input
+                          type="checkbox"
+                          onChange={handleToggle}
+                          id={`switch-active-${user.id}`}
+                          defaultChecked={user.active}
+                          disabled={loading}
+                        />
+                        <span className="slider round"></span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <UserActions>
+                      <button
+                        onClick={() => handleEdit(user.user_id)}
+                        title="Alterar informações de pagamento"
+                      >
+                        <FontAwesomeIcon
+                          className={`icon ${!user.isUser ? "alt" : ""}`}
+                          icon={["fas", "pencil-alt"]}
+                        />
+                      </button>
+                      <button
+                        onClick={() => handleRemove(user.user_id)}
+                        title="Remover grupo"
+                      >
+                        <FontAwesomeIcon
+                          className="icon danger"
+                          icon={["fas", "trash"]}
+                        />
+                      </button>
+                    </UserActions>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
-      </StyledUsersTable>
+      </StyledGroupsTable>
     </TableContainer>
   );
 }

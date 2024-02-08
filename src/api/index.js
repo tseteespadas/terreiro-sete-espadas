@@ -3,9 +3,20 @@ import { fetchGroups } from "./userGroups";
 import { fetchUsers } from "./users";
 
 export async function fetchData(
-  { setError, setToken, setUser, setUsers, setGroups, setPaymentGroups },
+  {
+    setLoading,
+    setError,
+    setToken,
+    setUser,
+    setUsers,
+    setGroups,
+    setPaymentGroups,
+  },
   token
 ) {
+  if (setLoading) {
+    setLoading(true);
+  }
   const users = await fetchUsers(setToken, setUser, token);
   const userGroups = await fetchGroups(setToken, setUser, token);
   const paymentGroups = await fetchPaymentGroups(setToken, setUser, token);
@@ -26,4 +37,8 @@ export async function fetchData(
   setUsers(users.data);
   setGroups(userGroups.data);
   setPaymentGroups(paymentGroups.data);
+
+  if (setLoading) {
+    setLoading(false);
+  }
 }

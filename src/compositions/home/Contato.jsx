@@ -27,19 +27,17 @@ const SubtitleWithIcon = styled.h3`
   }
 `;
 
-
 export default function Contato() {
   return (
     <Section className="pd-bottom" id="contato" bgColor={theme.colors.black}>
       <PresentationUniform txtColor={theme.colors.white}>
-        <h2>Contato</h2>
+        <h2>
+          Canais de comunicação
+          <span className="icon d-inline">
+            <FontAwesomeIcon icon={["fas", "bullhorn"]} />
+          </span>
+        </h2>
         <div className="redes-sociais d-flex flex-column">
-          <SubtitleWithIcon>
-            Canais de comunicação
-            <span className="icon d-inline">
-              <FontAwesomeIcon icon={["fas", "bullhorn"]} />
-            </span>
-          </SubtitleWithIcon>
           <RedeSocial
             href="https://api.whatsapp.com/send?phone=5511943579057&text=Ol%C3%A1"
             target="_blank"

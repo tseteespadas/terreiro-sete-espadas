@@ -15,8 +15,11 @@ const LoginPage = lazy(() => import("./pages/entrar"));
 const Dashboard = lazy(() => import("./pages/areaLogada/dashboard"));
 const Calendario = lazy(() => import("./pages/areaLogada/calendario"));
 const Grupos = lazy(() => import("./pages/areaLogada/grupos"));
+const Cobrancas = lazy(() => import("./pages/areaLogada/cobrancas"));
 const Usuarios = lazy(() => import("./pages/areaLogada/usuarios"));
-const Biblioteca = lazy(() => import("./pages/areaLogada/centrodeconhecimento"));
+const Biblioteca = lazy(() =>
+  import("./pages/areaLogada/centrodeconhecimento")
+);
 
 import Loader from "./pages/Loader";
 
@@ -53,9 +56,15 @@ const Routes = () => (
         <PrivateRoute exact path="/calendario" component={Calendario} />
         <PrivateRoute exact path="/grupos" component={Grupos} />
         <PrivateRoute exact path="/grupos/:group_id" component={Grupos} />
+        <PrivateRoute exact path="/cobrancas" component={Cobrancas} />
+        <PrivateRoute exact path="/cobrancas/:group_id" component={Cobrancas} />
         <PrivateRoute exact path="/usuarios" component={Usuarios} />
         <PrivateRoute exact path="/biblioteca" component={Biblioteca} />
-        <PrivateRoute exact path="/biblioteca/:content" component={Biblioteca} />
+        <PrivateRoute
+          exact
+          path="/biblioteca/:content"
+          component={Biblioteca}
+        />
         <Route path="*">
           <NotFound />
         </Route>

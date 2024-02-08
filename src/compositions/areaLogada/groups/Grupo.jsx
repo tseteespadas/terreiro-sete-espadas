@@ -1,149 +1,145 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-import GroupUsersTable from "../../../components/v2/table/Groups/GroupUsersTable";
+import GroupUsersTable from "../../../components/v2/table/Table/GroupUsersTable";
 
-import { useGroups, useSetToken, useSetUser, useToken } from "../../../store";
+import { useUser, useSetUser, useSetToken, useToken } from "../../../store";
 
-import api from "../../../services/index";
-import UserSelect from "../../../components/v2/forms/UserSelect";
-
-async function fetchGroupUsers(
-  group_id,
-  setUsers,
-  setError,
-  setToken,
-  setUser,
-  token
-) {
-  try {
-    const { data } = await api.get(`/groups/users?group_id=${group_id}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-    setUsers(data.users);
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
-
-async function fetchAllUsers(setAllUsers, setError, setToken, setUser, token) {
-  try {
-    const { data } = await api.get(`/user/list`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-    setAllUsers(data);
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
-
-async function patchUserOfGroup(payload, setError, setToken, setUser, token) {
-  try {
-    const { data } = await api.patch(`/groups`, payload, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (err) {
-    if (err.response) {
-      setError(err.response.data.message);
-      if (err.response.status === 401 || err.response.status === 419) {
-        setToken(null);
-        setUser(null);
-        localStorage.removeItem("token");
-        window.location.href = "/entrar";
-      }
-    } else {
-      setError(
-        "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador."
-      );
-    }
-  }
-}
+import { fetchGroupData, patchUserOfGroup } from "../../../api/userGroups";
+import { fetchUsers } from "../../../api/users";
+import AddUserToGroupModal from "../../../components/v2/modal/UsersGroupModals/AddUserToGroupModal";
 
 export default function GrupoComposition(props) {
   const { group_id } = props;
   const [error, setError] = useState(null);
-  const [showError, setShowError] = useState(true);
-  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [groupData, setGroupData] = useState(null);
+  const [groupUsers, setGroupUsers] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
+  const [showAddUserToGroupModal, setShowAddUserToGroupModal] = useState(false);
 
   const token = useToken();
   const setToken = useSetToken();
+  const user = useUser();
   const setUser = useSetUser();
-  const groups = useGroups();
+
+  if (user.role !== "admin") {
+    setToken(null);
+    setUser(null);
+    localStorage.removeItem("token");
+    window.location.href = "/entrar";
+  }
 
   useEffect(() => {
-    if (group_id) {
-      fetchGroupUsers(group_id, setUsers, setError, setToken, setUser, token);
-      fetchAllUsers(setAllUsers, setError, setToken, setUser, token);
+    async function fetchData() {
+      setLoading(true);
+      const groupDataPromise = fetchGroupData(
+        group_id,
+        setToken,
+        setUser,
+        token
+      );
+      const allUsersPromise = fetchUsers(setToken, setUser, token);
+      const [groupDataResponse, allUsersResponse] = await Promise.all([
+        groupDataPromise,
+        allUsersPromise,
+      ]);
+      setLoading(false);
+      if (groupDataResponse.error) {
+        setError(groupDataResponse.errorMessage);
+        return;
+      }
+      if (allUsersResponse.error) {
+        setError(allUsersResponse.errorMessage);
+      }
+      setGroupData(groupDataResponse.data.group);
+      setGroupUsers(groupDataResponse.data.users);
+      if (groupDataResponse.data.users.length === 0) {
+        setShowAddUserToGroupModal(true);
+      }
+      setAllUsers(allUsersResponse.data);
     }
+    fetchData();
   }, [group_id, token]);
 
-  const handleSelectUser = useCallback(
-    async (e) => {
-      const user_id = e.target.value;
-      await patchUserOfGroup({
-        user_id,
-        group_id,
-      }, setError, setToken, setUser, token);
-      
-      fetchGroupUsers(group_id, setUsers, setError, setToken, setUser, token);
-    },
-    [group_id, token]
-  );
+  // controles de gerenciamento de eventos
+  const handleClickAddUserToGroupButton = useCallback(() => {
+    setShowAddUserToGroupModal(true);
+  }, []);
 
-  const handleRemoveUser = useCallback(
-    async (payload) => {
-      await patchUserOfGroup(payload, setError, setToken, setUser, token);
-      
-      fetchGroupUsers(group_id, setUsers, setError, setToken, setUser, token);
+  const handleAddUserToGroupModalClose = useCallback(() => {
+    setShowAddUserToGroupModal(false);
+  }, []);
+
+  // controles de gerenciamento de dados
+  const handleRemoveUserFromGroup = useCallback(
+    async (user_id) => {
+      if (
+        window.confirm(
+          "Tem certeza de que deseja remover esse usuário do grupo?"
+        )
+      ) {
+        await patchUserOfGroup({ user_id, group_id }, setToken, setUser, token);
+        const groupDataResponse = await fetchGroupData(
+          group_id,
+          setToken,
+          setUser,
+          token
+        );
+        setGroupData(groupDataResponse.data.group);
+        setGroupUsers(groupDataResponse.data.users);
+        if (groupDataResponse.error) {
+          setError(groupDataResponse.errorMessage);
+        }
+      }
     },
     [group_id]
   );
 
-  const group = groups.find(({ group_id: id }) => id === group_id);
-  const usersOutside = allUsers.filter(({ user_id }) => {
-    return !users.find(({ user_id: id }) => user_id === id);
+  const handleAddUsersToGroup = useCallback(
+    async (users) => {
+      const response = await patchUserOfGroup(
+        { users, group_id },
+        setToken,
+        setUser,
+        token
+      );
+      const groupDataResponse = await fetchGroupData(
+        group_id,
+        setToken,
+        setUser,
+        token
+      );
+      setGroupData(groupDataResponse.data.group);
+      setGroupUsers(groupDataResponse.data.users);
+      return response;
+    },
+    [group_id]
+  );
+
+  const nonGroupUsers = allUsers.filter((aUser) => {
+    const found = groupUsers.find((gUser) => {
+      return gUser.user_id === aUser.user_id;
+    });
+    return !found;
   });
+
   return (
     <>
-      <h1>Grupo - {group.group_name}</h1>
-
-      <UserSelect
-        handleSelect={handleSelectUser}
-        label="Adicionar usuários ao grupo:"
-        id="user-select"
-        users={usersOutside}
+      {showAddUserToGroupModal && (
+        <AddUserToGroupModal
+          users={nonGroupUsers}
+          handleAbort={handleAddUserToGroupModalClose}
+          handleClose={handleAddUserToGroupModalClose}
+          handleSave={handleAddUsersToGroup}
+        />
+      )}
+      <GroupUsersTable
+        loading={loading}
+        groupData={groupData}
+        groupUsers={groupUsers}
+        handleAddUsersToGroup={handleClickAddUserToGroupButton}
+        handleRemove={handleRemoveUserFromGroup}
       />
-      <GroupUsersTable group={group} users={users} handleRemove={handleRemoveUser} />
     </>
   );
 }

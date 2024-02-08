@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
-import IconButton from "../buttons/IconButton";
+import IconButton from "../../buttons/IconButton";
 
 const ModalContainer = styled.div`
   position: fixed;

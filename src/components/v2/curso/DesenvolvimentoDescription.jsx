@@ -25,7 +25,7 @@ const Description = styled.div`
     @media (min-width: 900px) {
       max-width: 850px;
     }
-    
+
     h2 {
       margin-top: 3rem;
       font-size: clamp(1.5rem, 2.5vw, 3rem);
@@ -40,9 +40,9 @@ const Description = styled.div`
       font-size: 1.25rem;
       margin: 1em auto;
 
-      &:first-child, 
+      &:first-child,
       &:only-of-type {
-        margin-top: 4rem;
+        /* margin-top: 4rem; */
       }
     }
   }
@@ -54,18 +54,41 @@ export default function DesenvolvimentoDescription() {
       <div className="desc-conteiner">
         <h2>Descrição do Curso</h2>
         <p>
-          <span className="ml-4">O</span> desenvolvimento não se resume em “aprender a incorporar”, pois acreditamos que seja um momento de reencontro com os seus ancestrais. É muito comum atualmente vermos o desenvolvimento como uma ferramenta de recrutamento para a construção de “fábrica de médiuns”, mas devemos entender o real sentido do desenvolver na umbanda. Não é somente a cor da vela, a saudação correta de cada orixá ou saber quem é meu Exu que importa, pois, nada disso faz sentido se os valores usados como base forem banalizados como tantas outras coisas são nos terreiros. Desenvolver é permitir-se mudar, é acessar lugares inalcançáveis, é ser quem você realmente é, é aprender e entender como ser filhe de santo, fazendo assim com que nossa visão possa ser ampliada e que nossa consciência se torne dona de si mesma, construindo valores e fundamentos dentro de cada um de nós.
+          <span className="ml-4">O</span> desenvolvimento não se resume em
+          “aprender a incorporar”, pois acreditamos que seja um momento de
+          reencontro com os seus ancestrais. É muito comum atualmente vermos o
+          desenvolvimento como uma ferramenta de recrutamento para a construção
+          de “fábrica de médiuns”, mas devemos entender o real sentido do
+          desenvolver na umbanda. Não é somente a cor da vela, a saudação
+          correta de cada orixá ou saber quem é meu Exu que importa, pois, nada
+          disso faz sentido se os valores usados como base forem banalizados
+          como tantas outras coisas são nos terreiros.
         </p>
       </div>
       <div className="img-conteiner">
-        <img src={desenvImg} alt="Mãe Fiama Miranda ajoelhada, segurando uma lança pequena de madeira" />
+        <img
+          src={desenvImg}
+          alt="Mãe Fiama Miranda ajoelhada, segurando uma lança pequena de madeira"
+        />
       </div>
       <div className="desc-conteiner">
         <p>
-          <span className="ml-4">O</span> desenvolvimento não tem um tempo certo para terminar, pois os saberes de terreiro são infinitos e complexos para serem entendidos em um espaço de tempo fixado.
+          <span className="ml-4">O</span> desenvolvimento não tem um tempo certo
+          para terminar, pois os saberes de terreiro são infinitos e complexos
+          para serem entendidos em um espaço de tempo fixado. É no chão de
+          terreiro que se aprende sobre ancestralidade, responsabilidade social,
+          política e cultura afro-brasileira. Só se aprende sobre comunidade
+          estando em uma.
         </p>
         <p>
-          <span className="ml-4">Os</span> encontros são semanais (quintas-feiras) e é indicado àqueles que querem aprender e entender a dinâmica de terreiro, seus valores e sabenças. Aos sábados ocorrem as giras (abertas e fechadas) para podermos ensinar sobre a dinâmica da comunidade e assim participar efetivamente da vivência de terreiro.
+          <span className="ml-4">Os</span> encontros são semanais
+          (sextas-feiras) e o desenvolvimento é indicado àqueles que querem
+          aprender e entender a dinâmica de terreiro, bem como fazer parte de
+          uma comunidade de axé.
+        </p>
+        <p>
+          <span className="ml-4">Por</span> isso, se esse for seu momento de
+          terreiro, chegou o dia!
         </p>
       </div>
     </Description>

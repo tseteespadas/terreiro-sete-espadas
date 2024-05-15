@@ -53,6 +53,10 @@ const PresentationConteiner = styled.div`
       font-size: 1.25rem;
       margin-bottom: 1.5em;
       color: ${(props) => props.txtColor};
+
+      span.ml-4 {
+        margin-left: 1em;
+      }
     }
 
     p.align-center {
@@ -159,10 +163,136 @@ const PresentationUniformConteiner = styled.div`
 
     p {
       color: ${(props) => props.txtColor};
-      display: flex;
-      flex-direction: column;
       letter-spacing: 0.015em;
       font-size: 1.25rem;
+
+      span.ml-4 {
+        margin-left: 1em;
+      }
+    }
+
+    p cite {
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      font-family: Confortaa;
+    }
+    p small {
+      margin-top: 1em;
+      font-size: 0.8em;
+      text-align: center;
+      font-family: Comfortaa;
+    }
+
+    .t-center {
+      display: block;
+      text-align: center;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .btn {
+      align-self: center;
+      width: fit-content;
+      padding: 0.75em 1.25em;
+      color: ${(props) => props.txtColor};
+      border-radius: 0.5em;
+    }
+  }
+
+  .green {
+    color: ${(props) => props.theme.colors.green};
+  }
+
+  .blue {
+    color: ${(props) => props.theme.colors.blue};
+  }
+
+  .red {
+    color: ${(props) => props.theme.colors.red};
+  }
+`;
+
+const EventPresentationConteiner = styled.div`
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    color: ${(props) => props.theme.colors.red};
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding-bottom: 2rem;
+
+    &.img {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    &.img-sm {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &.fixed-width {
+      width: 250px;
+    }
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 50em);
+    h2 {
+      position: relative;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 1.75em 0;
+      letter-spacing: 0.025em;
+      color: ${(props) => props.txtColor};
+      text-align: center;
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -0.0125em;
+        left: 0;
+        right: 0;
+        border-bottom: 2px solid ${(props) => props.txtColor};
+      }
+
+      & > .icon {
+        margin-left: 0.5em;
+      }
+    }
+
+    h3 {
+      font-size: 1.75em;
+      font-weight: 700;
+      margin: 1.75em 0;
+      letter-spacing: 0.025em;
+      color: ${(props) => props.txtColor};
+      text-align: center;
+    }
+
+    p {
+      color: ${(props) => props.txtColor};
+      letter-spacing: 0.015em;
+      font-size: 1.25rem;
+
+      span.ml-4 {
+        margin-left: 1em;
+      }
     }
 
     p cite {
@@ -223,5 +353,14 @@ export function PresentationUniform(props) {
     <PresentationUniformConteiner {...rest}>
       <div className="description">{children}</div>
     </PresentationUniformConteiner>
+  );
+}
+
+export function EventPresentation(props) {
+  const { children, ...rest } = props;
+  return (
+    <EventPresentationConteiner {...rest}>
+      <div className="description">{children}</div>
+    </EventPresentationConteiner>
   );
 }

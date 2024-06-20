@@ -22,7 +22,7 @@ export default function HomePage() {
     <>
       <Menu menuItems={menuItems.home} />
       <Header />
-      <FeijoadaZe />
+      {/* <FeijoadaZe /> */}
       <Terreiro />
       <Lucas />
       <Fiama />

@@ -15,14 +15,14 @@ import Footer from "../compositions/Footer";
 
 import menuItems from "../data/menuItems.json";
 import Apoie from "../compositions/home/Apoie";
-import FeijoadaZe from "../compositions/home/events/FeijoadaZe";
+import Evento from "../compositions/home/events/Evento";
 
 export default function HomePage() {
   return (
     <>
       <Menu menuItems={menuItems.home} />
       <Header />
-      {/* <FeijoadaZe /> */}
+      <Evento />
       <Terreiro />
       <Lucas />
       <Fiama />

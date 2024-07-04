@@ -7,7 +7,7 @@ import img from "../../../assets/evento-festa-julina.jpeg";
 import imgSm from "../../../assets/evento-festa-julina-sm.jpeg";
 import { theme } from "../../../styles/theme";
 
-export default function FeijoadaZe() {
+export default function Evento() {
   return (
     <Section id="feijoada-ze" bgColor={theme.colors.black}>
       <EventPresentation titleAlign="right" txtColor={theme.colors.white}>

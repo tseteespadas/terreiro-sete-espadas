@@ -367,3 +367,70 @@ export async function updateUserPaymentGroup(
     }
   }
 }
+
+export async function bulkAddUsersPaymentGroup(
+  payload,
+  setToken,
+  setUser,
+  token
+) {
+  try {
+    await api.post(
+      `/billing-value-groups/users`,
+      { ...payload },
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return {
+      success: true,
+      successMessage: "Grupo criado com sucesso.",
+      data: null,
+      error: false,
+      errorMessage: null,
+    };
+  } catch (err) {
+    if (err.response) {
+      if (err.response.status === 401 || err.response.status === 419) {
+        alert("Sua sessão expirou. Faça login novamente e refaça a operação");
+        setToken(null);
+        setUser(null);
+        localStorage.removeItem("token");
+        window.location.href = "/entrar";
+      } else {
+        if (
+          err.response.status === 404 ||
+          err.response.status === 502 ||
+          err.response.status === 503
+        ) {
+          return {
+            success: false,
+            successMessage: null,
+            error: true,
+            data: null,
+            errorMessage:
+              "O serviço está fora do ar. Entre em contato com um administrador.",
+          };
+        }
+        return {
+          success: false,
+          successMessage: null,
+          error: true,
+          data: null,
+          errorMessage: err.response.data.message,
+        };
+      }
+    } else {
+      return {
+        success: false,
+        successMessage: null,
+        error: true,
+        data: null,
+        errorMessage:
+          "Algo inexperado aconteceu. Tente novamente mais tarde e se o erro persistir, entre em contato com um administrador.",
+      };
+    }
+  }
+}

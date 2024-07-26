@@ -35,9 +35,6 @@ export default function Evento() {
               <a href="#contato">canais de comunicação</a>.
             </p>
             <br />
-            <br />
-            <br />
-            <br></br>
             <p className="t-center">
               Inscreva-se pelo formulário no{" "}
               <a

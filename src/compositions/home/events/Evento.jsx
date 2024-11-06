@@ -8,8 +8,8 @@ import { theme } from "../../../styles/theme";
 
 export default function Evento() {
   return (
-    <Section id="desenvolvimento" bgColor={theme.colors.black}>
-      <EventPresentation titleAlign="right" txtColor={theme.colors.white}>
+    <Section id="evento" bgColor={theme.colors.black}>
+      {/* <EventPresentation titleAlign="right" txtColor={theme.colors.white}>
         <div className="description">
           <h2>2° edição do Flash Tattoo na Comunidade Ògún Onirê</h2>
           <img
@@ -54,7 +54,7 @@ export default function Evento() {
             <br></br>
           </div>
         </div>
-      </EventPresentation>
+      </EventPresentation> */}
     </Section>
   );
 }

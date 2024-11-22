@@ -65,6 +65,7 @@ async function postCourseSubscription(data) {
 
 export default function Curso(props) {
   const [showAlert, setShowAlert] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { curso } = props;
   const {
     isLoading,
@@ -77,6 +78,7 @@ export default function Curso(props) {
 
   async function handleSubmitSubscription(e, apiEndpoint, { _id }) {
     e.preventDefault();
+    setLoading(true);
     const genderSelect = e.target.formGender[0]?.selectedOptions[0].value;
     const genderValue = e.target.formGender[1]?.value;
     let pronomes = [];
@@ -103,6 +105,13 @@ export default function Curso(props) {
     };
     mutation.mutate({ apiEndpoint, formData });
     setShowAlert(true);
+    setLoading(false);
+    document
+      .getElementById("success-alert")
+      ?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("error-alert")
+      ?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
@@ -132,6 +141,7 @@ export default function Curso(props) {
             {mutation.isLoading && <Loading />}
             {showAlert && mutation.isError && (
               <Alert
+                id="error-alert"
                 variant={"danger"}
                 onClose={() => setShowAlert(null)}
                 dismissible
@@ -141,6 +151,7 @@ export default function Curso(props) {
             )}
             {showAlert && mutation.isSuccess && (
               <Alert
+                id="success-alert"
                 variant={"success"}
                 onClose={() => setShowAlert(null)}
                 dismissible
@@ -153,6 +164,7 @@ export default function Curso(props) {
               handleSubmit={(e) =>
                 handleSubmitSubscription(e, curso.link, openClass)
               }
+              loading={loading}
             />
           </>
         )}

@@ -2,12 +2,16 @@ import React from "react";
 
 import desenvolvimento from "../assets/cursos/desenvolvimento.jpeg";
 import zepelintracurso from "../assets/cursos/zepelintracurso.jpg";
+import ervascurso from "../assets/cursos/curso-ervas.jpg";
 
 const DesenvolvimentoDescription = React.lazy(() =>
   import("../components/v2/curso/DesenvolvimentoDescription")
 );
 const ZePelintraDescription = React.lazy(() =>
   import("../components/v2/curso/ZePelintraDescription")
+);
+const ErvasDescription = React.lazy(() =>
+  import("../components/v2/curso/ErvasDescription")
 );
 
 export default [
@@ -26,5 +30,13 @@ export default [
     cite: "De mestre da Jurema aos morros cariocas ...",
     link: "/cursos/zepelintra",
     Desc: ZePelintraDescription,
+  },
+  {
+    id: "curso-ervas",
+    img: ervascurso,
+    name: "Ervas",
+    cite: "O curso de ervas é ministrado ...",
+    link: "/cursos/ervas",
+    Desc: ErvasDescription,
   },
 ];

@@ -21,13 +21,13 @@ export default function FormInscricao(props) {
       try {
         const { data } = await correiosAPI.get(`/${cep.replace("-", "")}/json`);
         if (!data.error) {
-          setNeighborhood(data.bairro)
-          setAddress(data.logradouro)
-          setCity(data.localidade)
+          setNeighborhood(data.bairro);
+          setAddress(data.logradouro);
+          setCity(data.localidade);
         }
       } catch (e) {
         console.log(e);
-        alert("O CEP informado não existe")
+        alert("O CEP informado não existe");
       }
     }
   }
@@ -115,41 +115,21 @@ export default function FormInscricao(props) {
 
       <Form.Group controlId="formAddress">
         <Form.Label>Endereço</Form.Label>
-        <Form.Control
-          required
-          type="text"
-          value={address}
-          disabled
-        />
+        <Form.Control required type="text" value={address} disabled />
       </Form.Group>
 
       <Form.Group controlId="formNumber">
         <Form.Label>Número</Form.Label>
-        <Form.Control
-          required
-          type="number"
-          min="0"
-          max="99999"
-        />
+        <Form.Control required type="number" min="0" max="99999" />
       </Form.Group>
 
       <Form.Group controlId="formNeighborhood">
         <Form.Label>Bairro</Form.Label>
-        <Form.Control
-          required
-          type="text"
-          value={neighborhood}
-          disabled
-        />
+        <Form.Control required type="text" value={neighborhood} disabled />
       </Form.Group>
       <Form.Group controlId="formCity">
         <Form.Label>Cidade</Form.Label>
-        <Form.Control
-          required
-          type="text"
-          value={city}
-          disabled
-        />
+        <Form.Control required type="text" value={city} disabled />
       </Form.Group>
       <Form.Group>
         <Form.Text className="text-muted">
@@ -162,7 +142,7 @@ export default function FormInscricao(props) {
         </Form.Text>
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" disabled={props.loading}>
         Inscrever-me
       </Button>
     </StyledForm>

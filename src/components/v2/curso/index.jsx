@@ -106,12 +106,6 @@ export default function Curso(props) {
     mutation.mutate({ apiEndpoint, formData });
     setShowAlert(true);
     setLoading(false);
-    document
-      .getElementById("success-alert")
-      ?.scrollIntoView({ behavior: "smooth" });
-    document
-      .getElementById("error-alert")
-      ?.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
@@ -129,9 +123,9 @@ export default function Curso(props) {
         {openClass && (
           <>
             <p className="no-margin">
-              <span className="ml-4">Caso</span> você tenha interesse no curso{" "}
-              <strong>{curso.name}</strong>, você poderá se inscrever utilizando
-              o formulário abaixo.
+              <span className="ml-4">Caso</span> você tenha interesse no
+              curso/evento <strong>{curso.name}</strong>, você poderá se
+              inscrever utilizando o formulário abaixo.
               <br />
               <br />
               <span className="ml-4">Ainda</span> tem alguma dúvida? Entre em
@@ -139,33 +133,37 @@ export default function Curso(props) {
               <Link to="/">canais de comunicação</Link>!
             </p>
             {mutation.isLoading && <Loading />}
-            {showAlert && mutation.isError && (
-              <Alert
-                id="error-alert"
-                variant={"danger"}
-                onClose={() => setShowAlert(null)}
-                dismissible
-              >
-                {mutation.error.message}
-              </Alert>
+            <div id="alert-area">
+              {showAlert && mutation.isError && (
+                <Alert
+                  id="error-alert"
+                  variant={"danger"}
+                  onClose={() => setShowAlert(null)}
+                  dismissible
+                >
+                  {mutation.error.message}
+                </Alert>
+              )}
+              {showAlert && mutation.isSuccess && (
+                <Alert
+                  id="success-alert"
+                  variant={"success"}
+                  onClose={() => setShowAlert(null)}
+                  dismissible
+                >
+                  Inscrição realizada com sucesso! Você receberá um email com
+                  demais instruções em breve. Axé!
+                </Alert>
+              )}
+            </div>
+            {!showAlert && !mutation.isSuccess && (
+              <FormInscricao
+                handleSubmit={(e) =>
+                  handleSubmitSubscription(e, curso.link, openClass)
+                }
+                loading={loading}
+              />
             )}
-            {showAlert && mutation.isSuccess && (
-              <Alert
-                id="success-alert"
-                variant={"success"}
-                onClose={() => setShowAlert(null)}
-                dismissible
-              >
-                Inscrição realizada com sucesso! Você receberá um email com
-                demais instruções em breve. Axé!
-              </Alert>
-            )}
-            <FormInscricao
-              handleSubmit={(e) =>
-                handleSubmitSubscription(e, curso.link, openClass)
-              }
-              loading={loading}
-            />
           </>
         )}
       </InstrucoesConteiner>

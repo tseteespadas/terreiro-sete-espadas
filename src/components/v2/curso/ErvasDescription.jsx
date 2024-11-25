@@ -48,7 +48,7 @@ const Description = styled.div`
   }
 `;
 
-export default function DesenvolvimentoDescription() {
+export default function ErvasDescription() {
   return (
     <Description>
       <div className="desc-conteiner">

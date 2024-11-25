@@ -14,28 +14,34 @@ export default function Terreiro() {
           <div className="content pd-right">
             <h2>O Terreiro</h2>
             <p>
-              <span className="ml-4">Nosso</span> terreiro foi fundado em
-              janeiro de 2005, como Núcleo Umbandista Pai Oxóssi e Mãe Iemanjá,
-              em 2019 nos tornamos a Casa de Umbanda das Sete Linhas Sagradas.
-              Em janeiro de 2021, fundamos a Comunidade Ògún Onirê, sob a
-              liderança do Pai Lucas Maganhato e Mãe Fiama Miranda.
+              <span className="ml-4">O</span> terreiro começa como Núcleo 
+              Umbandista Pai Oxóssi e Mãe Iemanjá em 2005, em 2019 nos 
+              tornamos a Casa de Umbanda das Sete Linhas Sagradas. Em 
+              janeiro de 2021, nasce a Comunidade Ògún Onirê, sob a liderança 
+              do Pai Lucas D'Ògún e Mãe Fiama de Oyá.
             </p>
 
             <p>
-              <span className="ml-4">Nosso</span> objetivo é resgatar os valores
-              ancestrais trazidos pelos nossos guias para dentro da nossa
-              comunidade e sociedade, pois acreditamos que umbanda e sociedade
-              caminham lado a lado.
+              <span className="ml-4">Somos</span> um espaço político, de 
+              resistência e de valorização da cultura preta, porque acreditamos 
+              nesta umbanda afro-brasileira que sofreu e sofre ainda com o 
+              racismo que lhe causou o embranquecimento e apagamento de sua 
+              ideologia preta, rica em ritos, cultura e principalmente em identidade.
             </p>
 
             <p>
-              <span className="ml-4">Este</span> terreiro é um espaço aberto a
-              todes que queiram se encantar com a umbanda e que se identificam
-              com os valores da nossa comunidade, quais sejam: respeito,
-              humildade, amor, autoconhecimento e busca por uma sociedade mais
-              inclusiva porque, por aqui, se repudia todo e qualquer pensamento
-              e/ou ação que agrida, desrespeite e/ou exclua qualquer indivíduo
-              pela sua cor, gênero, religião, sexualidade e origem!
+              <span className="ml-4">Buscamos</span> resgatar os valores ancestrais 
+              trazidos pelos nossos guias para a nossa comunidade, ensinando aos nossos 
+              filhes sobre seus valores e importância, para que os ensinamentos internos 
+              reflitam na sociedade.
+            </p>
+
+            <p>
+              <span className="ml-4">Este</span> terreiro é um espaço aberto a todes que 
+              queiram fazer parte desta causa denominada umbanda, porque aqui entendemos 
+              que o que fazemos não pode ser contemplado pela palavra religião, já que 
+              acreditamos em uma causa que pertence a um povo de luta e resistência, e 
+              entender isso é fundamental para estar e pertencer à nossa comunidade.
             </p>
 
             <p className="align-center">

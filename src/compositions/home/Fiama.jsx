@@ -14,30 +14,32 @@ export default function Fiama() {
           <div className="content pd-right">
             <h2>Fiama Miranda</h2>
             <p>
-              <span className="ml-4">Aprendi</span> que devemos entender de onde
-              viemos para saber aonde queremos chegar, sendo assim, começo essa
-              apresentação dizendo que sou filha da Dona Maria Helena, uma
-              mulher que fez das tripas coração para me dar uma boa educação,
-              mesmo ganhando pouco e sendo mãe solo em uma sociedade altamente
-              machista.
+              <span className="ml-4">Aprendi</span> com os meus mais velhos que 
+              devemos entender e reverenciar de onde viemos para saber aonde queremos 
+              chegar. Sendo assim, começo dizendo que sou filha da Dona Maria Helena, 
+              uma mulher nordestina que fez das tripas coração para me dar uma boa educação, 
+              mesmo ganhando pouco e sendo mãe solteira em uma sociedade altamente machista e 
+              racista.
             </p>
 
             <p>
-              <span className="ml-4">Sou</span> filha de Pombagira, Dama da
-              Noite, que nos piores momentos da minha vida, tenho certeza de que
-              ela estava lá por mim. Pertenço a essa comunidade desde 2017,
-              quando comecei a cambonar, e atualmente ocupo o lugar de líder
-              religiosa, sacerdotisa e Mãe de Santo.
+              <span className="ml-4">Sou</span> filha de Pombagira, Dama da Noite, que nos 
+              piores momentos da minha vida, tenho certeza de que ela estava lá por mim. 
+              Pertenço a essa comunidade desde 2017, quando comecei a cambonar, e atualmente 
+              ocupo o lugar de liderança religiosa e política, mãe de santo e sacerdotisa de 
+              umbanda.
             </p>
 
             <p>
-              <span className="ml-4">Sou</span> uma mulher política, pois
-              entendo que falar e entender sobre política é um dos papéis
-              fundamentais de uma liderança religiosa.
+              <span className="ml-4">Sou</span> uma mulher política e de esquerda, pois entendo 
+              que falar e entender sobre política é um dos papéis fundamentais de uma liderança 
+              religiosa nas comunidades de axé. Além disso, a política tem papel crucial na sociedade 
+              e em como ela se desenvolve. Somente com a participação de toda a sociedade na política 
+              é que conseguiremos lutar pelos nossos direitos.
             </p>
 
             <p>
-              <span className="ml-4">Em</span> 2020 criei o{" "}
+              <span className="ml-4">Por</span> fim, em 2020, criei o{" "}
               <a
                 href="https://www.instagram.com/pensarmacumba/"
                 target="_blank"
@@ -45,17 +47,15 @@ export default function Fiama() {
               >
                 @pensarmacumba
               </a>
-              , cujo objetivo é disseminar o conhecimento sobre o
-              embranquecimento da umbanda e política.
+              , cujo objetivo é disseminar o conhecimento sobre umbanda e 
+              todas as suas camadas e política.
             </p>
-
-            <p className="align-center">Axé!</p>
 
             <p className="align-center italic">Fiama Miranda</p>
           </div>
           <img
             src={img}
-            alt="Foto da Mãe de Santo do Terreiro Sete Espadas, Fiama Maganhato, vestido de branco, usando guias de esquerda."
+            alt="Foto da Mãe de Santo da comunidade Ògún Onirê, Fiama Maganhato, vestido de branco, usando guias de esquerda."
           ></img>
         </div>
       </Presentation>

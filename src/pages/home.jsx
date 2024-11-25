@@ -27,10 +27,10 @@ export default function HomePage() {
       <Lucas />
       <Fiama />
       <Umbanda />
+      <AtendimentoParticular />
       <TerreiroResiste />
       <Cursos />
       <Giras />
-      <AtendimentoParticular />
       <Apoie />
       <Contato />
       <Footer />

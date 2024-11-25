@@ -13,44 +13,35 @@ export default function Lucas() {
         <div className="description reverse">
           <img
             src={img}
-            alt="Foto do Pai de Santo do Comunidade Ògún Onirê, Lucas Maganhato, incorporado com seu ancestral Tranca Ruas, vestido de branco, usando diversas guias."
+            alt="Foto do Pai de Santo da Comunidade Ògún Onirê, Lucas Maganhato, incorporado com seu ancestral Tranca Ruas, vestido de branco, usando diversas guias."
           ></img>
           <div className="content pd-left">
             <h2>Lucas Maganhato</h2>
             <p>
-              <span className="ml-4">Saravá</span> povo de axé! Venho aqui para
-              me apresentar a vocês:
-              <br />
-              <span className="ml-4">Meu</span> nome é Lucas Maganhato, sou o pai de santo e sacerdote do terreiro
-              Comunidade Ògún Onirê.
+              <span className="ml-4">Meu</span> nome é Lucas Maganhato, sou pai de santo 
+              da Comunidade Ògún Onirê e sacerdote de umbanda.
             </p>
 
             <p>
-              <span className="ml-4">Filho</span> de Ògún ⚔ Nascido em São Paulo
-              (capital), tenho a umbanda como minha vida desde criança. Assumi a
-              responsabilidade como pai de santo do terreiro fundado pela minha
-              família aos 19 anos, até que em janeiro de 2019 fundo o meu
-              próprio terreiro: Casa de Umbanda das Sete Linhas Sagradas, que
-              hoje torna-se a Comunidade Ògún Onirê!
+              <span className="ml-4">Sou</span> um homem de Ògún, nascido em São Paulo 
+              (capital), tenho a umbanda como minha vida desde criança. Assumi a 
+              responsabilidade como pai de santo do terreiro fundado pela minha família
+              aos 19 anos, e em janeiro de 2019 inauguro o meu próprio terreiro: 
+              Casa de Umbanda das Sete Linhas Sagradas, que hoje torna-se a
+              Comunidade Ògún Onirê.
             </p>
 
             <p>
               <span className="ml-4">Sigam</span> meu instagram{" "}
               <a
-                href="https://www.instagram.com/lucas.maganhato/"
+                href="https://www.instagram.com/lucasdogun/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @lucas.maganhato
+                @lucasdogun
               </a>{" "}
               para mais informações sobre mim, o terreiro e sobre a umbanda em
               geral.
-            </p>
-
-            <p className="align-center">
-              Que Ògún lhe abençoe 🙏
-              <br />
-              Axé!
             </p>
 
             <p className="align-center italic">Pai Lucas Maganhato</p>

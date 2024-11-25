@@ -64,7 +64,7 @@ export default function Cursos() {
     <Section className="pd-bottom" id="cursos" bgColor={theme.colors.black}>
       <CursosConteiner>
         <div className="wrapper">
-          <h2>Cursos</h2>
+          <h2>Cursos & Rituais</h2>
           <div className="cursos-content">
             {cursos.map((curso) => (
               <CursoCard key={curso.id} curso={curso} />

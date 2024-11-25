@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Section from "../../components/v2/conteiners/Section";
 
-import damaDaNoite from "../../assets/umbanda.jpeg";
+import umbandaImg from "../../assets/umbanda.jpeg";
 import { theme } from "../../styles/theme";
 
 const CiteOverImageConteiner = styled.div`
@@ -85,20 +85,16 @@ export default function Umbanda() {
           <h2>Umbanda</h2>
           <p>
             <cite>
-              “Tornar a minha comunidade um local seguro, político e de
-              valorização da cultura e memória ancestral por meio das práticas
-              religiosas afro-brasileiras, visto que a umbanda é uma religião de
-              ideologia preta e de valorização dos povos marginalizados pela
-              sociedade antiga e moderna.”
+              “Por definição, umbanda é uma cultura afro-brasileira de 
+              valorização e exaltação a povos ancestrais socialmente excluídos”
             </cite>
             <br />
-            <br />
-            <small>Mãe Fiama D'Oya</small>
+            <small><i>definição trazida pelo pai de santo, mestre em ciências da religião e sacerdote de umbanda David Dias.</i></small>
           </p>
         </div>
         <img
-          src={damaDaNoite}
-          alt="Pombagira Dama da Noite, ancestral da Mãe Fiama D'Oya, fumando um cigarro."
+          src={umbandaImg}
+          alt="."
         ></img>
       </CiteOverImageConteiner>
     </Section>

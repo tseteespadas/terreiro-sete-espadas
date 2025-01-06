@@ -19,14 +19,14 @@ const RitualFimAnoDescription = React.lazy(() =>
 );
 
 export default [
-  {
-    id: "ritual2025",
-    img: ritual2025,
-    name: "Ritual de Abertura de Caminhos",
-    cite: "Participe do nosso ritual especial ...",
-    link: "/cursos/ritual2025",
-    Desc: RitualFimAnoDescription,
-  },
+  // {
+  //   id: "ritual2025",
+  //   img: ritual2025,
+  //   name: "Ritual de Abertura de Caminhos",
+  //   cite: "Participe do nosso ritual especial ...",
+  //   link: "/cursos/ritual2025",
+  //   Desc: RitualFimAnoDescription,
+  // },
   {
     id: "curso-desenvolvimento",
     img: desenvolvimento,

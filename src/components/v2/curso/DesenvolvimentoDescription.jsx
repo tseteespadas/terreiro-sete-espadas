@@ -54,15 +54,22 @@ export default function DesenvolvimentoDescription() {
       <div className="desc-conteiner">
         <h2>Descrição do Curso</h2>
         <p>
-          <span className="ml-4">O</span> desenvolvimento não se resume em
-          “aprender a incorporar”, pois acreditamos que seja um momento de
-          reencontro com os seus ancestrais. É muito comum atualmente vermos o
-          desenvolvimento como uma ferramenta de recrutamento para a construção
-          de “fábrica de médiuns”, mas devemos entender o real sentido do
-          desenvolver na umbanda. Não é somente a cor da vela, a saudação
-          correta de cada orixá ou saber quem é meu Exu que importa, pois, nada
-          disso faz sentido se os valores usados como base forem banalizados
-          como tantas outras coisas são nos terreiros.
+          <span className="ml-4">O</span> desenvolvimento de terreiro não se
+          resume em “aprender a incorporar”, porque acreditamos que é a partir
+          das sabenças e vivências no chão de terreiro que se constroem lições
+          importantes, como as questões sociais que afetam a nossa experiência
+          em sociedade. Além disso, acreditamos que este momento seja para
+          reencontrar àqueles que um dia já nos encontraram por aí, e que
+          deixaram uma saudade que não sabíamos que tínhamos.
+        </p>
+        <p>
+          <span className="ml-4">É</span> muito comum vermos o desenvolvimento
+          como uma ferramenta de recrutamento para a construção de “fábrica de
+          médiuns”, mas devemos entender o real sentido do desenvolver na
+          umbanda. Não é somente sobre a cor da vela ou a saudação correta de
+          cada orixá que importa, pois nada disso faz sentido se os valores
+          usados como base forem banalizados como tantas outras coisas são nos
+          terreiros.
         </p>
       </div>
       <div className="img-conteiner">
@@ -73,12 +80,12 @@ export default function DesenvolvimentoDescription() {
       </div>
       <div className="desc-conteiner">
         <p>
-          <span className="ml-4">O</span> desenvolvimento não tem um tempo certo
-          para terminar, pois os saberes de terreiro são infinitos e complexos
-          para serem entendidos em um espaço de tempo fixado. É no chão de
-          terreiro que se aprende sobre ancestralidade, responsabilidade social,
-          política e cultura afro-brasileira. Só se aprende sobre comunidade
-          estando em uma.
+          <span className="ml-4">Para</span> o desenvolvimento de terreiro, não
+          há um tempo certo para terminar, porque os saberes de terreiro são
+          infinitos e complexos para serem entendidos em um espaço de tempo
+          fixado. É no chão de terreiro que se aprende sobre ancestralidade,
+          responsabilidade social, política e cultura afro-brasileira. Só se
+          aprende sobre comunidade estando em uma.
         </p>
         <p>
           <span className="ml-4">Os</span> encontros são semanais

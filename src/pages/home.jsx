@@ -16,6 +16,7 @@ import Footer from "../compositions/Footer";
 import menuItems from "../data/menuItems.json";
 import Apoie from "../compositions/home/Apoie";
 import Evento from "../compositions/home/events/Evento";
+import PixReforma from "../compositions/home/events/PixReforma";
 
 export default function HomePage() {
   return (
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Menu menuItems={menuItems.home} />
       <Header />
       {/* <Evento /> */}
+      <PixReforma />
       <Terreiro />
       <Lucas />
       <Fiama />

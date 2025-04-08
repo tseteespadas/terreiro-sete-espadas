@@ -23,8 +23,8 @@ export default function HomePage() {
     <>
       <Menu menuItems={menuItems.home} />
       <Header />
-      {/* <Evento /> */}
-      <PixReforma />
+      <Evento />
+      {/* <PixReforma /> */}
       <Terreiro />
       <Lucas />
       <Fiama />

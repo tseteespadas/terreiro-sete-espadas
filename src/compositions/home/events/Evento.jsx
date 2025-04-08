@@ -3,7 +3,7 @@ import React from "react";
 import Section from "../../../components/v2/conteiners/Section";
 import { EventPresentation } from "../../../components/v2/conteiners/Presentation";
 
-import eventoFimAno from "../../../assets/ritual-fim-de-ano.jpeg";
+import feijoadaImg from "../../../assets/2a-edicao-feijoada.jpg";
 import { theme } from "../../../styles/theme";
 
 export default function Evento() {
@@ -11,36 +11,36 @@ export default function Evento() {
     <Section id="evento" bgColor={theme.colors.black}>
       <EventPresentation titleAlign="right" txtColor={theme.colors.white}>
         <div className="description">
-          <h2>Ritual de Abertura de Caminhos para 2025</h2>
+          <h2>2ª Edição da Feijoada do Seu Zé</h2>
           <img
             className="img"
-            src={eventoFimAno}
-            alt="Ritual de Fim de Ano na Comunidade Ògún Onirê. Imagem conta com o título do curso e ao fundo folhas de eucalípto."
+            src={feijoadaImg}
+            alt="2ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
           ></img>
           <div className="content pd-right">
             <p>
-              <span className="ml-4">Participe</span> do nosso ritual especial
-              de abertura de caminhos, que contará com a última gira aberta de
-              2024 com as Pombagiras e Exús. Este evento poderoso é ideal para
-              quem busca destrancar os caminhos ou manter os que foram abertos
-              em 2024. Quem participar do ritual receberá um patuá confeccionado
-              pela Mãe Fiama de Oyá.
+              <span className="ml-4">Feijoada</span> do Seu Zé Pelintra: Samba, Sabor e Axé!
+              Vem aí mais uma edição da Feijoada do Seu Zé, um dia de celebração à ancestralidade, regado ao melhor do samba com <a href="https://www.instagram.com/sambadeifeoficial/" target="_blank" rel="noopener noreferrer">@sambadeifeoficial</a>, feijoada de respeito, caipirinha no capricho e aquele bingo cheio de sorte!
             </p>
             <br />
             <p>
-              🗓️ Data: 30 de novembro
-              <br></br>
-              💲 Valor: R$ 25,00
-              <br></br>
-              🕛 Horário: 16h00
-              <br></br>
-              📍Local: Comunidade Ògún Onirê - Rua Eng. Reynaldo Cajado, 84 –
-              Tatuapé/SP
+              <span className="ml-4">A</span> feijoada é mais que um prato, é um rito de resistência, união e celebração! E aqui, a cada garfada, reverenciamos nossa história e honramos Seu Zé Pelintra, com muita alegria, ritmo e energia.
             </p>
-            <br></br>
+            <br />
             <p>
-              <span className="ml-4">Increva-se</span> no{" "}
-              <a href="/cursos/ritual2025">link</a> para confirmar sua presença!
+              <span className="ml-4">Além</span> da deliciosa feijoada e do melhor samba, teremos um bingo especial no dia para testar sua sorte e trazer ainda mais diversão e energia para a celebração.
+            </p>
+            <br />
+            <p>
+              🗓️ Data: 10 de maio
+              <br></br>
+              💲 Valor: R$ 50,00
+              <br></br>
+              🕛 Horário: à partir das 12h00
+              <br></br>
+              📍Local: Comunidade Ògún Onirê - Rua Eng. Reynaldo Cajado, 84 – Tatuapé/SP
+              <br></br>
+              Ingressos no link: <a href="https://www.sympla.com.br/evento/2-edicao-da-feijoada-do-seu-ze/2903872">Sympla</a>
             </p>
           </div>
         </div>

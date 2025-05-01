@@ -17,6 +17,11 @@ export default function Desenvolvimento() {
             src={desenvolvimentoImg}
             alt="Na imagem: uma pessoa tomando banho de ervas pelas mãos da Mãe Fiama. A frase 'Desenvolvimento de Terreiro - Vagas abertas' está centralizada e no rodapé da imagem as frases 'Tudo o que é vivo cresce' e 'Saravá'."
           ></img>
+          <img
+            className="img-sm"
+            src={desenvolvimentoImg}
+            alt="Na imagem: uma pessoa tomando banho de ervas pelas mãos da Mãe Fiama. A frase 'Desenvolvimento de Terreiro - Vagas abertas' está centralizada e no rodapé da imagem as frases 'Tudo o que é vivo cresce' e 'Saravá'."
+          ></img>
           <div className="content pd-right">
             <p>
               <span className="ml-4">As</span> inscrições para o Desenvolvimento de Terreiro estão abertas!

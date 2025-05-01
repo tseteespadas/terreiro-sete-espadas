@@ -17,6 +17,11 @@ export default function Evento() {
             src={feijoadaImg}
             alt="2ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
           ></img>
+          <img
+            className="img-sm"
+            src={feijoadaImg}
+            alt="2ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
+          ></img>
           <div className="content pd-right">
             <p>
               <span className="ml-4">Feijoada</span> do Seu Zé Pelintra: Samba, Sabor e Axé!

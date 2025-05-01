@@ -12,7 +12,6 @@ export default function PixReforma() {
     <StyledSection id="evento" bgColor={theme.colors.black}>
       <EventPresentation titleAlign="right" txtColor={theme.colors.white}>
         <div className="description">
-          {/* <h2>Ritual de Abertura de Caminhos para 2025</h2> */}
           <div className="content pd-right">
             <p>
               <span className="ml-4">As</span> comunidades de axé são

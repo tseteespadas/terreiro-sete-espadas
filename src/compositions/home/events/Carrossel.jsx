@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import Evento from './Evento';
+import RitualDoAmor from './RitualDoAmor';
 import Desenvolvimento from './Desenvolvimento';
 import PixReforma from './PixReforma';
 
@@ -9,7 +9,7 @@ const TEMPO_POR_CARROSSEL_AO_CLICAR = 30 * 1000;
 const SWIPE_THRESHOLD = 50;
 
 const CarrosselEventos = () => {
-  const components = [<Evento key="evento" />, <Desenvolvimento key="desenvolvimento" />, <PixReforma key="pix" />];
+  const components = [<RitualDoAmor key="ritual-amor" />, <Desenvolvimento key="desenvolvimento" />, <PixReforma key="pix" />];
   const [index, setIndex] = useState(0);
   const intervalRef = useRef(null);
   const startXRef = useRef(null);

@@ -6,7 +6,7 @@ import { EventPresentation } from "../../../components/v2/conteiners/Presentatio
 import feijoadaImg from "../../../assets/2a-edicao-feijoada.jpg";
 import { theme } from "../../../styles/theme";
 
-export default function Evento() {
+export default function Feijoada() {
   return (
     <Section id="evento" bgColor={theme.colors.black}>
       <EventPresentation titleAlign="right" txtColor={theme.colors.white}>

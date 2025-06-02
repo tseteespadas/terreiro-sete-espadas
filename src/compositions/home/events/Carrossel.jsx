@@ -9,7 +9,7 @@ const TEMPO_POR_CARROSSEL_AO_CLICAR = 30 * 1000;
 const SWIPE_THRESHOLD = 50;
 
 const CarrosselEventos = () => {
-  const components = [<RitualDoAmor key="ritual-amor" />, <Desenvolvimento key="desenvolvimento" />, <PixReforma key="pix" />];
+  const components = [<RitualDoAmor key="ritual-amor" />, <PixReforma key="pix" />];
   const [index, setIndex] = useState(0);
   const intervalRef = useRef(null);
   const startXRef = useRef(null);

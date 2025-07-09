@@ -15,16 +15,14 @@ import Footer from "../compositions/Footer";
 
 import menuItems from "../data/menuItems.json";
 import Apoie from "../compositions/home/Apoie";
-import Evento from "../compositions/home/events/Evento";
-import PixReforma from "../compositions/home/events/PixReforma";
+import Carrossel from "../compositions/home/events/Carrossel";
 
 export default function HomePage() {
   return (
     <>
       <Menu menuItems={menuItems.home} />
       <Header />
-      {/* <Evento /> */}
-      <PixReforma />
+      <Carrossel />
       <Terreiro />
       <Lucas />
       <Fiama />

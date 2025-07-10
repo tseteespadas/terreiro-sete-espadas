@@ -37,7 +37,7 @@ const Description = styled.div`
     p {
       text-align: justify;
       text-justify: inter-word;
-      font-size: clamp(1rem, 1.5vw, 2rem);
+      font-size: 1.25rem;
       margin: 1em auto;
 
       &:first-child,
@@ -54,9 +54,12 @@ export default function RitualDamaDescription() {
       <div className="desc-conteiner">
         <h2>Descrição do Ritual</h2>
         <p>
-          <span className="ml-4">De</span> mestre da Jurema aos morros cariocas
-          muitas pessoas dentro e fora dos terreiros de umbanda já ouviram falar
-          sobre Zé Pelintra, mas quem realmente ele é?
+          <span className="ml-4">Chegou</span> o tempo de deixar morrer.
+        </p>
+        <p>
+          <span className="ml-4">Na</span> nossa cultura, a morte não é o fim,
+          mas sim o começo de algo novo — algo que antes não tinha espaço para
+          nascer.
         </p>
       </div>
 
@@ -68,16 +71,37 @@ export default function RitualDamaDescription() {
       </div>
       <div className="desc-conteiner">
         <p>
-          <span className="ml-4">De</span> exú a baiano, hoje o malandro é uma
-          das entidades mais icônicas da umbanda, mas será que fora os tabus e
-          conhecimentos passados de boca em boca sabemos quem ele é e o que
-          representa?
+          <span className="ml-4">Este</span> ritual é um mergulho profundo no
+          ato de se despedir: de sentimentos que te amarram, de pessoas do
+          passado que te feriram, de histórias, padrões e dores que impedem a
+          tua nova vida de florescer.
         </p>
         <p>
-          <span className="ml-4">Em</span> nosso curso, iremos abordar todos os
-          "mistérios" que envolvem o malandro Zé Pelintra desde sua origem até
-          sua "morte"!
+          <span className="ml-4">Com</span> a força da ancestralidade,
+          iniciaremos o ritual no terreiro, com a gira das Pombagiras. Em
+          seguida, seguiremos até o Cemitério da Vila Alpina, onde acontecerá a
+          Festa da Dama da Noite — um evento fechado à comunidade, para celebrar
+          a vida e a morte da dona do terreiro.
         </p>
+        <p>
+          <span className="ml-4">Dama</span> da Noite é aquela que subverteu a
+          morte, mas nunca a deixou de lado.
+          <br />
+          <span className="ml-4">Porque</span> sem a morte, não existiria Dama
+          da Noite.
+        </p>
+        <hr />
+        <p>
+          Valor de troca: <b>R$ 55,00</b>
+        </p>
+        <p>Pagamento via pix: rituais.onire@gmail.com</p>
+        <p>
+          Após o pagamento, envie o comprovante para o WhatsApp do terreiro:
+          (11) 94357-9057
+        </p>
+        <p>A Dama da Noite te espera.</p>
+
+        <hr />
       </div>
     </Description>
   );

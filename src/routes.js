@@ -7,6 +7,7 @@ import HomePage from "./pages/home";
 const GirasPage = lazy(() => import("./pages/giras"));
 const GaleriaPage = lazy(() => import("./pages/galeria"));
 const Cursos = lazy(() => import("./pages/cursos"));
+const Rituais = lazy(() => import("./pages/rituais"));
 const NotFound = lazy(() => import("./pages/notFound"));
 const SubscriptionCancel = lazy(() => import("./pages/cancelSubscription"));
 
@@ -15,6 +16,7 @@ const LoginPage = lazy(() => import("./pages/entrar"));
 const Dashboard = lazy(() => import("./pages/areaLogada/dashboard"));
 const Calendario = lazy(() => import("./pages/areaLogada/calendario"));
 const Grupos = lazy(() => import("./pages/areaLogada/grupos"));
+const RituaisLogada = lazy(() => import("./pages/areaLogada/rituais"));
 const Cobrancas = lazy(() => import("./pages/areaLogada/cobrancas"));
 const Usuarios = lazy(() => import("./pages/areaLogada/usuarios"));
 const Biblioteca = lazy(() =>
@@ -43,6 +45,9 @@ const Routes = () => (
         <Route exact path="/cursos/:course">
           <Cursos />
         </Route>
+        <Route exact path="/rituais/:ritual">
+          <Rituais />
+        </Route>
 
         <Route exact path="/cadastro/confirmar/:id">
           <ConfirmAccountPage />
@@ -56,6 +61,12 @@ const Routes = () => (
         <PrivateRoute exact path="/calendario" component={Calendario} />
         <PrivateRoute exact path="/grupos" component={Grupos} />
         <PrivateRoute exact path="/grupos/:group_id" component={Grupos} />
+        <PrivateRoute exact path="/rituais-admin" component={RituaisLogada} />
+        <PrivateRoute
+          exact
+          path="/rituais-admin/:ritual_id"
+          component={RituaisLogada}
+        />
         <PrivateRoute exact path="/cobrancas" component={Cobrancas} />
         <PrivateRoute exact path="/cobrancas/:group_id" component={Cobrancas} />
         <PrivateRoute exact path="/usuarios" component={Usuarios} />

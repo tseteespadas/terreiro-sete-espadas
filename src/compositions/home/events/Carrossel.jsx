@@ -1,13 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import PixReforma from './PixReforma';
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import PixReforma from "./PixReforma";
+import RitualDama from "./RitualDama";
 
 const TEMPO_POR_CARROSSEL = 12 * 1000;
 const TEMPO_POR_CARROSSEL_AO_CLICAR = 30 * 1000;
 const SWIPE_THRESHOLD = 50;
 
 const CarrosselEventos = () => {
-  const components = [<PixReforma key="pix" />];
+  const components = [
+    <RitualDama key="ritual-defuntaria" />,
+    <PixReforma key="pix" />,
+  ];
   const [index, setIndex] = useState(0);
   const intervalRef = useRef(null);
   const startXRef = useRef(null);
@@ -57,7 +61,6 @@ const CarrosselEventos = () => {
     return () => clearExistingTimer();
   }, []);
 
-  
   return (
     <CarouselContainer
       onTouchStart={(e) => handleSwipeStart(e.touches[0].clientX)}
@@ -80,7 +83,6 @@ const CarrosselEventos = () => {
 
 export default CarrosselEventos;
 
-
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
@@ -92,21 +94,21 @@ const CarouselContainer = styled.div`
 const SlideWrapper = styled.div`
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transition: opacity 1s ease-in-out;
-  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+  display: ${(props) => (props.isVisible ? "block" : "none")};
 `;
 
 const Indicators = styled.div`
   display: flex;
   justify-content: center;
   gap: 8px;
-  background-color: ${(props) => (props.theme.colors.black)};
+  background-color: ${(props) => props.theme.colors.black};
 `;
 
 const Dot = styled.div`
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: ${(props) => (props.active ? '#007bff' : '#ccc')};
+  background-color: ${(props) => (props.active ? "#007bff" : "#ccc")};
   cursor: pointer;
   transition: background-color 0.3s;
 `;

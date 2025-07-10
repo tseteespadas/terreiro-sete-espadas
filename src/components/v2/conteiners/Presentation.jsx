@@ -336,6 +336,10 @@ const EventPresentationConteiner = styled.div`
   .red {
     color: ${(props) => props.theme.colors.red};
   }
+
+  .center {
+    text-align: center;
+  }
 `;
 
 export default function Presentation(props) {

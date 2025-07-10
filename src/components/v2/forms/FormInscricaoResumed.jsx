@@ -8,7 +8,7 @@ const StyledForm = styled(Form)`
   }
 `;
 
-export default function FormInscricao(props) {
+export default function FormInscricaoResumed(props) {
   const handleClickPoliticaDePrivacidade = (e) => {
     e.preventDefault();
     const politicaEl = document.getElementById("politica-de-privacidade");

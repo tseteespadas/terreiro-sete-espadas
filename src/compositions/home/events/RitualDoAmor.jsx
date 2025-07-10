@@ -22,17 +22,32 @@ export default function RitualDoAmor() {
           ></img>
           <div className="content pd-right">
             <p>
-              <span className="ml-4">É</span> dor de amor<br/>
-              <span className="ml-4">É</span> dor de amor<br/>
-              <span className="ml-4">Maria bebe todas para curar a minha dor</span>
+              <span className="ml-4">É</span> dor de amor
+              <br />
+              <span className="ml-4">É</span> dor de amor
+              <br />
+              <span className="ml-4">
+                Maria bebe todas para curar a minha dor
+              </span>
             </p>
             <br />
             <p>
-              <span className="ml-4">Dona</span> Maria dos Amores do Cais realizará mais uma vez seu ritual para o amor no dia 07 de junho de 2025 para aqueles que almejam abertura de caminhos no amor. Além do ritual, teremos gira aberta ao público.
+              <span className="ml-4">Dona</span> Maria dos Amores do Cais
+              realizará mais uma vez seu ritual para o amor no dia 07 de junho
+              de 2025 para aqueles que almejam abertura de caminhos no amor.
+              Além do ritual, teremos gira aberta ao público.
             </p>
             <br />
             <p>
-              <span className="ml-4">Para</span> quem quiser participar do ritual, é necessário realizar inscrição prévia fazendo um pix no valor de <b>R$ 33,00</b> para a chave <b>comunidadeonire@gmail.com</b> e enviar comprovante com nome completo para o WhatsApp <a href="https://api.whatsapp.com/send?phone=5511943579057">11 94357-9057</a>.
+              <span className="ml-4">Para</span> quem quiser participar do
+              ritual, é necessário realizar inscrição prévia fazendo um pix no
+              valor de <b>R$ 33,00</b> para a chave{" "}
+              <b>comunidadeonire@gmail.com</b> e enviar comprovante com nome
+              completo para o WhatsApp{" "}
+              <a href="https://api.whatsapp.com/send?phone=5511943579057">
+                11 94357-9057
+              </a>
+              .
             </p>
             <br />
             <p>
@@ -40,9 +55,10 @@ export default function RitualDoAmor() {
               <br></br>
               💲 Valor: R$ 33,00
               <br></br>
-              🕛 Horário: à partir das 14h00
+              🕛 Horário: à partir das 12h00
               <br></br>
-              📍Local: Comunidade Ògún Onirê - Rua Eng. Reynaldo Cajado, 84 – Tatuapé/SP
+              📍Local: Comunidade Ògún Onirê - Rua Eng. Reynaldo Cajado, 84 –
+              Tatuapé/SP
               <br></br>
               Chave para pagamento: comunidadeonire@gmail.com
             </p>

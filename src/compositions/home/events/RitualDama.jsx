@@ -66,7 +66,7 @@ export default function RitualDama() {
               <br></br>
               💲 Valor: R$ 55,00
               <br></br>
-              🕛 Horário: à partir das 14h00
+              🕛 Horário: à partir das 12h00
               <br></br>
               📍Local: Comunidade Ògún Onirê - Rua Eng. Reynaldo Cajado, 84 –
               Tatuapé/SP

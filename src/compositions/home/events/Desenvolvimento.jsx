@@ -3,7 +3,7 @@ import React from "react";
 import Section from "../../../components/v2/conteiners/Section";
 import { EventPresentation } from "../../../components/v2/conteiners/Presentation";
 
-import desenvolvimentoImg from "../../../assets/desenvolvimento-de-terreiro.jpg";
+import desenvolvimentoImg from "../../../assets/desenvolvimento-de-terreiro-2.png";
 import { theme } from "../../../styles/theme";
 
 export default function Desenvolvimento() {
@@ -24,29 +24,28 @@ export default function Desenvolvimento() {
           ></img>
           <div className="content pd-right">
             <p>
-              <span className="ml-4">As</span> inscrições para o Desenvolvimento de Terreiro estão abertas!
+              <span className="ml-4">As</span> inscrições para o Desenvolvimento
+              de Terreiro estão abertas!
             </p>
             <br />
             <p>
               <span className="ml-4">Para</span> realizar sua inscrição, acesse
-               o link abaixo ou entre em contato conosco pelos nossos{" "}
-               <a href="#contato">canais de comunicação</a>.
+              o link abaixo ou entre em contato conosco pelos nossos{" "}
+              <a href="#contato">canais de comunicação</a>.
             </p>
             <br />
             <p>
               <span className="ml-4">Inscreva-se</span> pelo formulário no{" "}
               <a
-                 href="https://www.comunidadeogunonire.com.br/cursos/desenvolvimento"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 link
-               </a>{" "} até dia 06/06!
+                href="https://www.comunidadeogunonire.com.br/cursos/desenvolvimento"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                link
+              </a>
+              .
             </p>
             <br />
-            <p>
-              <span className="ml-4">As</span> inscrições vão até dia 06/06!
-            </p>
           </div>
         </div>
       </EventPresentation>

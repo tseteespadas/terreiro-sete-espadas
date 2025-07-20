@@ -88,10 +88,9 @@ export default function DesenvolvimentoDescription() {
           aprende sobre comunidade estando em uma.
         </p>
         <p>
-          <span className="ml-4">Os</span> encontros são semanais
-          (sextas-feiras) e o desenvolvimento é indicado àqueles que querem
-          aprender e entender a dinâmica de terreiro, bem como fazer parte de
-          uma comunidade de axé.
+          <span className="ml-4">Os</span> encontros são quinzenais (sábados) e
+          o desenvolvimento é indicado àqueles que querem aprender e entender a
+          dinâmica de terreiro, bem como fazer parte de uma comunidade de axé.
         </p>
         <p>
           <span className="ml-4">Por</span> isso, se esse for seu momento de

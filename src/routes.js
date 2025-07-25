@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 
 import HomePage from "./pages/home";
-const GirasPage = lazy(() => import("./pages/giras"));
+
 const GaleriaPage = lazy(() => import("./pages/galeria"));
 const Cursos = lazy(() => import("./pages/cursos"));
 const Rituais = lazy(() => import("./pages/rituais"));
@@ -15,6 +15,7 @@ const ConfirmAccountPage = lazy(() => import("./pages/confirmAccount"));
 const LoginPage = lazy(() => import("./pages/entrar"));
 const Dashboard = lazy(() => import("./pages/areaLogada/dashboard"));
 const Calendario = lazy(() => import("./pages/areaLogada/calendario"));
+const GirasPage = lazy(() => import("./pages/areaLogada/giras"));
 const Grupos = lazy(() => import("./pages/areaLogada/grupos"));
 const RituaisLogada = lazy(() => import("./pages/areaLogada/rituais"));
 const Cobrancas = lazy(() => import("./pages/areaLogada/cobrancas"));
@@ -32,9 +33,6 @@ const Routes = () => (
       <Switch>
         <Route exact path="/">
           <HomePage />
-        </Route>
-        <Route exact path="/giras">
-          <GirasPage />
         </Route>
         <Route exact path="/galeria">
           <GaleriaPage />
@@ -62,6 +60,7 @@ const Routes = () => (
         <PrivateRoute exact path="/grupos" component={Grupos} />
         <PrivateRoute exact path="/grupos/:group_id" component={Grupos} />
         <PrivateRoute exact path="/rituais-admin" component={RituaisLogada} />
+        <PrivateRoute exact path="/giras" component={GirasPage} />
         <PrivateRoute
           exact
           path="/rituais-admin/:ritual_id"

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { fetchAssistencia } from "../../../../api/giras";
-import AssistenciaForm from "../../forms/AssistenciaForm";
+import { TableButton } from "./TableButton";
 
 const TableWrapper = styled.div`
   overflow-x: auto;
@@ -27,23 +26,15 @@ const Table = styled.table`
   th {
     background-color: #e4e4e4;
   }
-
-  button {
-    padding: 6px 12px;
-    border: none;
-    background-color: #0084ff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-  }
 `;
 
-const AssistenciaList = styled.ul`
-  list-style: none;
-  padding-left: 1rem;
-`;
-
-const AssistenciaTable = ({ assistencia }) => {
+const AssistenciaTable = ({
+  isAdmin,
+  giraId,
+  assistencia,
+  handleToggleCalled,
+  handleDeleteAssistencia,
+}) => {
   return (
     <TableWrapper>
       <Table>
@@ -54,6 +45,8 @@ const AssistenciaTable = ({ assistencia }) => {
             <th>Telefone</th>
             <th>Pronomes</th>
             <th>Preferencial</th>
+            <th>Chamada</th>
+            {isAdmin && <th>Ações</th>}
           </tr>
         </thead>
         <tbody>
@@ -65,6 +58,26 @@ const AssistenciaTable = ({ assistencia }) => {
                 <td>{pessoa.phone}</td>
                 <td>{pessoa.pronoums}</td>
                 <td>{pessoa.preferred && <strong> ⭐</strong>}</td>
+                <td>
+                  <TableButton
+                    onClick={() => handleToggleCalled(giraId, pessoa._id)}
+                  >
+                    {pessoa.called ? "✅ Sim" : "❌ Não"}
+                  </TableButton>
+                </td>
+                {isAdmin && (
+                  <td>
+                    <TableButton
+                      onClick={() =>
+                        window.confirm("Tem certeza que deseja excluir?")
+                          ? handleDeleteAssistencia(giraId, pessoa._id)
+                          : null
+                      }
+                    >
+                      🗑️ Excluir
+                    </TableButton>
+                  </td>
+                )}
               </tr>
             </React.Fragment>
           ))}

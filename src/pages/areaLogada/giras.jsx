@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { fetchGiras } from "../../api/giras";
+import { deleteGira, fetchGiras } from "../../api/giras";
 import Header from "../../compositions/areaLogada/header";
 import GiraTable from "../../components/v2/table/Giras/GiraTable";
 import GiraForm from "../../components/v2/forms/GiraForm";
@@ -69,6 +69,17 @@ export default function GirasPage() {
     }
   };
 
+  const handleDeleteGira = async (giraId) => {
+    try {
+      await deleteGira(giraId, token);
+      await loadGiras();
+      toast.success("Gira excluída com sucesso!");
+    } catch (err) {
+      console.error("Erro ao excluir gira", err);
+      toast.error("Erro ao excluir gira.");
+    }
+  };
+
   useEffect(() => {
     loadGiras();
   }, [page, token]);
@@ -85,7 +96,12 @@ export default function GirasPage() {
           <p>Carregando giras...</p>
         ) : (
           <>
-            <GiraTable giras={giras} token={token} />
+            <GiraTable
+              handleDeleteGira={handleDeleteGira}
+              giras={giras}
+              token={token}
+              user={user}
+            />
             <Pagination>
               <button
                 disabled={page <= 1}

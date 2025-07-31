@@ -26,12 +26,14 @@ const Button = styled.button`
 `;
 
 const GiraForm = ({ onCreate, token }) => {
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await createGira({ name, date }, token);
       toast.success("Gira criada com sucesso!");
       setName("");
@@ -39,6 +41,8 @@ const GiraForm = ({ onCreate, token }) => {
       onCreate();
     } catch (err) {
       toast.error("Erro ao criar gira.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,7 +61,9 @@ const GiraForm = ({ onCreate, token }) => {
         onChange={(e) => setDate(e.target.value)}
         required
       />
-      <Button type="submit">Criar Gira</Button>
+      <Button type="submit" disabled={loading}>
+        Criar Gira
+      </Button>
     </Form>
   );
 };

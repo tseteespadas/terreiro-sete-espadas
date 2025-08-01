@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import damaImg from "../../../assets/ritual-dama-2025.jpeg";
+import damaImg from "../../../assets/ritual-dama-2025.png";
 
 const Description = styled.div`
   position: relative;

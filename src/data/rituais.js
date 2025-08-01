@@ -1,6 +1,6 @@
 import React from "react";
 
-import ritualdama from "../assets/ritual-dama-2025.jpeg";
+import ritualdama from "../assets/ritual-dama-2025.png";
 // import ritual2025 from "../assets/ritual-fim-de-ano.jpeg";
 
 const RitualDamaDescription = React.lazy(() =>

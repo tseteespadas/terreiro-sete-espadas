@@ -1,7 +1,7 @@
 import Section from "../../../components/v2/conteiners/Section";
 import { EventPresentation } from "../../../components/v2/conteiners/Presentation";
 
-import ritualDama2025 from "../../../assets/ritual-dama-2025.jpeg";
+import ritualDama2025 from "../../../assets/ritual-dama-2025.png";
 import { theme } from "../../../styles/theme";
 
 export default function RitualDama() {
@@ -62,7 +62,7 @@ export default function RitualDama() {
             </p>
             <br />
             <p>
-              🗓️ Data: 26 de julho
+              🗓️ Data: 23 de agosto
               <br></br>
               💲 Valor: R$ 55,00
               <br></br>

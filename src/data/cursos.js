@@ -2,7 +2,7 @@ import React from "react";
 
 import desenvolvimento from "../assets/cursos/desenvolvimento.jpeg";
 import zepelintracurso from "../assets/cursos/zepelintracurso.jpg";
-import ritualdama from "../assets/ritual-dama-2025.jpeg";
+import ritualdama from "../assets/ritual-dama-2025.png";
 import ervascurso from "../assets/cursos/curso-ervas.jpg";
 import ritual2025 from "../assets/ritual-fim-de-ano.jpeg";
 

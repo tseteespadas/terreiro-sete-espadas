@@ -58,7 +58,9 @@ export default function RitualDama() {
               <a href="https://api.whatsapp.com/send?phone=5511943579057">
                 11 94357-9057
               </a>
-              .
+              . Além do pagamento via pix, também podemos gerar um link de
+              pagamento para opções de crédito e débito, basta entrar em contato
+              conosco pelo WhatsApp acima.
             </p>
             <br />
             <p>

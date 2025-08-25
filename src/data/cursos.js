@@ -47,14 +47,14 @@ export default [
     link: "/cursos/zepelintra",
     Desc: ZePelintraDescription,
   },
-  {
-    id: "ritual-dama",
-    img: ritualdama,
-    name: "Ritual de Defuntaria",
-    cite: "Ritual de Defuntaria da Dama da Noite ...",
-    link: "/rituais/defuntaria-dama-da-noite",
-    Desc: RitualDamaDescription,
-  },
+  // {
+  //   id: "ritual-dama",
+  //   img: ritualdama,
+  //   name: "Ritual de Defuntaria",
+  //   cite: "Ritual de Defuntaria da Dama da Noite ...",
+  //   link: "/rituais/defuntaria-dama-da-noite",
+  //   Desc: RitualDamaDescription,
+  // },
   // {
   //   id: "curso-ervas",
   //   img: ervascurso,

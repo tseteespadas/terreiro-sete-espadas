@@ -19,13 +19,13 @@ export default [
   //   link: "/rituais/ritual-fim-ano",
   //   Desc: RitualFimAnoDescription,
   // },
-  {
-    id: "ritual-dama",
-    img: ritualdama,
-    name: "Ritual de Defuntaria",
-    nameFull: "Ritual de Defuntaria da Dama da Noite",
-    cite: "Ritual de Defuntaria da Dama da Noite ...",
-    link: "/rituais/defuntaria-dama-da-noite",
-    Desc: RitualDamaDescription,
-  },
+  // {
+  //   id: "ritual-dama",
+  //   img: ritualdama,
+  //   name: "Ritual de Defuntaria",
+  //   nameFull: "Ritual de Defuntaria da Dama da Noite",
+  //   cite: "Ritual de Defuntaria da Dama da Noite ...",
+  //   link: "/rituais/defuntaria-dama-da-noite",
+  //   Desc: RitualDamaDescription,
+  // },
 ];

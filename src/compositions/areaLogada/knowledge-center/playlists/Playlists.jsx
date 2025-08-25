@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import Playlist from "../../../../components/v2/playlist/Playlist";
-
 import { useSetToken, useSetUser, useToken } from "../../../../store";
 import api from "../../../../services/index";
+import PlaylistSection, {
+  Navbar,
+} from "../../../../components/v2/playlist/Playlist";
 
 async function fetchPlaylists(
   setPlaylists,
@@ -79,37 +80,29 @@ export default function Playlists() {
   if (playlists) {
     return (
       <Wrapper>
-        <h1>Playlists</h1>
-        <PlaylistsConteiner>
-          {playlists.map((playlist, idx) => {
-            return (
-              <>
-                <Playlist key={playlist.id} {...playlist}></Playlist>
-                {idx + 1 !== playlists.length && <hr />}
-              </>
-            );
-          })}
-        </PlaylistsConteiner>
+        <Navbar sections={playlists} />
+        {playlists.map((playlist) => {
+          return (
+            <>
+              <PlaylistSection
+                id={playlist.id}
+                title={playlist.title}
+                medias={playlist.medias}
+              />
+            </>
+          );
+        })}
       </Wrapper>
     );
   }
 }
 
 const Wrapper = styled.div`
-  margin-top: 1em;
   h1 {
     text-align: center;
   }
-`;
-
-const PlaylistsConteiner = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-
-  hr {
-    width: 100%;
-  }
 `;

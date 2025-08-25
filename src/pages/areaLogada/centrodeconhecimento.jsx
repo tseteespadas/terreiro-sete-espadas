@@ -5,6 +5,7 @@ import KnowledgeCenter from "../../compositions/areaLogada/knowledge-center/Know
 import Playlists from "../../compositions/areaLogada/knowledge-center/playlists/Playlists";
 
 import { useMenu } from "../../store";
+import Footer from "../../compositions/Footer";
 
 const ContentMapper = (content) => {
   if (content === "playlists") {
@@ -26,6 +27,7 @@ export default function CentroDeConhecimento() {
       <>
         <Header />
         {ContentMapper(content)}
+        <Footer />
       </>
     );
   }
@@ -34,6 +36,7 @@ export default function CentroDeConhecimento() {
     <>
       <Header />
       <KnowledgeCenter submenus={knowledgeCenterMenuItem.subitems} />
+      <Footer />
     </>
   );
 }

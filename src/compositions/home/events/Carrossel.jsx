@@ -12,9 +12,9 @@ const SWIPE_THRESHOLD = 50;
 const CarrosselEventos = () => {
   const components = [
     // <RitualDama key="ritual-defuntaria" />,
-    <Luderia key="luderia" />,
+    // <Luderia key="luderia" />,
     <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
-    <Desenvolvimento key="desenvolvimento" />,
+    // <Desenvolvimento key="desenvolvimento" />,
     <PixReforma key="pix" />,
   ];
   const [index, setIndex] = useState(0);

@@ -4,6 +4,7 @@ import PixReforma from "./PixReforma";
 import Desenvolvimento from "./Desenvolvimento";
 import ContribuicaoFestaEres from "./ContribuicaoFestaEres";
 import Luderia from "./Luderia";
+import RitualFimAno from "./RitualFimAno";
 
 const TEMPO_POR_CARROSSEL = 12 * 1000;
 const TEMPO_POR_CARROSSEL_AO_CLICAR = 30 * 1000;
@@ -13,8 +14,9 @@ const CarrosselEventos = () => {
   const components = [
     // <RitualDama key="ritual-defuntaria" />,
     // <Luderia key="luderia" />,
-    <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
+    // <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
     // <Desenvolvimento key="desenvolvimento" />,
+    <RitualFimAno key="ritual-abertura-caminhos" />,
     <PixReforma key="pix" />,
   ];
   const [index, setIndex] = useState(0);

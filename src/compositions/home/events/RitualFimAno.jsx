@@ -39,10 +39,10 @@ export default function RitualFimAno() {
               realizado por pix <b>R$ 35,00</b> para a chave{" "}
               <b>comunidadeonire@gmail.com</b>, cartão de crédito (através de
               link para pagamento), débito ou em dinheiro. Assim que efetuar o
-              pagamento, envie o comprovante para o WhatsApp
+              pagamento, envie o comprovante para o WhatsApp{" "}
               <a href="https://api.whatsapp.com/send?phone=5511943579057">
                 11 94357-9057
-              </a>
+              </a>{" "}
               com o nome completo.
             </p>
             <p>Comece o ano com caminhos abertos!</p>

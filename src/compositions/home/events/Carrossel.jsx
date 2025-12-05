@@ -16,7 +16,7 @@ const CarrosselEventos = () => {
     // <Luderia key="luderia" />,
     // <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
     // <Desenvolvimento key="desenvolvimento" />,
-    <RitualFimAno key="ritual-abertura-caminhos" />,
+    // <RitualFimAno key="ritual-abertura-caminhos" />,
     <PixReforma key="pix" />,
   ];
   const [index, setIndex] = useState(0);

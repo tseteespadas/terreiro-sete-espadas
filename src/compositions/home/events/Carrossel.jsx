@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import Recesso from "./Recesso";
 import PixReforma from "./PixReforma";
 import Desenvolvimento from "./Desenvolvimento";
 import ContribuicaoFestaEres from "./ContribuicaoFestaEres";
@@ -17,8 +18,12 @@ const CarrosselEventos = () => {
     // <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
     // <Desenvolvimento key="desenvolvimento" />,
     // <RitualFimAno key="ritual-abertura-caminhos" />,
-    <PixReforma key="pix" />,
-  ];
+    { Component: <Recesso key="recesso" />, dueDate: new Date(2026, 0, 15) },
+    { Component: <PixReforma key="pix" />, dueDate: null },
+  ].filter((component) => {
+    if (component.dueDate === null) return true;
+    return new Date() < component.dueDate;
+  });
   const [index, setIndex] = useState(0);
   const intervalRef = useRef(null);
   const startXRef = useRef(null);
@@ -73,9 +78,9 @@ const CarrosselEventos = () => {
       onTouchStart={(e) => handleSwipeStart(e.touches[0].clientX)}
       onTouchEnd={(e) => handleSwipeEnd(e.changedTouches[0].clientX)}
     >
-      {components.map((Component, i) => (
+      {components.map((component, i) => (
         <SlideWrapper key={i} isVisible={i === index}>
-          {Component}
+          {component.Component}
         </SlideWrapper>
       ))}
 

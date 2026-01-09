@@ -3,7 +3,7 @@ import React from "react";
 import Section from "../../../components/v2/conteiners/Section";
 import { EventPresentation } from "../../../components/v2/conteiners/Presentation";
 
-import desenvolvimentoImg from "../../../assets/desenvolvimento-de-terreiro-2.png";
+import desenvolvimentoImg from "../../../assets/desenvolvimento.png";
 import { theme } from "../../../styles/theme";
 
 export default function Desenvolvimento() {

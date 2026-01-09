@@ -16,7 +16,7 @@ const CarrosselEventos = () => {
     // <RitualDama key="ritual-defuntaria" />,
     // <Luderia key="luderia" />,
     // <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
-    // <Desenvolvimento key="desenvolvimento" />,
+    <Desenvolvimento key="desenvolvimento" />,
     // <RitualFimAno key="ritual-abertura-caminhos" />,
     { Component: <Recesso key="recesso" />, dueDate: new Date(2026, 0, 15) },
     { Component: <PixReforma key="pix" />, dueDate: null },

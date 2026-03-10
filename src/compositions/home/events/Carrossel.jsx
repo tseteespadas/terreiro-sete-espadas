@@ -13,11 +13,10 @@ const SWIPE_THRESHOLD = 50;
 
 const CarrosselEventos = () => {
   const components = [
-    // <RitualDama key="ritual-defuntaria" />,
-    // <Luderia key="luderia" />,
-    // <ContribuicaoFestaEres key="contribuicao-festa-eres" />,
-    <Desenvolvimento key="desenvolvimento" />,
-    // <RitualFimAno key="ritual-abertura-caminhos" />,
+    // {
+    //   Component: <Desenvolvimento key="desenvolvimento" />,
+    //   dueDate: new Date(2026, 2, 10),
+    // },
     { Component: <Recesso key="recesso" />, dueDate: new Date(2026, 0, 15) },
     { Component: <PixReforma key="pix" />, dueDate: null },
   ].filter((component) => {

@@ -13,10 +13,10 @@ const SWIPE_THRESHOLD = 50;
 
 const CarrosselEventos = () => {
   const components = [
-    {
-     Component: <Desenvolvimento key="desenvolvimento" />,
-     dueDate: new Date(2026, 3, 17),
-     },
+    // {
+    //   Component: <Desenvolvimento key="desenvolvimento" />,
+    //   dueDate: new Date(2026, 2, 10),
+    // },
     { Component: <Recesso key="recesso" />, dueDate: new Date(2026, 0, 15) },
     { Component: <PixReforma key="pix" />, dueDate: null },
   ].filter((component) => {

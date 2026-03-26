@@ -15,12 +15,12 @@ export default function Desenvolvimento() {
           <img
             className="img"
             src={desenvolvimentoImg}
-            alt="Na imagem: uma pessoa tomando banho de ervas pelas mãos da Mãe Fiama. A frase 'Desenvolvimento de Terreiro - Vagas abertas' está centralizada e no rodapé da imagem as frases 'Tudo o que é vivo cresce' e 'Saravá'."
+            alt="Banner com fundo escuro e elementos naturais, exibindo o texto 'Desenvolvimento de Terreiro' e 'Inscrições abertas', com a frase 'Tudo que é vivo cresce'."
           ></img>
           <img
             className="img-sm"
             src={desenvolvimentoImg}
-            alt="Na imagem: uma pessoa tomando banho de ervas pelas mãos da Mãe Fiama. A frase 'Desenvolvimento de Terreiro - Vagas abertas' está centralizada e no rodapé da imagem as frases 'Tudo o que é vivo cresce' e 'Saravá'."
+            alt="Banner com fundo escuro e elementos naturais, exibindo o texto 'Desenvolvimento de Terreiro' e 'Inscrições abertas', com a frase 'Tudo que é vivo cresce'."
           ></img>
           <div className="content pd-right">
             <p>

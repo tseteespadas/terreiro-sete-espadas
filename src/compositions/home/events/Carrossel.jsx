@@ -6,6 +6,7 @@ import Desenvolvimento from "./Desenvolvimento";
 import ContribuicaoFestaEres from "./ContribuicaoFestaEres";
 import Luderia from "./Luderia";
 import RitualFimAno from "./RitualFimAno";
+import Feijoada from "./Feijoada";
 
 const TEMPO_POR_CARROSSEL = 12 * 1000;
 const TEMPO_POR_CARROSSEL_AO_CLICAR = 30 * 1000;

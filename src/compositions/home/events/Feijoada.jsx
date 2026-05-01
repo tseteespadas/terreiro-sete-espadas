@@ -11,7 +11,7 @@ export default function Feijoada() {
     <Section id="evento" bgColor={theme.colors.black}>
       <EventPresentation titleAlign="right" txtColor={theme.colors.white}>
         <div className="description">
-          <h2>2ª Edição da Feijoada do Seu Zé</h2>
+          <h2>3ª Edição da Feijoada do Seu Zé</h2>
           <img
             className="img"
             src={feijoadaImg}

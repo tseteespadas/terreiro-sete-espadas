@@ -45,7 +45,7 @@ export default function Feijoada() {
               <br></br>
               📍Local: Comunidade Ògún Onirê - Rua Doutor Costa Valente, 232 - Brás, São Paulo
               <br></br>
-              Ingressos no link: <a href="https://www.sympla.com.br/evento/3-edicao-da-feijoada-do-seu-ze/3385360?referrer=linktr.ee&referrer=linktr.ee&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARh2opleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacsp9v4lQip73ibiZP9OFJQrcwBuujXxYhl3_6vf_KnmvHGIF3ZkQgT4WRgTQ_aem_4roFXalmHVt8QwxyjXCAEA">Sympla</a>
+              Ingressos no link: <a href="https://www.sympla.com.br/evento/3-edicao-da-feijoada-do-seu-ze/3385360" target="_blank" rel="noopener noreferrer">Sympla</a>
             </p>
           </div>
         </div>

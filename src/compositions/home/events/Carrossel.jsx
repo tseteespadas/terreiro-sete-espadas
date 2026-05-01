@@ -20,7 +20,7 @@ const CarrosselEventos = () => {
      },
     { Component: <Recesso key="recesso" />, dueDate: new Date(2026, 0, 15) },
     { Component: <PixReforma key="pix" />, dueDate: null },
-    { Component: <Feijoada key="feijoada" />, dueDate: new Date(2026, 4, 10) },
+    { Component: <Feijoada key="feijoada" />, dueDate: null },
   ].filter((component) => {
     if (component.dueDate === null) return true;
     return new Date() < component.dueDate;

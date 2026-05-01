@@ -25,7 +25,7 @@ export default function Feijoada() {
           <div className="content pd-right">
             <p>
               <span className="ml-4">Feijoada</span> do Seu Zé Pelintra: Samba, Sabor e Axé!
-              Vem aí mais uma edição da Feijoada do Seu Zé, um dia de celebração à ancestralidade, regado ao melhor do samba com <a href="https://www.instagram.com/sambadeifeoficial/" target="_blank" rel="noopener noreferrer">@sambadeifeoficial</a>, feijoada de respeito, caipirinha no capricho e aquele bingo cheio de sorte!
+              Vem aí mais uma edição da Feijoada do Seu Zé, um dia de celebração à ancestralidade, feijoada de respeito, caipirinha no capricho e aquele bingo cheio de sorte!
             </p>
             <br />
             <p>

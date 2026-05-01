@@ -3,7 +3,7 @@ import React from "react";
 import Section from "../../../components/v2/conteiners/Section";
 import { EventPresentation } from "../../../components/v2/conteiners/Presentation";
 
-import feijoadaImg from "../../../assets/2a-edicao-feijoada.jpg";
+import feijoadaImg from "../../../assets/3a-edicao-feijoada.jpeg";
 import { theme } from "../../../styles/theme";
 
 export default function Feijoada() {
@@ -15,12 +15,12 @@ export default function Feijoada() {
           <img
             className="img"
             src={feijoadaImg}
-            alt="2ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
+            alt="3ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
           ></img>
           <img
             className="img-sm"
             src={feijoadaImg}
-            alt="2ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
+            alt="3ª Edição da Feijoada do Seu Zé. Imagem conta com a logo da Comunidade Ògún Onirê e logo abaixo, o título do evento na cor branca. Ao fundo, à esquerda: recorte de uma estatueta de Seu Zé Pelintra com elementos de trabalho ao lado. À direita: um prato de feijoada."
           ></img>
           <div className="content pd-right">
             <p>
@@ -37,15 +37,15 @@ export default function Feijoada() {
             </p>
             <br />
             <p>
-              🗓️ Data: 10 de maio
+              🗓️ Data: 9 de maio
               <br></br>
-              💲 Valor: R$ 50,00
+              💲 Valor: R$ 55,00
               <br></br>
-              🕛 Horário: à partir das 12h00
+              🕛 Horário: à partir das 13h00
               <br></br>
-              📍Local: Comunidade Ògún Onirê - Rua Eng. Reynaldo Cajado, 84 – Tatuapé/SP
+              📍Local: Comunidade Ògún Onirê - Rua Doutor Costa Valente, 232 - Brás, São Paulo
               <br></br>
-              Ingressos no link: <a href="https://www.sympla.com.br/evento/2-edicao-da-feijoada-do-seu-ze/2903872">Sympla</a>
+              Ingressos no link: <a href="https://www.sympla.com.br/evento/3-edicao-da-feijoada-do-seu-ze/3385360?referrer=linktr.ee&referrer=linktr.ee&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleARh2opleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacsp9v4lQip73ibiZP9OFJQrcwBuujXxYhl3_6vf_KnmvHGIF3ZkQgT4WRgTQ_aem_4roFXalmHVt8QwxyjXCAEA">Sympla</a>
             </p>
           </div>
         </div>
